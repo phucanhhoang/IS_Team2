@@ -1,5 +1,8 @@
 @charset "utf-8";
-
+@font-face {
+	font-family: Lato;
+	src: url(../font/lato-regular.ttf);
+}
 
 *{margin:0px; padding:0px; box-sizing:border-box;}
 a{
@@ -8,6 +11,7 @@ a{
 }
 ul{list-style-type:none;}
 input[type=text], textarea{
+	font-family: Lato, Tahoma, Geneva, sans-serif;
 	-webkit-transition: all 0.30s ease-in-out;
   	-moz-transition: all 0.30s ease-in-out;
   	-ms-transition: all 0.30s ease-in-out;
@@ -27,6 +31,10 @@ input[type=text]:focus, textarea:focus {
 	padding:0px 20px;
 }
 
+.col-12 {
+	padding: 0px 50px;
+}
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -39,12 +47,6 @@ input[type=text]:focus, textarea:focus {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
-
-@font-face{
-	font-family: Lato;
-	src:url(../font/lato-regular.ttf);
-}
-
 
 body{
 	font-family: Lato, Tahoma, Geneva, sans-serif;
@@ -62,12 +64,16 @@ header .info p:first-child{float:left;}
 header .info input{
 	height:24px;
 	font-size:12px;
+	padding: 6px 8px;
 }
 header .info input:focus{outline:none; box-shadow:10 10 5 #888888;}
 header .info p:last-child{float:right;}
 header .logo{text-align:center; padding:40px 0px;}
 
-nav{z-index:9999;}
+nav {
+	z-index: 9999;
+	padding: 0 !important;
+}
 nav a{display:block;}
 nav div>ul>li>a{line-height:35px; font-weight:bold;}
 nav div>ul>li>ul{display:none; white-space:nowrap;}
@@ -93,7 +99,8 @@ nav .nav-b>ul>li{
 nav .nav-b>ul>li>ul{
 	position:absolute;
 	left:0px;
-	top:32px;	
+	top: 32px;
+	z-index: 9999;
 	padding:15px;
 	background-color:#f7f7f7;
 }
@@ -143,7 +150,10 @@ nav .nav-s>ul>li>ul{padding-left:20px;}
 	height:12px;
 }
 
-.elements{overflow:auto;}
+.elements {
+	overflow: auto;
+	margin-top: 40px
+}
 .elements>div{float:left;}
 .elements img{
 	width:100%;
@@ -152,6 +162,7 @@ nav .nav-s>ul>li>ul{padding-left:20px;}
 .elements a{
 	position:relative;
 	display:block;
+	font-size: 0px;
 }
 .elements a span{
 	position:absolute;
@@ -183,8 +194,13 @@ nav .nav-s>ul>li>ul{padding-left:20px;}
 	display:none;
 }
 
-.elements .left{padding-right:0px;}
-.elements .right{padding-left:0px;}
+.elements .left {
+	padding: 0px;
+}
+
+.elements .right {
+	padding: 0px;
+}
 
 
 .elements .policy{
@@ -221,11 +237,11 @@ nav .nav-s>ul>li>ul{padding-left:20px;}
 	border-bottom:3px solid black;
 	position:relative;
 	font-weight:bold;
+	margin-top: 40px;
 }
 .list-products>p span{
-	position:absolute;
-	bottom:-3px;
-	border-bottom:3px solid red;
+	line-height: 2;
+
 }
 .list-products .product{float:left;}
 .product{margin-top:30px;}
