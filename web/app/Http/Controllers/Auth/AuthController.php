@@ -5,6 +5,10 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use App\User;
+use App\Http\Requests\LoginRequest;
+use Hash;
+
 class AuthController extends Controller
 {
 
@@ -36,4 +40,59 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
+
+    public function postLogin(LoginRequest $request)
+    {
+        // create our user data for the authentication
+        $userdata = array(
+            'username' => $request->username,
+            'password' => $request->password,
+        );
+        $chkRemember = $request->chkRemember;
+        if ($chkRemember == 'on')
+            $r = true;
+        else
+            $r = false;
+
+        if ($this->auth->attempt($userdata, $r)) {
+//            if ($this->auth->user()->userable_type == 'customer') {
+//                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
+            return redirect()->away($request->rtn_url);
+//                } else {
+//                    $this->auth->logout();
+//                    return redirect()->away($request->rtn_url)
+//                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+//                        ->with('alert-class', 'alert-warning')
+//                        ->with('fa-class', 'fa-warning');
+//                }
+//            } else if ($this->auth->user()->userable_type == 'admin')
+//                return redirect('/adpage');
+//            else {
+//                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
+//                    return redirect('/adpage');
+//                } else {
+//                    $this->auth->logout();
+//                    return redirect()->away($request->rtn_url)
+//                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+//                        ->with('alert-class', 'alert-warning')
+//                        ->with('fa-class', 'fa-warning');
+//                }
+//            }
+        } else {
+            return redirect('auth/login')
+                ->with('message', 'Đăng nhập không thành công, vui lòng thử lại!!!')
+                ->with('alert-class', 'alert-danger')
+                ->with('fa-class', 'fa-ban');
+        }
+    }
+
+    public function logout()
+    {
+        $this->auth->logout();
+        return redirect('/');
+    }
 }

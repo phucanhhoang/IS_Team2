@@ -21,7 +21,7 @@
     {{-- {{ HTML::style('/bootstrap/css/bootstrap.css'); }} --}}
     <link rel="stylesheet" type="text/css"
           href="{{asset('../resources/assets/css/font-awesome/css/font-awesome.min.css')}}"/>
-    <!--    <link rel="stylesheet" type="text/css" href="{{asset('resources/assets/bootstrap/css/bootstrap.min.css')}}"/>-->
+    <link rel="stylesheet" type="text/css" href="{{asset('../resources/assets/bootstrap/css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('../resources/views/templateHTML/css/css.css')}}"/>
 
     @yield('style')
@@ -46,6 +46,7 @@
 {{-- Footer --}}
 @include('include.footer')
 <script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('../resources/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('../resources/views/templateHTML/jquery/jquery.js')}}"></script>
 @yield('javascript')
 

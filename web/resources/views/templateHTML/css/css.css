@@ -32,7 +32,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 .col-12 {
-	padding: 0px 50px;
+	padding: 0px 80px;
 }
 
 .col-1 {width: 8.33%;}
@@ -57,9 +57,10 @@ body{
 
 header{border-top: 3px solid black; padding:0px 20px;}
 header .info{
-	overflow:auto;
 	font-size:12px;
-	padding-top:5px;}
+	padding-top: 5px;
+	height: 33px;
+}
 header .info p:first-child{float:left;}
 header .info input{
 	height:24px;
@@ -67,8 +68,21 @@ header .info input{
 	padding: 6px 8px;
 }
 header .info input:focus{outline:none; box-shadow:10 10 5 #888888;}
+
+header .info #dLabel {
+	line-height: 1.8;
+	font-size: 14px;
+}
+
+header .info div:first-child {
+	float: left;
+}
 header .info p:last-child{float:right;}
-header .logo{text-align:center; padding:40px 0px;}
+
+header .logo {
+	text-align: center;
+	padding: 20px 0px;
+}
 
 nav {
 	z-index: 9999;
