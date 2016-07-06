@@ -18,7 +18,6 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@yield('title')</title>
-    {{-- {{ HTML::style('/bootstrap/css/bootstrap.css'); }} --}}
     <link rel="stylesheet" type="text/css"
           href="{{asset('../resources/assets/css/font-awesome/css/font-awesome.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('../resources/assets/bootstrap/css/bootstrap.min.css')}}"/>
@@ -31,7 +30,13 @@
 
 <!--header outside class container because header in full screens-->
 @include('include.header')
-
+@if (session('message'))
+<div class="alert {{session('alert-class')}} alert-dismissable fade in"
+     style="position: fixed;top: 10px;left: 30%;width: 40%;">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <i class="icon fa {{session('fa-class')}}"></i> {{ session('message') }}
+</div>
+@endif
 <!--nav responsive-->
 @include('include.nav')
 {{-- Content --}}

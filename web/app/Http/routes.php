@@ -23,6 +23,11 @@ Route::post('auth/login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@p
 Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
+//----------------------- Admin zone -------------------------------//
+Route::group(['prefix' => 'adpage'], function () {
+    Route::get('/', 'HomeController@adminHomePage');
+});
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

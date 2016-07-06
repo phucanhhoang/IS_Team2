@@ -6,7 +6,9 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use App\User;
+use App\Customer;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use Hash;
 
 class AuthController extends Controller
@@ -49,7 +51,7 @@ class AuthController extends Controller
     {
         // create our user data for the authentication
         $userdata = array(
-            'username' => $request->username,
+            'email' => $request->email,
             'password' => $request->password,
         );
         $chkRemember = $request->chkRemember;
@@ -59,29 +61,29 @@ class AuthController extends Controller
             $r = false;
 
         if ($this->auth->attempt($userdata, $r)) {
-//            if ($this->auth->user()->userable_type == 'customer') {
-//                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
-            return redirect()->away($request->rtn_url);
-//                } else {
-//                    $this->auth->logout();
-//                    return redirect()->away($request->rtn_url)
-//                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
-//                        ->with('alert-class', 'alert-warning')
-//                        ->with('fa-class', 'fa-warning');
-//                }
-//            } else if ($this->auth->user()->userable_type == 'admin')
-//                return redirect('/adpage');
-//            else {
-//                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
-//                    return redirect('/adpage');
-//                } else {
-//                    $this->auth->logout();
-//                    return redirect()->away($request->rtn_url)
-//                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
-//                        ->with('alert-class', 'alert-warning')
-//                        ->with('fa-class', 'fa-warning');
-//                }
-//            }
+            if ($this->auth->user()->userable_type == 'customer') {
+                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
+                    return redirect()->away($request->rtn_url);
+                } else {
+                    $this->auth->logout();
+                    return redirect()->away($request->rtn_url)
+                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+                        ->with('alert-class', 'alert-warning')
+                        ->with('fa-class', 'fa-warning');
+                }
+            } else if ($this->auth->user()->userable_type == 'admin')
+                return redirect('/adpage');
+            else {
+                if ($this->auth->user()->banned == 0 && $this->auth->user()->deleted == 0) {
+                    return redirect('/adpage');
+                } else {
+                    $this->auth->logout();
+                    return redirect()->away($request->rtn_url)
+                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+                        ->with('alert-class', 'alert-warning')
+                        ->with('fa-class', 'fa-warning');
+                }
+            }
         } else {
             return redirect('auth/login')
                 ->with('message', 'Đăng nhập không thành công, vui lòng thử lại!!!')
@@ -94,5 +96,40 @@ class AuthController extends Controller
     {
         $this->auth->logout();
         return redirect('/');
+    }
+
+    public function getRegister()
+    {
+        return view('auth.register');
+    }
+
+    public function postRegister(RegisterRequest $request)
+    {
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $check = $customer->save();
+
+        if ($check) {
+            $user = new User;
+            $user->password = Hash::make($request->password);
+            $user->email = $request->email;
+            $user->remember_token = $request->_token;
+            $user->userable_id = $customer->id;
+            $user->userable_type = 'customer';
+            $check = $user->save();
+        }
+
+        if ($check) {
+            return redirect()->away($request->rtn_url)
+                ->with('message', 'Đăng ký thành công!')
+                ->with('alert-class', 'alert-success')
+                ->with('fa-class', 'fa-check');
+        } else {
+            return redirect('auth/register')
+                ->with('alert-class', 'alert-danger')
+                ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
+                ->with('fa-class', 'fa-ban');
+        }
     }
 }

@@ -23,7 +23,7 @@ class LoginRequest extends Request
     public function rules()
     {
         return [
-            'username' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ];
     }
@@ -32,7 +32,9 @@ class LoginRequest extends Request
     {
         return [
             'username.required' => 'Vui lòng nhập username',
-            'password.required' => 'Vui lòng nhập password'
+            'password.required' => 'Vui lòng nhập password',
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email sai định dạng'
         ];
     }
 

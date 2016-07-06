@@ -5,9 +5,14 @@
 }
 
 *{margin:0px; padding:0px; box-sizing:border-box;}
-a{
+
+a, a:hover, a:active {
 	text-decoration:none;
 	color:black;
+}
+
+a:hover {
+	cursor: pointer;
 }
 ul{list-style-type:none;}
 input[type=text], textarea{
@@ -71,17 +76,39 @@ header .info input:focus{outline:none; box-shadow:10 10 5 #888888;}
 
 header .info #dLabel {
 	line-height: 1.8;
-	font-size: 14px;
 }
 
 header .info div:first-child {
 	float: left;
 }
-header .info p:last-child{float:right;}
+
+header .info p:last-child {
+	position: relative;
+	float: right;
+}
 
 header .logo {
 	text-align: center;
 	padding: 20px 0px;
+}
+
+header .dropdown-menu {
+	box-shadow: none;
+}
+
+header .dropdown-menu > li > span, header .dropdown-menu > li > a {
+	display: block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: #333;
+	white-space: nowrap;
+}
+
+header .dropdown-menu > li > span > span {
+	color: #C20000;
+	font-weight: bold;
 }
 
 nav {

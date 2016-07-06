@@ -7,6 +7,12 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 <body>
+@if (session('message'))
+<div id="myAlert" class="alert {{session('alert-class')}} alert-dismissable fade in">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <i class="icon fa {{session('fa-class')}}"></i> {{ session('message') }}
+</div>
+@endif
 <form id="login_form" method="post" action="{{asset('auth/login')}}">
     <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
     <input type="hidden" name="rtn_url" value="{{URL::previous()}}"/>
@@ -20,8 +26,8 @@
     </p>
     @endif
     <p>
-        <label>Username</label>
-        <input type="text" name="username" id="username"/>
+        <label>E-mail</label>
+        <input type="email" name="email" id="email"/>
     </p>
     <p>
         <label>Password</label>

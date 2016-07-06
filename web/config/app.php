@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
@@ -145,6 +145,7 @@ return [
         'App\Providers\ConfigServiceProvider',
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
+        'Mews\Captcha\CaptchaServiceProvider',
 
     ],
 
@@ -195,6 +196,7 @@ return [
         'View' => 'Illuminate\Support\Facades\View',
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'Captcha' => 'Mews\Captcha\Facades\Captcha',
     ],
 
 ];
