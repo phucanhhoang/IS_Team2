@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Đăng ký tài khoản</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/signup.css">
+	<link rel="stylesheet" href="../font-awesome-4.6.3/css/font-awesome.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src = "https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+	<div class="container">
+		<a href="#" data-toggle="modal" data-target="#signup_modal">Đăng ký</a>
+		<div class="modal fade" id="signup_modal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div id="signup" class="modal-content">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">Đăng ký tài khoản</div>
+						<div id="signin"><a href="">Đăng nhập</a></div>
+					</div>
+
+					<div class="panel-body">
+						<form id="signup_form" class="form-horizontal" role=="form">
+							<div id="signup_alert" class="alert alert-danger">
+								<p>Error: </p>
+								<span></span>
+							</div>
+
+							<div class="form-group">
+								<label for="name" class="col-md-3 control-label">Họ và tên</label>
+								<div class="col-md-9">
+									<input type="text" name="name" class="form-control" placeholder="Họ và tên">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-md-3 control-label">Email</label>
+								<div class="col-md-9">
+									<input type="text" class="form-control" name="email" placeholder="Địa chỉ Email">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label for="password" class="col-md-3 control-label">Mật khẩu</label>
+								<div class="col-md-9">
+									<input type="password" name="passwrod" class="form-control" placeholder="Mật khẩu từ 6-30 ký tự, bao gồm cả chữ và chữ số">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="re-password" class="col-md-3 control-label">Nhập lại mật khẩu</label>
+								<div class="col-md-9">
+									<input type="text" name="re-password" class="form-control" placeholder="Xác nhận mật khẩu">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-3"></div>
+								<div class = "g-recaptcha col-md-9" data-SiteKey = "6LfMTiQTAAAAAO3ii7MCNdvpxBJ2SVlpF6lh2QHw"></div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-offset-3 col-md-9">
+									<button id="btn-signup" type="button" name="signup" class="btn btn-info"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng ký</button>
+									<div id="login_or" class="adr horizontal divider">Hoặc đăng nhập bằng</div>
+								</div>
+							</div>
+							<div class="form-group" id="login_fb">
+								<div class="col-md-offset-3 col-md-9">
+									<button id="btn-signup-fb" type="button" name="signup-fb" class="btn btn-primary"><i class="fa fa-facebook" aria-hidden="true"></i>Đăng nhập bằng Facebook</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

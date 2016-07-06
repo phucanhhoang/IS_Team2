@@ -1,29 +1,23 @@
-#login{
+#signup{
 	margin-top: 50px;
 }
-#forget_pass{
+#signin{
 	float: right;
 	font-size: 80%;
 	position: relative;
 	top: -10px;
 }
-#login_body{
-	padding-top: 30px;
-}
-#login_alert{
+#signup_alert{
 	display: none;
 }
-#dont-have-account{
-	border-top: 1px solid #888;
-	padding-top: 15px;
-	font-size: 85%;
-}
-#usern{
-	margin-bottom: 25px;
-}
-#sub{
-	margin-top: 10px;
-	margin-bottom: 15px;
+#login_or{
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+    display: table;
+    white-space: nowrap;
+    margin-top: 15px;
 }
 i.fa.fa-facebook {
     margin-right: 10px;
