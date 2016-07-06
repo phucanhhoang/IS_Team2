@@ -86,7 +86,7 @@ class AuthController extends Controller
             }
         } else {
             return redirect('auth/login')
-                ->with('message', 'Đăng nhập không thành công, vui lòng thử lại!!!')
+                ->with('message', 'Đăng nhập không thành công, vui lòng thử lại!')
                 ->with('alert-class', 'alert-danger')
                 ->with('fa-class', 'fa-ban');
         }

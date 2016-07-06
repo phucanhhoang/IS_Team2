@@ -16,7 +16,7 @@
         @else
             <!--            <p><a href="{{asset('auth/login')}}">Đăng nhập</a> | <a href="{{asset('auth/register')}}">Đăng ký </a></p>-->
             <a id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="fa fa-user"></i> TÀI KHOẢN
+                <i class="fa fa-user"></i> Tài khoản
             </a>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
                 <li><a href="{{asset('auth/login')}}">Đăng nhập</a></li>
