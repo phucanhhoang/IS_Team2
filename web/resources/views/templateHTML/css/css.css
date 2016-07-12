@@ -15,7 +15,6 @@ a:hover {
 	cursor: pointer;
 }
 ul{list-style-type:none;}
-<<<<<<< HEAD
 
 /************ Standard *************/
 input[type=text]{
@@ -46,7 +45,7 @@ input[type=submit]:hover{
 }
 .fa{cursor: pointer;}
 .title{font-weight:bold;}
-=======
+
 input[type=text], textarea{
 	font-family: Lato, Tahoma, Geneva, sans-serif;
 	-webkit-transition: all 0.30s ease-in-out;
@@ -64,27 +63,6 @@ input[type=text]:focus, textarea:focus {
   margin: 2px;
   border: 1px solid #17b2ca;
 }
-[class*="col-"]{
-	padding:0px 20px;
-}
-
-.col-12 {
-	padding: 0px 80px;
-}
-
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
 
 body{
 	font-family: Lato, Tahoma, Geneva, sans-serif;
@@ -92,7 +70,6 @@ body{
 	color: black;
 }
 
-<<<<<<< HEAD
 .dropdown-menu{
 	top:20px;
 	box-shadow:none;
@@ -112,97 +89,6 @@ body{
 	transition:width 0.5s ease;
 	border:none;
 	cursor:pointer;
-=======
-
-header{border-top: 3px solid black; padding:0px 20px;}
-header .info{
-	font-size:12px;
-	padding-top: 5px;
-	height: 33px;
-}
-header .info p:first-child{float:left;}
-header .info input{
-	height:24px;
-	font-size:12px;
-	padding: 6px 8px;
-}
-header .info input:focus{outline:none; box-shadow:10 10 5 #888888;}
-
-header .info #dLabel {
-	line-height: 1.8;
-}
-
-header .info div:first-child {
-	float: left;
-}
-
-header .info p:last-child {
-	position: relative;
-	float: right;
-}
-
-header .logo {
-	text-align: center;
-	padding: 20px 0px;
-}
-
-header .dropdown-menu {
-	box-shadow: none;
-}
-
-header .dropdown-menu .divider {
-	margin: 4px 0;
-}
-
-header .dropdown-menu > li > span, header .dropdown-menu > li > a {
-	display: block;
-	padding: 3px 15px;
-	clear: both;
-	font-weight: 400;
-	line-height: 1.42857143;
-	color: #333;
-	white-space: nowrap;
-}
-
-header .dropdown-menu > li > span > span {
-	color: #C20000;
-	font-weight: bold;
-}
-
-nav {
-	z-index: 9999;
-	padding: 0 !important;
-}
-nav a{display:block;}
-nav div>ul>li>a{line-height:35px; font-weight:bold;}
-nav div>ul>li>ul{display:none; white-space:nowrap;}
-nav div>ul>li>ul a{line-height:30px;}
-nav div>ul>li:hover>ul{display:block;}
-nav div>ul>li:nth-child(1):hover>a{color: #b3d706;}
-nav div>ul>li:nth-child(2):hover>a{color: #ed0856;}
-nav div>ul>li:nth-child(3):hover>a{color: #0ec3df;}
-nav div>ul>li:nth-child(4):hover>a{color: #ffd304;}
-nav div>ul>li:nth-child(5):hover>a{color: #f65607;}
-
-nav .nav-b{
-	height:35px;
-	border-bottom:3px solid black;
-}
-nav .nav-b>ul{position:relative;}
-nav .nav-b>ul>li{
-	float:left;
-	position:relative;
-	padding-left:15px;
-	padding-right:15px;
-}
-nav .nav-b>ul>li>ul{
-	position:absolute;
-	left:0px;
-	top: 32px;
-	z-index: 9999;
-	padding:15px;
-	background-color:#f7f7f7;
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
 }
 #myNav input:focus{
 	width:300px;
@@ -219,15 +105,7 @@ nav .nav-b>ul>li>ul{
 	overflow:auto;
 	padding:10px 70px;
 }
-<<<<<<< HEAD
-=======
 
-.elements {
-	overflow: auto;
-	margin-top: 40px
-}
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
-.elements>div{float:left;}
 .elements img{
 	width:100%;
 	height:auto;
@@ -235,13 +113,7 @@ nav .nav-b>ul>li>ul{
 .elements a{
 	position:relative;
 	display:block;
-<<<<<<< HEAD
-	
-=======
-	font-size: 0px;
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
 }
-.elements a:hover img{}
 .elements a span{
 	position:absolute;
 	left:50%;
@@ -291,21 +163,10 @@ nav .nav-b>ul>li>ul{
 .elements .middle span{
 	margin-left:-48px;
 }
-<<<<<<< HEAD
+
 .elements .left{padding:0px;}
 .elements .middle{padding:0px 10px;}
 .elements .right{padding:0px;}
-=======
-
-.elements .left {
-	padding: 0px;
-}
-
-.elements .right {
-	padding: 0px;
-}
-
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
 
 .elements .policy{
 	font-size:18px;
@@ -363,15 +224,11 @@ nav .nav-b>ul>li>ul{
 	overflow:auto;
 	margin:40px 70px;
 }
-.list-products p{
-	text-align:center;
-	line-height:24px;
-}
+
 .list-products>p{
 	border-bottom:3px solid black;
 	position:relative;
 	font-weight:bold;
-<<<<<<< HEAD
 	padding-top:20px;
 }
 .list-products>p span{
@@ -384,14 +241,9 @@ nav .nav-b>ul>li>ul{
 	background-color:black;
 	padding:5px 10px;
 	white-space:nowrap;
-=======
-	margin-top: 40px;
 }
-.list-products>p span{
-	line-height: 2;
 
->>>>>>> c1b94ab1308801dd403777f04462e709402a575f
-}
+.list-products
 .product{margin-top:30px;}
 .product div{position:relative;}
 .product div a{display:block;}
@@ -437,8 +289,8 @@ nav .nav-b>ul>li>ul{
 .product a:last-child .fa{
 	position:absolute;
 	left:50%;
-	margin-left:-16px;
-	bottom:10px;
+	margin-left: -18px;
+	bottom: 8px;
 	color:white;
 }
 .product a:last-child:hover {

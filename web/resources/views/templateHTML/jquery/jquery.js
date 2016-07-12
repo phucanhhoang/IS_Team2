@@ -79,10 +79,6 @@ $(function(){
 		$('.mausac label').eq(i-1).css("background",$('.mausac input').eq(i-1).attr("value"));
 	}
 	
-	
-	//Giá
-	$('.filter .slider').slider();
-	
 	//Giao diện thay đổi khi resize màn hình
 	$(window).resize(function(){
 		setelements();
