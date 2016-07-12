@@ -6,9 +6,13 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 use App\User;
+use App\SocialAccount;
 use App\Customer;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Mail;
+use Laravel\Socialite\Facades\Socialite;
+use App\Mailers\AppMailer;
 use Hash;
 
 class AuthController extends Controller
@@ -92,6 +96,51 @@ class AuthController extends Controller
         }
     }
 
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        try {
+            $userfb = Socialite::driver('facebook')->user();
+            $social_acc = SocialAccount::where('provider', '=', 'facebook')
+                ->where('provider_user_id', '=', $userfb->id)->get();
+            if ($social_acc->count() > 0) {
+                $this->auth->loginUsingId($social_acc[0]->user_id);
+                return redirect('home');
+            } else {
+                $customer = new Customer;
+                $customer->name = $userfb->name;
+                $check = $customer->save();
+
+                if ($check) {
+                    $user = new User;
+                    $user->email = $userfb->email;
+                    $user->userable_id = $customer->id;
+                    $user->userable_type = 'customer';
+                    $user->remember_token = csrf_token();
+                    $check = $user->save();
+                }
+                if ($check) {
+                    $social_acc = new SocialAccount();
+                    $social_acc->user_id = $user->id;
+                    $social_acc->provider_user_id = $userfb->id;
+                    $social_acc->provider = 'facebook';
+                    $check = $social_acc->save();
+                }
+                if ($check) {
+                    $this->auth->loginUsingId($user->id);
+                    return redirect('home');
+                }
+            }
+
+        } catch (Exception $e) {
+            return redirect('auth/facebook');
+        }
+    }
+
     public function logout()
     {
         $this->auth->logout();
@@ -103,7 +152,7 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function postRegister(RegisterRequest $request)
+    public function postRegister(RegisterRequest $request, AppMailer $mailer)
     {
         $customer = new Customer;
         $customer->name = $request->name;
@@ -121,6 +170,7 @@ class AuthController extends Controller
         }
 
         if ($check) {
+            $mailer->sendEmailConfirmationTo();
             return redirect()->away($request->rtn_url)
                 ->with('message', 'Đăng ký thành công!')
                 ->with('alert-class', 'alert-success')

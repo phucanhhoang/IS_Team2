@@ -146,6 +146,7 @@ return [
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
         'Mews\Captcha\CaptchaServiceProvider',
+        'Laravel\Socialite\SocialiteServiceProvider',
 
     ],
 
@@ -197,6 +198,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Captcha' => 'Mews\Captcha\Facades\Captcha',
+        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
     ],
 
 ];

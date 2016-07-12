@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => '',
-        'secret' => '',
+        'domain' => 'your-mailgun-domain',
+        'secret' => 'your-mailgun-key',
     ],
 
     'mandrill' => [
@@ -33,6 +33,12 @@ return [
         'model' => 'App\User',
         'key' => '',
         'secret' => '',
+    ],
+
+    'facebook' => [
+        'client_id' => '194334174266198',
+        'client_secret' => '8b24a6feee1aac64a3ce24a77ed9b5a4',
+        'redirect' => 'http://localhost:7070/public/auth/facebook/callback',
     ],
 
 ];

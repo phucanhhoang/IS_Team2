@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         //Admin seeder
         DB::table('users')->delete();
         $arrUser = array(
-            'email' => 'phucanh48@gmail.com',
+            'email' => 'phucanh94@gmail.com',
             'password' => Hash::make(12345678),
             'userable_id' => '',
             'userable_type' => 'admin',

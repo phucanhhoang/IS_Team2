@@ -46,13 +46,34 @@
         <input type="email" name="email" id="email" value="{{old('email')}}"/>
     </p>
     <p>
-        {!! Captcha::img() !!} <input name="captcha" type="text"/>
+    <div class="form-group refereshrecapcha">
+        {!! captcha_img('flat') !!}
+    </div>
+    <input name="captcha" type="text"/>
+    <a href="javascript:void(0)" onclick="refreshCaptcha()">Refresh</a>
         @if ($errors->has('captcha'))
     <div class="error-messages">{{ $errors->first('captcha') }}</div>
+
     @endif
     </p>
     <input type="submit"/>
 
 </form>
 </body>
+<script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
+<script>
+    function refreshCaptcha() {
+        $.ajax({
+            url: "{{asset('refereshcapcha')}}",
+            type: 'get',
+            dataType: 'html',
+            success: function (json) {
+                $('.refereshrecapcha').html(json);
+            },
+            error: function (data) {
+                alert('Try Again.');
+            }
+        });
+    }
+</script>
 </html>

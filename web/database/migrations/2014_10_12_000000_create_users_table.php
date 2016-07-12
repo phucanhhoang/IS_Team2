@@ -24,6 +24,13 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('social_account', function (Blueprint $table) {
+            $table->integer('user_id');
+            $table->string('provider_user_id');
+            $table->string('provider');
+            $table->timestamps();
+        });
+
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 40);

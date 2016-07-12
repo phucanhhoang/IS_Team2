@@ -35,7 +35,11 @@
     </p>
     <p><input type="checkbox" name="chkRemember" id="chkRemember"/> <label for="chkRemember">Remember Me?</label></p>
     <input type="submit"/>
-
+    <p>
+        <a class="btn btn-primary" href="{{ url('auth/facebook') }}" id="btn-fblogin">
+            <i class="fa fa-facebook"></i> Login with Facebook
+        </a>
+    </p>
 </form>
 </body>
 </html>
