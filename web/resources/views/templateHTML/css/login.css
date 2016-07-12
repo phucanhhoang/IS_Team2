@@ -1,0 +1,36 @@
+#login{
+	margin-top: 50px;
+}
+#forget_pass{
+	float: right;
+	font-size: 80%;
+	position: relative;
+	top: -10px;
+}
+#login_body{
+	padding-top: 30px;
+}
+#login_alert{
+	display: none;
+}
+#dont-have-account{
+	border-top: 1px solid #888;
+	padding-top: 15px;
+	font-size: 85%;
+}
+#usern{
+	margin-bottom: 25px;
+}
+#sub{
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+i.fa.fa-facebook {
+    margin-right: 10px;
+}
+i.fa.fa-sign-in {
+    margin-right: 10px;
+}
+.panel.panel-info {
+    margin-bottom: 0;
+}

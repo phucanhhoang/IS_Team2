@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,6 +135,7 @@ return [
         'Illuminate\Translation\TranslationServiceProvider',
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
+        'Collective\Html\HtmlServiceProvider',
 
         /*
          * Application Service Providers...
@@ -144,6 +145,8 @@ return [
         'App\Providers\ConfigServiceProvider',
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
+        'Mews\Captcha\CaptchaServiceProvider',
+        'Laravel\Socialite\SocialiteServiceProvider',
 
     ],
 
@@ -192,7 +195,10 @@ return [
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
-
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
+        'Captcha' => 'Mews\Captcha\Facades\Captcha',
+        'Socialize' => 'Laravel\Socialite\Facades\Socialite',
     ],
 
 ];

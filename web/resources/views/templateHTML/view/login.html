@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Đăng nhập</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" href="../font-awesome-4.6.3/css/font-awesome.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<a href="#" data-toggle="modal" data-target="#login_modal">Đăng nhập</a>
+		<!--.....................Modal......................-->
+		<div class="modal fade" id="login_modal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div id="login" class="modal-content">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<div class="panel-title">Đăng nhập vào tài khoản</div>
+						<div id="forget_pass"><a href="">Quên mật khẩu?</a></div>
+					</div>
+
+					<div id="login_body" class="panel-body">
+						<div id="login_alert" class="alert alert-danger"></div>
+						<form id="login_form" class="form-horizontal" role="form" action="" method="post">
+							<div id="usern" class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input id="input_username" type="text" name="username" class="form-control" value="" placeholder="Username">
+							</div>
+							<div id="pass" class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+								<input id="login_password" type="password" name="password" class="form-control" placeholder="Password">
+							</div>
+							<div id="re" class="input-group">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="remember" value="1"> Ghi nhớ
+									</label>
+								</div>
+							</div>
+							<div id="sub" class="input-group">
+								<div class="controls">
+									<button id="submit_login" type="button" name="login" class="btn btn-success"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</button>
+									<button type="button" class="btn btn-primary"><i class="fa fa-facebook" aria-hidden="true"></i>Đăng nhập bằng Facebook</button>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-12 control">
+									<div id="dont-have-account">
+										Chưa có tài khoản!
+										<a href=""> Đăng ký</a>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>	
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

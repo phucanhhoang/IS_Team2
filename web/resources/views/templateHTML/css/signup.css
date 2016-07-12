@@ -1,0 +1,30 @@
+#signup{
+	margin-top: 50px;
+}
+#signin{
+	float: right;
+	font-size: 80%;
+	position: relative;
+	top: -10px;
+}
+#signup_alert{
+	display: none;
+}
+#login_or{
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+    display: table;
+    white-space: nowrap;
+    margin-top: 15px;
+}
+i.fa.fa-facebook {
+    margin-right: 10px;
+}
+i.fa.fa-sign-in {
+    margin-right: 10px;
+}
+.panel.panel-info {
+    margin-bottom: 0;
+}
