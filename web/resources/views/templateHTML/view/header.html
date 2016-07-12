@@ -1,25 +1,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untitled Document</title>
-<link rel="stylesheet" type="text/css" href="../css/css.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Untitled Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
 </head>
 
 <body>
-<header class="col-12">
-	<div class='info'>
-    	<p><a href="#">Đăng nhập</a> | <a href="#">Đăng ký</a></p>
-        <p>
-        	<input type="text" name="txtSearch" placeholder="Tìm kiếm..." />
-            <a href="#">GIỎ HÀNG</a> | 0 sản phẩm | 0 đồng
-        </p>
-    </div>
-    
-    <div class='logo'>
-    	<img src="../image/logo.png" />
-    </div>
-</header>
+<nav class="navbar">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand"><img src="../image/logo.png" height="50px"></a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+					<i class="fa fa-bars fa-2x"></i>
+			</button>
+		</div>
+	
+        <div class="collapse navbar-collapse" id="myNav">
+            <ul class="nav navbar-nav">
+                <li><a class="active" href="#">TRANG CHỦ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ÁO <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Áo phông</a></li>
+                        <li><a href="#">Áo sơ-mi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">VÁY</a></li>
+                <li><a href="#">QUẦN</a></li>
+            </ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li><input type="text" /></li>
+				<li class="fa fa-shopping-cart fa-2x"></li>
+				<li class="fa fa-user fa-2x"></li>
+			</ul>
+        </div>
+	</div>
+</nav>
+	
+	
+<script type="text/javascript" src="../jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../bootstrap/bootstrap.min.js"/></script>
+<script type="text/javascript" src="../jquery/jquery.js"/></script>
+
 </body>
 </html>

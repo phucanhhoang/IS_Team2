@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Untitled Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css"/>
+</head>
+
+<body>
+<div class="col-sm-3 filter">
+	<p class="title">NAM</p>
+	<ul class="menu">
+		<li><a href="#">Áo sát nách</a></li>
+    	<li><a href="#">Áo thun</a></li>
+    	<li><a href="#">Áo sơmi</a></li>
+    	<li><a href="#">Quần short</a></li>
+	</ul>
+
+	<p class="title">TÌM KIẾM THEO</p>
+    <form>
+    	<div>
+        	<p class="title">Màu sắc</p>
+            <div class="mausac">
+            	<input type="radio" name="mausac" id="ms-check1" value="red" />
+            	<input type="radio" name="mausac" id="ms-check2" value="yellow" />
+            	<input type="radio" name="mausac" id="ms-check3" value="green" />
+            </div>
+        </div>
+        
+        <div>
+            <p class="title">Kích cỡ</p>
+            <div class="kichco">
+            	<input type="radio" name="kichco" id="kc-check1" />
+                <label for="kc-check1">S</label>
+            	<input type="radio" name="kichco" id="kc-check2" />
+                <label for="kc-check2">M</label>
+            	<input type="radio" name="kichco" id="kc-check3" />
+                <label for="kc-check3">N</label>	
+            </div>
+        </div>
+        
+        <div>
+        	<p class="title">Giá</p>
+				<p>
+					<label for="amount">Price range:</label>
+					<input type="text" id="amount" readonly />
+				</p>
+ 
+				<div id="slider-range"></div>
+			</p>
+        </div>
+        <p id="btnGui"><input type="submit" value="TÌM KIẾM"></p>
+    </form>
+</div>
+<body>
+
+<script type="text/javascript" src="../jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../bootstrap/bootstrap.min.js"/></script>
+<script type="text/javascript" src="../jquery/jquery-ui.js"/></script>
+<script type="text/javascript" src="../jquery/jquery.js"/></script>
+
+<script>
+  $(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val(ui.values[ 0 ] + "đ - " + ui.values[ 1 ] +"đ" );
+      }
+    });
+    $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) +
+      "đ - " + $( "#slider-range" ).slider( "values", 1 )+"đ" );
+  });
+  </script>
+</body>
+</html>

@@ -1,80 +1,20 @@
 // JavaScript Document
 
 $(function(){
-	//giúp menu luôn ra giữ màn hình (responsive)
-	function setnav(){
-		var nav_width=0;
-		var count = $('.nav-b>ul>li').length;
-	
-		for(var i=0; i<count; i++)
-			nav_width += $('.nav-b>ul>li').eq(i).width();
-		nav_width += (parseInt($('.nav-b>ul>li').css('padding-left')) + parseFloat($('.nav-b>ul>li').css('padding-right')))*count+5;
-		$('.nav-b>ul').css({"width":nav_width+"px"});
-		$('.nav-b>ul').css({"left":"50%"});
-		$('.nav-b>ul').css({"margin-left":-nav_width/2+"px"});
-	}
-	setnav();
-	
-	
-	//Khi click chuột vào icon-bar thì menu sẽ hiện ra (khi độ rộng màn hình <480px)
-	$('.nav-s div').click(function(){
-		$('.nav-s ul').slideToggle(400);
-	});
-	
-	
-	//Tạo slide với responsive
-	var slide_c = $('.slide-image a').length;
-	for(var i=0; i<slide_c; i++)
-		$('.slide-bullet').prepend("<li></li>");
-	$('.slide-image a:first-child img').addClass('focus');
-	$('.slide-bullet li:first-child').addClass('focus');
-	
-	function setheightslide(){
-		var slide_h = $('.slide-image a:first-child img').height();
-		$('.slide').css({"height":slide_h+"px"});
-		$('.slide .slide-bullet').css({"left":"50%"});
-		var slide_bullet_w = $('.slide .slide-bullet').width();
-		$('.slide .slide-bullet').css({"margin-left":-slide_bullet_w/2+"px"});
-	}
-	
-	setheightslide();
-
-	var eindex = 0;
-	function setfocusimage(){
-		if(eindex==slide_c-1)
-			eindex=-1;
-		eindex++;
-		$('.slide .slide-image .focus').stop().removeClass('focus').addClass('lastfocus');
-		$('.slide .slide-image img').eq(eindex).stop().css("opacity","0").addClass('focus').animate({opacity:1},1500,function(){
-				$('.slide .slide-image img').removeClass('lastfocus');
-			});
-			
-		$('.slide .slide-bullet .focus').removeClass('focus');
-		$('.slide .slide-bullet li').eq(eindex).addClass('focus');
-	}
-	
-	var play;
-	function startslide(){
-		play = setInterval(function(){setfocusimage();},2500);
-	}
-	startslide();
-	
-	$('.slide .slide-image').hover(function(){
-		clearInterval(play);}, function(){
-				startslide();
-			});
 	
 	//Tạo menu các mục (.elements) với responsive
 	function setelements(){
-		var policy_h = $('.elements .middle a').height()-$('.elements .left a').height()-parseFloat($('.elements .policy').css("margin-top"));
-		var p_h = policy_h - parseFloat($('.elements .policy').css("padding"))*2;
+		//set chieu cao cho policy
+		policy_h = $('.elements .middle img').height()-$('.elements .left img').height()- 10;
+		p_h = policy_h - 5*2;
+		
+		//Làm text ra giữa	
 		var leftspan_h = $('.elements .left .policy p>span').height();
 		var leftspan_w = $('.elements .left .policy p>span').width();
 		var rightspan_h = $('.elements .right .policy p>span').height();
 		var rightspan_w = $('.elements .right .policy p>span').width();
-		
-		$('.elements .policy').css({"height":policy_h+"px"});		
-		$('.elements .policy p').css({"height":p_h+"px"});
+		$('.elements .policy').css("height",policy_h+"px");		
+		$('.elements .policy p').css("height",p_h+"px");
 		$('.elements .left .policy p>span').css({"margin-top":-leftspan_h/2+"px"});
 		$('.elements .left .policy p>span').css({"margin-left":-leftspan_w/2+"px"});
 		$('.elements .right .policy p>span').css({"margin-top":-rightspan_h/2+"px"});
@@ -107,7 +47,7 @@ $(function(){
 			var mx = Math.round(e.pageX - offset_detail.left);
 			var my = Math.round(e.pageY - offset_detail.top);
 			
-			if(mx < $(this).width()-1 && my < $(this).height()-1 && mx > 1 && my>1){
+			if(mx < $(this).width()-5 && my < $(this).height()-5 && mx > 5 && my>5){
 				$('.detail-p .large').fadeIn(100);
 			}
 			else{
@@ -132,12 +72,19 @@ $(function(){
 	});
 	
 	
+	//Thong tin san pham
+	var mausac_c = $('.mausac input').length;
+	for(var i=1; i<=mausac_c; i++){
+		$('<label for="ms-check'+i+'"></label>').insertAfter('.mausac #ms-check'+i);
+		$('.mausac label').eq(i-1).css("background",$('.mausac input').eq(i-1).attr("value"));
+	}
+	
+	
+	//Giá
+	$('.filter .slider').slider();
+	
 	//Giao diện thay đổi khi resize màn hình
 	$(window).resize(function(){
-		var width = $(window).innerWidth();
-		if(width>480)
-			setnav();
-		setheightslide();
 		setelements();
 		
 	});
