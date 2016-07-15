@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -11,6 +12,7 @@ use App\Customer;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use App\Mailers\AppMailer;
 use Hash;
@@ -89,10 +91,9 @@ class AuthController extends Controller
                 }
             }
         } else {
-            return redirect('auth/login')
-                ->with('message', 'Đăng nhập không thành công, vui lòng thử lại!')
-                ->with('alert-class', 'alert-danger')
-                ->with('fa-class', 'fa-ban');
+            $data['autoOpenModal'] = true;
+            return redirect()->away($request->rtn_url)
+                ->withInput($data);
         }
     }
 

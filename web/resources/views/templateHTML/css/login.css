@@ -1,17 +1,35 @@
 #login{
 	margin-top: 50px;
+	border-radius: 0px;
 }
-#forget_pass{
+
+/*#forget_pass{
 	float: right;
 	font-size: 80%;
 	position: relative;
 	top: -10px;
-}
+}*/
 #login_body{
-	padding-top: 30px;
+	padding-top: 20px;
 }
 #login_alert{
 	display: none;
+}
+
+.panel-title {
+	border-bottom: solid 1px #888;
+	padding-bottom: 13px;
+}
+
+#login-panel-heading {
+	background-color: #fff;
+	border-color: #fff;
+	color: #000000;
+	padding-top: 15px;
+}
+
+#login-panel-title {
+	font-size: 18px;
 }
 #dont-have-account{
 	border-top: 1px solid #888;
@@ -25,6 +43,16 @@
 	margin-top: 10px;
 	margin-bottom: 15px;
 }
+
+#submit_login {
+	background-color: #ff0000;
+	border-color: #ff0000;
+}
+
+#submit_login:hover {
+	background-color: #dc0000;
+	border-color: #dc0000;
+}
 i.fa.fa-facebook {
     margin-right: 10px;
 }
@@ -33,4 +61,16 @@ i.fa.fa-sign-in {
 }
 .panel.panel-info {
     margin-bottom: 0;
+}
+
+#input_username:focus {
+	border-color: #888;
+	box-shadow: 0 1px 1px #888 inset, 0 0 4px #888;
+	outline: 0 none;
+}
+
+#input_password:focus {
+	border-color: #888;
+	box-shadow: 0 1px 1px #888 inset, 0 0 4px #888;
+	outline: 0 none;
 }

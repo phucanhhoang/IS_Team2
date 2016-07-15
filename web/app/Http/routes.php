@@ -16,7 +16,7 @@ Route::get('home', 'HomeController@index');
 Route::get('index', 'HomeController@index');
 
 //Login
-Route::get('auth/login', ['as' => 'getLogin', 'uses' => 'Auth\AuthController@getLogin']);
+//Route::get('auth/login', ['as' => 'getLogin', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@postLogin']);
 
 //Facebook login
@@ -30,7 +30,32 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleFacebookCallback
 Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
-Route::get('/refereshcapcha', 'HelperController@refereshCapcha');
+Route::get('refereshcapcha', 'HelperController@refereshCapcha');
+
+Route::get('category', function () {
+    return view('pages.category');
+});
+Route::get('product', function () {
+    return view('pages.product');
+});
+
+Route::get('sendemail', function () {
+
+    $data = array(
+        'name' => "Learning Laravel",
+    );
+
+    Mail::send('emails.verify', $data, function ($message) {
+
+        $message->from('phucanh94@gmail.com', 'Learning Laravel');
+
+        $message->to('phucanh48@gmail.com')->subject('Learning Laravel test email');
+
+    });
+
+    return "Your email has been sent successfully";
+
+});
 
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'adpage'], function () {
