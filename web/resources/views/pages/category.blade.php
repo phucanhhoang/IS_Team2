@@ -4,6 +4,7 @@ Stylitics - Category page
 @stop
 
 @section('content')
+
 <div class="col-sm-4 col-md-4 product">
     <div>
         <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>

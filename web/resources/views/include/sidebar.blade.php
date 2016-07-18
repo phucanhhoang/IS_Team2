@@ -1,16 +1,15 @@
 <div class="col-sm-3">
     <div class="col-sm-12 filter">
-        <p class="title">NAM</p>
+        <p class="title">Áo</p>
         <ul class="menu">
             <li><a href="#">Áo sát nách</a></li>
             <li><a href="#">Áo thun</a></li>
             <li><a href="#">Áo sơmi</a></li>
-            <li><a href="#">Quần short</a></li>
         </ul>
 
         <p class="title">TÌM KIẾM THEO</p>
         <form>
-            <div>
+            <div style="margin-bottom: 10px">
                 <p class="title">Màu sắc</p>
                 <div class="mausac">
                     <input type="checkbox" name="mausac" id="ms-check1" value="red"/>
@@ -19,7 +18,7 @@
                 </div>
             </div>
 
-            <div>
+            <div style="margin-bottom: 10px">
                 <p class="title">Kích cỡ</p>
                 <div class="kichco">
                     <input type="checkbox" name="kichco" id="kc-check1"/>
@@ -31,15 +30,13 @@
                 </div>
             </div>
 
-            <div>
+            <div style="margin-bottom: 30px">
                 <p class="title">Giá</p>
                 <p>
                     <label for="amount">Price range:</label>
                     <input type="text" id="amount" readonly/>
                 </p>
-
                 <div id="slider-range"></div>
-                </p>
             </div>
             <p id="btnGui"><input type="submit" value="TÌM KIẾM"></p>
         </form>

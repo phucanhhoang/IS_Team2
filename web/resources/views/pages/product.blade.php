@@ -4,6 +4,11 @@ Stylitics - Product page
 @stop
 
 @section('content')
+<nav class="container breadcrumbs">
+    <a href="{{asset('/')}}">Trang chủ</a>
+    <span class="divider">›</span>
+    MIDNIGHT LOVER DRESS
+</nav>
 <div class="container detail-p">
     <div class="col-xs-12 col-sm-2 col-md-1 list">
         <img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/>
@@ -49,7 +54,7 @@ Stylitics - Product page
 
                     <div>
                         <p class="title">Số lượng: <input type="number" value="1"/></p>
-                        <input type="submit" name="btnSubmit" value="CHO VÀO GIỎ HÀNG"/>
+                        <input type="submit" name="btnSubmit" value="THÊM VÀO GIỎ"/>
                     </div>
                 </div>
             </form>

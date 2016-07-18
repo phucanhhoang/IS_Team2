@@ -32,6 +32,8 @@
 <!--header outside class container because header in full screens-->
 @include('include.header')
 
+<img src="{{asset('../resources/assets/image/shirt-cover.jpg')}}" style="width: 100%; height: 100%" />
+
 @if (session('message'))
 <div class="alert {{session('alert-class')}} alert-dismissable fade in"
      style="position: fixed;top: 10px;left: 30%;width: 40%;">
@@ -54,10 +56,8 @@
 <script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('../resources/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-ui.js')}}"/></script>
-<
-script
-type = "text/javascript"
-src = "{{asset('../resources/assets/js/site.js')}}" ></script>
+<script type="text/javascript" src="{{asset('../resources/assets/js/back-to-top.js')}}"></script>
+<script type="text/javascript" src="{{asset('../resources/assets/js/site.js')}}" ></script>
 
 @yield('javascript')
 

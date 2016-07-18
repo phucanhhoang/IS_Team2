@@ -27,7 +27,7 @@ Route::get('auth/facebook', 'Auth\AuthController@redirectToFacebook');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleFacebookCallback');
 
 //Register
-Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
+//Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
 Route::get('refereshcapcha', 'HelperController@refereshCapcha');
@@ -37,6 +37,9 @@ Route::get('category', function () {
 });
 Route::get('product', function () {
     return view('pages.product');
+});
+Route::get('cart', function () {
+    return view('pages.cart');
 });
 
 Route::get('sendemail', function () {
@@ -56,6 +59,9 @@ Route::get('sendemail', function () {
     return "Your email has been sent successfully";
 
 });
+
+Route::post('checkexist/email', 'HelperController@checkEmail');
+Route::post('check/captcha', 'HelperController@checkCaptcha');
 
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'adpage'], function () {

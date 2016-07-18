@@ -41,6 +41,10 @@ input[type=text] {
 	outline: none;
 }
 
+input[type=number]{
+	width: 50px;
+}
+
 input[type=submit], input[type=button], button, .bt-link {
 	background-color: #ee3b27;
 	border: 1px solid #ee3b27;
@@ -69,6 +73,8 @@ input[type=submit]:hover, input[type=button]:hover, button:hover, .bt-link:hover
 input[type=submit]:focus, input[type=button]:focus, button:focus, .bt-link:focus,
 input[type=submit]:active, input[type=button]:active, button:active, .bt-link:active {
 	outline: none;
+	background-color: #ee3b27;
+	color: white;
 }
 
 .form-group {
@@ -98,6 +104,17 @@ input[type=submit]:active, input[type=button]:active, button:active, .bt-link:ac
 	background-color: #fff;
 }
 
+.bt-blue:focus, .bt-blue:active {
+	outline: none;
+	background-color: #337ab7;
+	color: white;
+}
+
+a.txt-link{
+	color: #337ab7;
+	text-decoration: underline;
+}
+
 .fa {
 	cursor: pointer;
 }
@@ -116,6 +133,10 @@ body {
 	top: 20px;
 	box-shadow: none;
 }
+.dropdown:hover .dropdown-menu, .dropdown.account:hover .dropdown-menu {
+	display: block;
+	margin-top: 0; // remove the gap so it doesn't close
+}
 
 .navbar {
 	margin-bottom: 0;
@@ -131,12 +152,19 @@ body {
 	padding: 0;
 }
 
-#myNav ul:first-child {
+#myNav ul:nth-of-type(1) {
 	margin-top: 20px;
 }
-
-#myNav ul:last-child {
+#myNav ul:nth-of-type(2) {
 	margin-top: 25px;
+	height: 45px;
+}
+
+#myNav ul:nth-of-type(1) ul {
+	margin-top: 25px;
+}
+#myNav ul:nth-of-type(2) ul{
+	margin-top: 20px;
 }
 
 #myNav ul:last-child li {
@@ -164,11 +192,28 @@ body {
 	outline: none;
 }
 
-.nav > li.dropdown.account > a {
+.nav > li.dropdown.account {
+	height: 100%;
+}
+.nav > li.dropdown.account > a, .nav > li#cart > a {
 	padding: 0 10px;
 }
+/*box info*/
+ul.box-info{
+	padding: 0;
+	background-color: #f0f0f0;
+}
+ul.box-info.box-info-border{
+	border: 1px solid #252525;
+	background-color: #fff;
+}
+ul.box-info > li{
+	padding: 8px 15px;
+}
 
-.nav > li.dropdown.account > a:focus, .nav > li.dropdown.account > a:hover, .nav > li.dropdown.account > a:active {
+/*end box info*/
+.nav > li.dropdown.account > a:focus, .nav > li.dropdown.account > a:hover, .nav > li.dropdown.account > a:active,
+.nav > li#cart > a:focus, .nav > li#cart > a:hover, .nav > li#cart > a:active{
 	background-color: transparent;
 	color: inherit;
 }
@@ -195,7 +240,7 @@ body {
 	width: 15px;
 	height: 15px;
 	position: absolute;
-	right: -7px;
+	right: 0px;
 	top: -5px;
 	z-index: 9999;
 	color: white;
@@ -203,21 +248,20 @@ body {
 	font-weight: bold;
 	text-align: center;
 	font-family: lato;
-	padding-top: 2px;
+	padding-top: 1px;
+}
+
+.breadcrumbs{
+	padding: 0 30px;
+	margin: 20px auto;
+	font-size: 14px;
 }
 
 /*Login modal*/
-#login {
-	margin-top: 50px;
+.modal .modal-dialog .modal-content {
 	border-radius: 0px;
 }
 
-/*#forget_pass{
-	float: right;
-	font-size: 80%;
-	position: relative;
-	top: -10px;
-}*/
 .panel-title {
 	border-bottom: solid 1px #888;
 	padding-bottom: 13px;
@@ -260,6 +304,60 @@ i.fa.fa-sign-in {
 .panel.panel-info {
 	margin-bottom: 0;
 }
+/*End login modal*/
+
+/*Register modal*/
+#signup{
+	margin-top: 50px;
+	border-radius: 0px;
+}
+#signin{
+	float: right;
+	font-size: 80%;
+	position: relative;
+	top: -20px;
+}
+
+#signin > a {
+	color: #000;
+}
+
+#signin > a:hover {
+	color: #dbdbdb;
+	text-decoration: none;
+}
+
+#signup-panel-heading {
+	background-color: #fff;
+	border-color: #fff;
+	color: #000000;
+	padding-top: 15px;
+}
+
+.panel-title {
+	border-bottom: solid 1px #888;
+	padding-bottom: 13px;
+}
+
+#login_or{
+	text-align: center;
+	font-size: 12px;
+	color: #999;
+	position: relative;
+	display: table;
+	white-space: nowrap;
+	margin-top: 15px;
+}
+i.fa.fa-facebook {
+	margin-right: 10px;
+}
+i.fa.fa-sign-in {
+	margin-right: 10px;
+}
+.panel.panel-info {
+	margin-bottom: 0;
+}
+/*End register modal*/
 
 #myCarousel img {
 	width: 100%;
@@ -630,8 +728,6 @@ i.fa.fa-sign-in {
 
 .detail-p {
 	overflow: auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
 }
 
 .detail-p img {
@@ -842,11 +938,11 @@ i.fa.fa-sign-in {
 }
 
 .filter ul {
-	padding: 10px 0px 20px 20px;
+	padding: 0px 0px 20px 20px;
 }
 
 .filter form {
-	padding: 10px 0px 20px 20px;
+	padding: 10px 0px 0px 20px;
 }
 
 .filter form .mausac, .filter form .kichco {
@@ -855,6 +951,7 @@ i.fa.fa-sign-in {
 
 .filter #amount {
 	border: none;
+	width: 50%;
 }
 
 .filter .ui-slider-horizontal {
@@ -989,6 +1086,32 @@ footer li {
 	}
 }
 
+/*Back to top style*/
+#topcontrol {
+	background-color: #ee3b27;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	border: 1px solid #ee3b27;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+}
+#topcontrol:hover {
+	background: transparent;
+	color: #ee3b27;
+}
+#topcontrol .fa {
+	position: relative;
+	top: 3px;
+	font-size: 25px;
+}
 
 
 
