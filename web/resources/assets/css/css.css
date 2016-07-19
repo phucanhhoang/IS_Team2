@@ -133,10 +133,11 @@ body {
 	top: 20px;
 	box-shadow: none;
 }
-.dropdown:hover .dropdown-menu, .dropdown.account:hover .dropdown-menu {
+.dropdown.open-hover:hover .dropdown-menu {
 	display: block;
 	margin-top: 0; // remove the gap so it doesn't close
 }
+
 
 .navbar {
 	margin-bottom: 0;
@@ -163,7 +164,7 @@ body {
 #myNav ul:nth-of-type(1) ul {
 	margin-top: 25px;
 }
-#myNav ul:nth-of-type(2) ul{
+#myNav ul:nth-of-type(2) ul, #myNav ul:nth-of-type(2) div{
 	margin-top: 20px;
 }
 
@@ -198,6 +199,15 @@ body {
 .nav > li.dropdown.account > a, .nav > li#cart > a {
 	padding: 0 10px;
 }
+
+div.box-cart{
+	width: 300px;
+	padding: 10px 15px;
+}
+div.box-cart .title{
+	text-align: center;
+}
+
 /*box info*/
 ul.box-info{
 	padding: 0;
@@ -210,10 +220,11 @@ ul.box-info.box-info-border{
 ul.box-info > li{
 	padding: 8px 15px;
 }
-
 /*end box info*/
-.nav > li.dropdown.account > a:focus, .nav > li.dropdown.account > a:hover, .nav > li.dropdown.account > a:active,
-.nav > li#cart > a:focus, .nav > li#cart > a:hover, .nav > li#cart > a:active{
+
+.nav > li.dropdown.account > a:focus, .nav > li.dropdown.account > a:hover,
+.nav > li.dropdown.account > a:active, .nav > li.dropdown.account > a:visited
+.nav > li#cart > a:focus, .nav > li#cart > a:hover, .nav > li#cart > a:active, .nav > li#cart > a:visited{
 	background-color: transparent;
 	color: inherit;
 }
@@ -249,6 +260,11 @@ ul.box-info > li{
 	text-align: center;
 	font-family: lato;
 	padding-top: 1px;
+}
+
+.navbar-toggle{
+	background-color: #ee3b27;
+	border-color: #ee3b27;
 }
 
 .breadcrumbs{
@@ -361,7 +377,14 @@ i.fa.fa-sign-in {
 
 #myCarousel img {
 	width: 100%;
-	height: auto;
+	height: 525px;
+}
+
+@media only screen and (max-width: 1024px){
+	#myCarousel img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .elements {
@@ -1038,16 +1061,8 @@ footer li {
 		width: 100%;
 	}
 
-	.elements .left {
-		padding: 0px 20px;
-	}
-
-	.elements .middle {
-		padding: 0px 20px;
-	}
-
-	.elements .right {
-		padding: 0px 20px;
+	.elements .left,.elements .middle, .elements .right {
+		padding: 10px 20px;
 	}
 
 	.elements .policy {
@@ -1113,6 +1128,54 @@ footer li {
 	font-size: 25px;
 }
 
+/*Alert style*/
+.alert .close {
+	margin-left: 30px;
+	line-height: 0.8;
+}
+
+#myAlert, #ajaxAlert {
+	position: fixed;
+	top: 10px;
+	z-index: 9999;
+	padding-bottom: 10px;
+}
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+	position: relative;
+	min-height: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.col-xs-5ths {
+	width: 20%;
+	float: left;
+}
+
+@media (min-width: 768px) {
+	.col-sm-5ths {
+		width: 20%;
+		float: left;
+	}
+}
+
+@media (min-width: 992px) {
+	.col-md-5ths {
+		width: 20%;
+		float: left;
+	}
+}
+
+@media (min-width: 1200px) {
+	.col-lg-5ths {
+		width: 20%;
+		float: left;
+	}
+}
 
 
 

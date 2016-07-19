@@ -38,8 +38,8 @@ Route::get('category', function () {
 Route::get('product', function () {
     return view('pages.product');
 });
-Route::get('cart', function () {
-    return view('pages.cart');
+Route::get('checkout', function () {
+    return view('pages.checkout');
 });
 
 Route::get('sendemail', function () {
@@ -66,6 +66,7 @@ Route::post('check/captcha', 'HelperController@checkCaptcha');
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'adpage'], function () {
     Route::get('/', 'HomeController@adminHomePage');
+
 });
 
 Route::controllers([

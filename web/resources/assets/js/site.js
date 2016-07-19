@@ -82,7 +82,6 @@ $(document).ready(function () {
         }
     });
 
-
     //Thong tin san pham
     var mausac_c = $('.mausac input').length;
     for (var i = 1; i <= mausac_c; i++) {

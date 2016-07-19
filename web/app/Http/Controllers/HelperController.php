@@ -32,7 +32,7 @@ class HelperController extends Controller
     }
 
     public function checkCaptcha(Request $request){
-        $rules = ['captcha' => 'captcha'];
+        $rules = ['captcha' => 'required|captcha'];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails())
         {

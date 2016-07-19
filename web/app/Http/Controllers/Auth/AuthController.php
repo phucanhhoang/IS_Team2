@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -91,7 +91,7 @@ class AuthController extends Controller
                 }
             }
         } else {
-            $data['autoOpenModal'] = true;
+            $data['openLoginModal'] = true;
             return redirect()->away($request->rtn_url)
                 ->withInput($data);
         }
@@ -153,34 +153,64 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
-    public function postRegister(RegisterRequest $request, AppMailer $mailer)
+    public function postRegister(Request $request, AppMailer $mailer)
     {
-        $customer = new Customer;
-        $customer->name = $request->name;
-        $customer->phone = $request->phone;
-        $check = $customer->save();
-
-        if ($check) {
-            $user = new User;
-            $user->password = Hash::make($request->password);
-            $user->email = $request->email;
-            $user->remember_token = $request->_token;
-            $user->userable_id = $customer->id;
-            $user->userable_type = 'customer';
-            $check = $user->save();
-        }
-
-        if ($check) {
-            $mailer->sendEmailConfirmationTo();
+        $rules = [
+            'name' => 'required',
+            'password' => 'required|confirmed|min:8',
+            'phone' => 'required|digits_between:10,11',
+            'email' => 'required|email|unique:users,email',
+            'captcha' => 'required|captcha'
+        ];
+        $messages = [
+            'name.required' => 'Vui lòng nhập họ tên',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.confirmed' => 'Mật khẩu chưa khớp',
+            'password.min' => 'Mật khẩu phải từ 8 ký tự trở lên',
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.digits_between' => 'Số điện thoại phải từ 10 đến 11 số',
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email sai định dạng',
+            'email.unique' => 'Email đã tồn tại',
+            'captcha.required' => 'Vui lòng nhập Captcha',
+            'captcha.captcha' => 'Vui lòng nhập đúng Captcha',
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails())
+        {
+            $data['openRegisterModal'] = true;
             return redirect()->away($request->rtn_url)
-                ->with('message', 'Đăng ký thành công!')
-                ->with('alert-class', 'alert-success')
-                ->with('fa-class', 'fa-check');
-        } else {
-            return redirect('auth/register')
-                ->with('alert-class', 'alert-danger')
-                ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
-                ->with('fa-class', 'fa-ban');
+                ->withInput($data)->withErrors($validator);
+        }
+        else
+        {
+            $customer = new Customer;
+            $customer->name = $request->name;
+            $customer->phone = $request->phone;
+            $check = $customer->save();
+
+            if ($check) {
+                $user = new User;
+                $user->password = Hash::make($request->password);
+                $user->email = $request->email;
+                $user->remember_token = $request->_token;
+                $user->userable_id = $customer->id;
+                $user->userable_type = 'customer';
+                $check = $user->save();
+            }
+
+            if ($check) {
+//            $mailer->sendEmailConfirmationTo();
+                return redirect()->away($request->rtn_url)
+                    ->with('message', 'Đăng ký thành công!')
+                    ->with('alert-class', 'alert-success')
+                    ->with('fa-class', 'fa-check');
+            } else {
+                return redirect('auth/register')
+                    ->with('alert-class', 'alert-danger')
+                    ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
+                    ->with('fa-class', 'fa-ban');
+            }
         }
     }
 }

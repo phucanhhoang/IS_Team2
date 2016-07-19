@@ -26,9 +26,13 @@ Stylitics - Home page
 <div class="elements">
     <div class="col-xm-12 col-sm-4 left">
         <a href="{{asset('category')}}"><img src="{{asset('../resources/assets/image/shirt.jpg')}}"/><span>ÁO</span></a>
-        <div class="policy"><p><span><i
-                        class="fa fa-truck"></i> MIỄN PHÍ GIAO HÀNG<br/><span>với hóa đơn trên 500.000đ</span></span>
-            </p></div>
+        <div class="policy">
+            <p>
+                <span>
+                    <i class="fa fa-truck"></i> MIỄN PHÍ GIAO HÀNG<br/><span>với hóa đơn trên 500.000đ</span>
+                </span>
+            </p>
+        </div>
     </div>
 
     <div class="col-xm-12 col-sm-4 middle">
@@ -43,7 +47,7 @@ Stylitics - Home page
 </div>
 <div class="list-products">
     <p><span>SẢN PHẨM MỚI</span></p>
-    <div class="col-sm-4 col-md-3 product">
+    <div class="col-md-5ths col-xs-6 product">
         <div>
             <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-2x"></i></a>
@@ -51,7 +55,7 @@ Stylitics - Home page
         <p style="margin-top:20px;">MIDNIGHT LOVER DRESS<br/><span>200.000đ</span></p>
     </div>
 
-    <div class="col-sm-4 col-md-3 product">
+    <div class="col-md-5ths col-xs-6 product">
         <div>
             <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-2x"></i></a>
@@ -59,7 +63,7 @@ Stylitics - Home page
         <p style="margin-top:20px;">MIDNIGHT LOVER DRESS<br/><span>200.000đ</span></p>
     </div>
 
-    <div class="col-sm-4 col-md-3 product">
+    <div class="col-md-5ths col-xs-6 product">
         <div>
             <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-2x"></i></a>
@@ -67,7 +71,15 @@ Stylitics - Home page
         <p style="margin-top:20px;">MIDNIGHT LOVER DRESS<br/><span>200.000đ</span></p>
     </div>
 
-    <div class="col-sm-4 col-md-3 product">
+    <div class="col-md-5ths col-xs-6 product">
+        <div>
+            <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-2x"></i></a>
+        </div>
+        <p style="margin-top:20px;">MIDNIGHT LOVER DRESS<br/><span>200.000đ</span></p>
+    </div>
+
+    <div class="col-md-5ths col-xs-6 product">
         <div>
             <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-2x"></i></a>

@@ -106,30 +106,7 @@ Stylitics - Product page
             </div>
         </form>
     </div>
-    <div class="col-md-3 col-sm-3">
-        <ul class="box-info">
-            <li style="padding-top: 15px">
-                <i class="fa fa-truck" style="font-size: 40px; width:25%; float: left; text-align: center"></i>
-                <span style="font-size: 18px; font-weight: bold">Miễn phí vận chuyển</span>
-                <br>
-                <span class="small">với hóa đơn trên 500.000đ</span>
-            </li>
-            <li>
-                <span class="fa fa-map-marker" style="font-size: 40px; width:25%; text-align: center"></span>
-                <span style="font-size: 18px; font-weight: bold; position:relative; bottom:10px; left:-3px">Giao hàng toàn quốc</span>
-            </li>
-            <li>
-                <span class="fa fa-refresh" style="font-size: 40px; width:25%; text-align: center"></span>
-                <span style="font-size: 18px; font-weight: bold; position:relative; bottom:10px; left:-3px">Đổi trả trong 3 ngày</span>
-            </li>
-        </ul>
-        <ul class="box-info box-info-border" style="margin-top: 30px">
-            <li style="font-weight: bold">Tel: 04.7303.0222(#102)</li>
-            <li style="font-weight: bold">Hotline: 0934593585</li>
-            <li style="font-weight: bold">E-mail: saleonline@stylitics.vn</li>
-            <li>Thứ 2 - thứ 6 : 9AM - 22PM</li>
-        </ul>
-    </div>
+
 </div>
 @stop
 

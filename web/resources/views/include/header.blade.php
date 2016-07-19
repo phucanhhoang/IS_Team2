@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="myNav">
             <ul class="nav navbar-nav">
                 <li><a class="active" href="{{asset('')}}">TRANG CHỦ</a></li>
-                <li class="dropdown">
+                <li class="dropdown open-hover">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">ÁO <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Áo phông</a></li>
@@ -24,9 +24,33 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li><input type="text"/></li>
-                <li id="cart">
-                    <a href="{{asset('cart')}}"><i class="fa fa-shopping-cart fa-2x"></i></a>
+                <li id="cart" class="dropdown account">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
                     <span id="cart-num">2</span>
+                    <div class="dropdown-menu box-cart">
+                        <p class="title">Mặt hàng đã thêm</p>
+                        <table class="table">
+                            <tr>
+                                <td width="20%"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"
+                                         style="width: 100%;height: auto"/></td>
+                                <td>
+                                    MIDNIGHT LOVER DRESS
+                                    <br>
+                                    2 x 200.000đ
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"
+                                         style="width: 100%;height: auto"/></td>
+                                <td>
+                                    MIDNIGHT LOVER DRESS
+                                    <br>
+                                    2 x 200.000đ
+                                </td>
+                            </tr>
+                        </table>
+                        <a href="{{asset('checkout')}}" class="bt-link pull-right" style="margin-bottom: 5px" >ĐẶT HÀNG</a>
+                    </div>
                 </li>
                 <li class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>
@@ -58,7 +82,7 @@
             <div class="modal-body">
                 @if (count($errors) > 0)
                 <div id="login_alert" class="alert alert-danger">
-                    <ul>
+                    <ul style="list-style-type: inherit">
                         @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
                         @endforeach
@@ -114,7 +138,7 @@
             <div class="modal-body">
                     @if (count($errors) > 0)
                     <div id="login_alert" class="alert alert-danger">
-                        <ul>
+                        <ul style="list-style-type: inherit">
                             @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>
                             @endforeach
@@ -124,7 +148,7 @@
                     <form id="register_form" class="form-horizontal" role=="form" action="{{asset('auth/register')}}"
                           method="post">
                         <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
-                        <input type="hidden" name="rtn_url" value="{{URL::previous()}}"/>
+                        <input type="hidden" name="rtn_url" value="{{URL::current()}}"/>
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Họ và tên</label>
                             <div class="col-md-8">
@@ -135,7 +159,7 @@
                         <div class="form-group">
                             <label for="password" class="col-md-4 control-label">Mật khẩu</label>
                             <div class="col-md-8">
-                                <input type="password" name="password" class="form-control" placeholder="Mật khẩu từ 8 ký tự">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu từ 8 ký tự">
                             </div>
                         </div>
 
@@ -175,7 +199,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-4 col-md-8">
-                                <input id="btn-register" type="submit" name="register" value="ĐĂNG KÝ" />
+                                <input id="btn-register" type="submit" value="ĐĂNG KÝ" />
 
                             </div>
                         </div>
@@ -196,6 +220,106 @@
 </div>
 
 <script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        if ({{Input::old('openLoginModal', 'false')}})
+        {
+            $('#error_msg').html('E-mail hoặc mật khẩu không chính xác.');
+            $('#login_modal').modal('show');
+        }
+        if ({{Input::old('openRegisterModal', 'false')}})
+        {
+            $('#register_modal').modal('show');
+        }
+        //----------------Validate form--------------------//
+        $("#login_form").validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                email: {
+                    required: "Vui lòng nhập E-mail",
+                    email: "Vui lòng nhập đúng định dạng E-mail"
+                },
+                password: {
+                    required: "Vui lòng nhập Password"
+                }
+            }
+        });
+        jQuery.validator.addMethod("phoneno", function (phone_number, element) {
+            phone_number = phone_number.replace(/\s+/g, "");
+            return this.optional(element) || phone_number.length > 9 &&
+                phone_number.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
+        }, "Vui lòng nhập đúng số điện thoại");
+//        $("#register_form").validate({
+//            rules: {
+//                name: 'required',
+//                password: {
+//                    required: true,
+//                    minlength: 8
+//                },
+//                password_confirmation: {
+//                    required: true,
+//                    equalTo: "#password",
+//                    minlength: 8
+//                },
+//                phone: {
+//                    required: true,
+//                    phoneno: true,
+//                    minlength: 10,
+//                    maxlength: 11
+//                },
+//                email: {
+//                    required: true,
+//                    email: true,
+//                    remote: {
+//                        url: "{{asset('checkexist/email')}}",
+//                        type: 'POST'
+//                    }
+//                },
+//                captcha: {
+//                    required: true,
+//                    remote:{
+//                        url: "{{asset('check/captcha')}}",
+//                        type: 'POST'
+//                    }
+//                }
+//            },
+//            messages: {
+//                name: "Vui lòng nhập họ tên",
+//                password: {
+//                    required: "Vui lòng nhập mật khẩu",
+//                    minlength: "Mật khẩu phải từ 8 ký tự trở lên"
+//                },
+//                password_confirmation: {
+//                    required: "Vui lòng xác nhận mật khẩu",
+//                    equalTo: "Mật khẩu không khớp nhau"
+//                },
+//                phone: {
+//                    required: "Vui lòng nhập số điện thoại"
+//                },
+//                email: {
+//                    required: "Vui lòng nhập E-mail",
+//                    email: "Vui lòng nhập đúng định dạng E-mail",
+//                    remote: "Địa chỉ E-mail đã tồn tại"
+//                },
+//                captcha: {
+//                    required: "Vui lòng nhập mã captcha",
+//                    remote: "Nhập sai mã captcha"
+//                }
+//            }
+//        });
+    });
+    $('#btn-login').click(function () {
+        $('#error_msg').html('');
+    });
+</script>
 <script>
     function refreshCaptcha() {
         $.ajax({

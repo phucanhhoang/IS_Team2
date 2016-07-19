@@ -42,7 +42,7 @@
 </div>
 @endif
 {{-- Content --}}
-<div class="container" style="margin-top: 30px; margin-bottom: 30px">
+<div class="container" style="margin-top: 40px; margin-bottom: 40px">
     <!--sidebar content-->
     @include('include.sidebar')
     <!--main content-->
