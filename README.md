@@ -1,37 +1,27 @@
-##Hướng dẫn sử dụng git:
-###1. Clone project về máy local:
-git clone https://github.com/phucanhhoang/IS_Team2.git
+## Laravel PHP Framework
 
-###2. Setting remote:
-git remote add origin https://github.com/phucanhhoang/IS_Team2.git
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-###3. Pull code ve(update code tu git ve):
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-git pull origin master
+Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-###4. Push:
-git add .		(add file can push, "." là add toàn bộ file đã sửa)
+## Official Documentation
 
-git commit -m "your name: giai thich update cai gi"         
-//ví dụ: git commit -m "update class UserController"
+Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-git push -u origin master            
-//(chắc chắn phải có -u, để check xem code của bạn đã là code mới nhất chưa, nếu chưa thì git pull nhé)
+## Contributing
 
-##Hướng dẫn cài đặt thư mục vendor cho laravel:
-php composer.phar install
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-##Huong dan su dung Migrate:
-###1. Sau khi clone code or pull code ve, tao moi database "it4895", sau đó chạy lệnh:
+## Security Vulnerabilities
 
-php artisan migrate
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-###2. Neu da ton tai database truoc do, refesh database de cap nhat thay doi:
+### License
 
-php artisan migrate:refresh
-
-##Hướng dẫn sử dụng Seeder:
-
-Điều kiện: đã có cơ sở dữ liệu phía trên, chưa có dữ liệu gì cả
-
-php artisan db:seed
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
