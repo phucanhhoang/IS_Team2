@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cfb99af-f18b-4e65-9876-f027e476256a" name="Default" comment="">
+    <list default="true" id="3cfb99af-f18b-4e65-9876-f027e476256a" name="Default" comment="update giao diện trang thanh toán">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/resources/assets/image/sanpham1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/resources/assets/image/sanpham2.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/assets/image/sanpham.jpg" afterPath="$PROJECT_DIR$/web/resources/assets/image/sanpham.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/web/app/Http/Controllers/Auth/AuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app/Http/Controllers/HelperController.php" afterPath="$PROJECT_DIR$/web/app/Http/Controllers/HelperController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app/Http/routes.php" afterPath="$PROJECT_DIR$/web/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/assets/css/css.css" afterPath="$PROJECT_DIR$/web/resources/assets/css/css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/assets/js/site.js" afterPath="$PROJECT_DIR$/web/resources/assets/js/site.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/category_layout.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/category_layout.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/include/header.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/include/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/layout.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/layout.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/pages/category.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/pages/category.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/pages/home.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/pages/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/views/pages/product.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/pages/product.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/resources/views/pages/cart.blade.php" afterPath="$PROJECT_DIR$/web/resources/views/pages/checkout.blade.php" />
     </list>
     <ignored path="IS_Team2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,6 +26,13 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -59,18 +63,18 @@
       <file leaf-file-name="product.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/views/pages/product.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-33.076923">
-              <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="10" column="6" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/views/pages/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.653846">
-              <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.29802513">
+              <caret line="357" column="48" selection-start-line="357" selection-start-column="48" selection-end-line="357" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -79,33 +83,31 @@
       <file leaf-file-name="category.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/views/pages/category.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="37" />
+            <state vertical-scroll-proportion="-3.9230769">
+              <caret line="6" column="122" selection-start-line="6" selection-start-column="122" selection-end-line="6" selection-end-column="122" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.9230769">
+              <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/assets/js/site.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#50#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category_layout.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="category_layout.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/views/category_layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24416517">
-              <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,8 +115,8 @@
       <file leaf-file-name="css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/assets/css/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="48.963413">
-              <caret line="568" column="13" selection-start-line="568" selection-start-column="6" selection-end-line="568" selection-end-column="13" />
+            <state vertical-scroll-proportion="-1.2073171">
+              <caret line="604" column="21" selection-start-line="604" selection-start-column="21" selection-end-line="604" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -133,9 +135,13 @@
       <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/resources/views/include/header.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="106" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="106" />
-              <folding />
+            <state vertical-scroll-proportion="-30.076923">
+              <caret line="135" column="58" selection-start-line="135" selection-start-column="58" selection-end-line="135" selection-end-column="58" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,7 +176,6 @@
         <option value="$PROJECT_DIR$/web/.env.example" />
         <option value="$PROJECT_DIR$/web/resources/assets/js/jquery/jquery.js" />
         <option value="$PROJECT_DIR$/web/app/Http/Requests/LoginRequest.php" />
-        <option value="$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/web/resources/assets/js/back-to-top.js" />
         <option value="$PROJECT_DIR$/web/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/web/resources/views/include/footer.blade.php" />
@@ -181,13 +186,14 @@
         <option value="$PROJECT_DIR$/web/resources/assets/js/site.js" />
         <option value="$PROJECT_DIR$/web/resources/views/pages/cart.blade.php" />
         <option value="$PROJECT_DIR$/web/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/web/resources/views/include/header.blade.php" />
         <option value="$PROJECT_DIR$/web/resources/views/pages/checkout.blade.php" />
         <option value="$PROJECT_DIR$/web/resources/views/pages/product.blade.php" />
+        <option value="$PROJECT_DIR$/web/resources/views/include/header.blade.php" />
+        <option value="$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/web/resources/views/category_layout.blade.php" />
+        <option value="$PROJECT_DIR$/web/resources/views/pages/category.blade.php" />
         <option value="$PROJECT_DIR$/web/resources/assets/css/css.css" />
         <option value="$PROJECT_DIR$/web/resources/views/pages/home.blade.php" />
-        <option value="$PROJECT_DIR$/web/resources/views/pages/category.blade.php" />
-        <option value="$PROJECT_DIR$/web/resources/views/category_layout.blade.php" />
       </list>
     </option>
   </component>
@@ -231,9 +237,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1467,7 +1473,8 @@
       <workItem from="1468812917659" duration="16268000" />
       <workItem from="1468892731462" duration="10083000" />
       <workItem from="1468911309333" duration="6398000" />
-      <workItem from="1468923654659" duration="1353000" />
+      <workItem from="1468923654659" duration="1395000" />
+      <workItem from="1469066163219" duration="19523000" />
     </task>
     <task id="LOCAL-00001" summary="merge code">
       <created>1468296050328</created>
@@ -1493,11 +1500,17 @@
       <option name="project" value="LOCAL" />
       <updated>1468838461560</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update giao diện trang thanh toán">
+      <created>1468925040305</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1468925040305</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95713000" />
+    <option name="totallyTimeSpent" value="115278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1512,7 +1525,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1770,13 +1783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/assets/js/back-to-top.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20411664">
@@ -1872,7 +1878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1909,14 +1914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/views/include/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="106" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/views/pages/checkout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1925,45 +1922,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/views/include/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.076923">
+          <caret line="135" column="58" selection-start-line="135" selection-start-column="58" selection-end-line="135" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/views/pages/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.076923">
-          <caret line="62" column="24" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="10" column="6" selection-start-line="6" selection-start-column="0" selection-end-line="10" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/views/pages/home.blade.php">
+    <entry file="file://$PROJECT_DIR$/web/resources/views/include/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.653846">
-          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/assets/css/css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="48.963413">
-          <caret line="568" column="13" selection-start-line="568" selection-start-column="6" selection-end-line="568" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/views/pages/category.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="37" />
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/views/category_layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24416517">
-          <caret line="39" column="78" selection-start-line="39" selection-start-column="78" selection-end-line="39" selection-end-column="78" />
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/views/pages/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="122" selection-start-line="6" selection-start-column="122" selection-end-line="6" selection-end-column="122" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/assets/css/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2073171">
+          <caret line="604" column="21" selection-start-line="604" selection-start-column="21" selection-end-line="604" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/views/pages/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29802513">
+          <caret line="357" column="48" selection-start-line="357" selection-start-column="48" selection-end-line="357" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

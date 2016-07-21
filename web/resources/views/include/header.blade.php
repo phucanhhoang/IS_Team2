@@ -28,15 +28,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
                     <span id="cart-num">2</span>
                     <div class="dropdown-menu box-cart">
-                        <p class="title">Mặt hàng đã thêm</p>
-                        <table class="table">
+                        <p class="title">GIỎ HÀNG</p>
+                        <table class="table" style="border-bottom: 1px solid #ddd">
                             <tr>
                                 <td width="20%"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
                                     MIDNIGHT LOVER DRESS
                                     <br>
-                                    2 x 200.000đ
+                                    <input type="number" value="2" /> x 200.000đ
                                 </td>
                             </tr>
                             <tr>
@@ -45,10 +45,11 @@
                                 <td>
                                     MIDNIGHT LOVER DRESS
                                     <br>
-                                    2 x 200.000đ
+                                    <input type="number" value="2" /> x 200.000đ
                                 </td>
                             </tr>
                         </table>
+                        <span id="cart_total" style="font-weight: bold;line-height: 2.8;">Tổng tiền: 800.000đ</span>
                         <a href="{{asset('checkout')}}" class="bt-link pull-right" style="margin-bottom: 5px" >ĐẶT HÀNG</a>
                     </div>
                 </li>
@@ -132,7 +133,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Đăng nhập tài khoản</h4>
+                <h4 class="modal-title">Đăng ký thành viên</h4>
             </div>
 
             <div class="modal-body">
@@ -231,6 +232,11 @@
         {
             $('#register_modal').modal('show');
         }
+
+        $("div.dropdown-menu.box-cart").click(function(e) {
+            e.stopPropagation();
+        });
+
         //----------------Validate form--------------------//
         $("#login_form").validate({
             rules: {

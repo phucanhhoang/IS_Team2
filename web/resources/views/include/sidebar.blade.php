@@ -1,10 +1,13 @@
 <div class="col-sm-3">
     <div class="col-sm-12 filter">
-        <p class="title">Áo</p>
-        <ul class="menu">
+        <p class="title">DANH MỤC SẢN PHẨM</p>
+        <ul class="p-menu">
             <li><a href="#">Áo sát nách</a></li>
             <li><a href="#">Áo thun</a></li>
-            <li><a href="#">Áo sơmi</a></li>
+            <li><a href="#" class="active">Áo sơ mi</a></li>
+            <li><a href="#">Quần Jeans</a></li>
+            <li><a href="#">Quần short</a></li>
+            <li><a href="#">Quần lửng</a></li>
         </ul>
 
         <p class="title">TÌM KIẾM THEO</p>

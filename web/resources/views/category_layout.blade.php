@@ -31,9 +31,13 @@
 
 <!--header outside class container because header in full screens-->
 @include('include.header')
-
-<img src="{{asset('../resources/assets/image/shirt-cover.jpg')}}" style="width: 100%; height: 100%" />
-
+<nav class="container breadcrumbs">
+    <a href="{{asset('/')}}">Trang chủ</a>
+    <span class="divider">›</span>
+    <a href="{{asset('/')}}">Áo</a>
+    <span class="divider">›</span>
+    Áo sơ mi
+</nav>
 @if (session('message'))
 <div class="alert {{session('alert-class')}} alert-dismissable fade in"
      style="position: fixed;top: 10px;left: 30%;width: 40%;">
@@ -42,7 +46,7 @@
 </div>
 @endif
 {{-- Content --}}
-<div class="container" style="margin-top: 40px; margin-bottom: 40px">
+<div class="container">
     <!--sidebar content-->
     @include('include.sidebar')
     <!--main content-->
