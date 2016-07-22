@@ -30,6 +30,8 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleFacebookCallback
 //Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
+Route::get('auth/logout', 'Auth\AuthController@logout');
+
 Route::get('refereshcapcha', 'HelperController@refereshCapcha');
 
 Route::get('category', function () {
@@ -64,13 +66,48 @@ Route::post('checkexist/email', 'HelperController@checkEmail');
 Route::post('check/captcha', 'HelperController@checkCaptcha');
 
 //----------------------- Admin zone -------------------------------//
-Route::group(['prefix' => 'adpage'], function () {
-    Route::get('/', 'HomeController@adminHomePage');
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/', [
+        'as' => 'admin.home',
+        'uses' => 'HomeController@adminHomePage'
+    ]);
 
+    Route::group(['prefix' => 'category'], function(){
+        Route::get('add', [
+            'as' => 'admin.category.getAddCat',
+            'uses' => 'CategoryController@getAddCat'
+        ]);
+        Route::post('add', [
+            'as' => 'admin.category.postAddCat',
+            'uses' => 'CategoryController@postAddCat'
+        ]);
+        Route::get('edit', [
+            'as' => 'admin.category.getEditCat',
+            'uses' => 'CategoryController@getEditCat'
+        ]);
+        Route::get('list', [
+            'as' => 'admin.category.getListCat',
+            'uses' => 'CategoryController@getListCat'
+        ]);
+    });
+
+    Route::group(['prefix' => 'product'], function(){
+        Route::get('add', [
+            'as' => 'admin.product.getAddPro',
+            'uses' => 'ProductController@getAddPro'
+        ]);
+        Route::post('add', [
+            'as' => 'admin.product.postAddPro',
+            'uses' => 'ProductController@postAddPro'
+        ]);
+        Route::get('edit', [
+            'as' => 'admin.product.getEditPro',
+            'uses' => 'ProductController@getEditPro'
+        ]);
+        Route::get('list', [
+            'as' => 'admin.product.getListPro',
+            'uses' => 'ProductController@getListPro'
+        ]);
+    });
 });
-
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
 

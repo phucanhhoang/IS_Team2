@@ -19,26 +19,20 @@ return [
         'secret' => env('MAILGUN_SECRET'),
     ],
 
-    'mandrill' => [
-        'secret' => '',
-    ],
-
     'ses' => [
-        'key' => '',
-        'secret' => '',
+        'key' => env('SES_KEY'),
+        'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
 
-    'stripe' => [
-        'model' => 'App\User',
-        'key' => '',
-        'secret' => '',
+    'sparkpost' => [
+        'secret' => env('SPARKPOST_SECRET'),
     ],
 
-    'facebook' => [
-        'client_id' => '194334174266198',
-        'client_secret' => '8b24a6feee1aac64a3ce24a77ed9b5a4',
-        'redirect' => 'http://localhost:7070/public/auth/facebook/callback',
+    'stripe' => [
+        'model' => App\User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
     ],
 
 ];

@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -15,29 +14,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->morphs('userable');
-            $table->boolean('ban')->default(0);
-            $table->boolean('deleted')->default(0);
+            $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
-        });
-
-        Schema::create('social_account', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->string('provider_user_id');
-            $table->string('provider');
-            $table->timestamps();
-        });
-
-        Schema::create('customer', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 40);
-            $table->string('address', 200);
-            $table->string('district', 20);
-            $table->string('city', 20);
-            $table->string('phone', 11)->unique();
             $table->timestamps();
         });
     }
@@ -50,7 +30,5 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::drop('users');
-        Schema::drop('customer');
     }
-
 }

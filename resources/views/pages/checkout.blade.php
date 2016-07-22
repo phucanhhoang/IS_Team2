@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.master')
 @section('title')
 Stylitics - Product page
 @stop

@@ -1,4 +1,4 @@
-@extends('category_layout')
+@extends('layouts.category_layout')
 @section('title')
 Stylitics - Category page
 @stop

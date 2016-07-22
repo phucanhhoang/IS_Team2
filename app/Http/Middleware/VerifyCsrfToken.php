@@ -1,31 +1,17 @@
-<?php namespace App\Http\Middleware;
+<?php
 
-use Closure;
+namespace App\Http\Middleware;
+
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
 class VerifyCsrfToken extends BaseVerifier
 {
-
     /**
-     * Handle an incoming request.
+     * The URIs that should be excluded from CSRF verification.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
-     * @return mixed
+     * @var array
      */
-
-    //add an array of Routes to skip CSRF check
-    private $openRoutes = ['checkexist/email', 'check/captcha'];
-
-    public function handle($request, Closure $next)
-    {
-        //add this condition
-        foreach ($this->openRoutes as $route) {
-            if ($request->is($route)) {
-                return $next($request);
-            }
-        }
-        return parent::handle($request, $next);
-    }
-
+    protected $except = [
+        //
+    ];
 }
