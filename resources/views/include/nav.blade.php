@@ -18,7 +18,7 @@
 
     <div class="nav-s">
         <div class='col-12'>
-            <img src="{{asset('../resources/assets/image/icon-bar.png')}}" width="20" height="20" id="icon-bar"/>
+            <img src="{{asset('assets/image/icon-bar.png')}}" width="20" height="20" id="icon-bar"/>
             <p>MENU</p>
         </div>
         <ul class='col-12'>

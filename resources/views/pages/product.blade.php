@@ -11,14 +11,14 @@ Stylitics - Product page
 </nav>
 <div class="container detail-p">
     <div class="col-xs-12 col-sm-2 col-md-1 list">
-        <img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/>
-        <img src="{{asset('../resources/assets/image/sanpham1.jpg')}}"/>
-        <img src="{{asset('../resources/assets/image/sanpham2.jpg')}}"/>
+        <img src="{{asset('assets/image/sanpham.jpg')}}"/>
+        <img src="{{asset('assets/image/sanpham1.jpg')}}"/>
+        <img src="{{asset('assets/image/sanpham2.jpg')}}"/>
     </div>
 
     <div class="col-xs-12 col-sm-5 col-md-3 detail">
         <div class="large"></div>
-        <img class="small" src="{{asset('../resources/assets/image/sanpham.jpg')}}"/>
+        <img class="small" src="{{asset('assets/image/sanpham.jpg')}}"/>
     </div>
 
     <div class="col-xs-12 col-sm-5 col-md-5 info">

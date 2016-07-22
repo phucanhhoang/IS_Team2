@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="{{asset('')}}" class="navbar-brand"><img src="{{asset('../resources/assets/image/logo.png')}}"
+            <a href="{{asset('')}}" class="navbar-brand"><img src="{{asset('assets/image/logo.png')}}"
                                                               height="50px"></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
                 <i class="fa fa-bars fa-2x"></i>
@@ -31,7 +31,7 @@
                         <p class="title">GIỎ HÀNG</p>
                         <table class="table" style="border-bottom: 1px solid #ddd">
                             <tr>
-                                <td width="20%"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"
+                                <td width="20%"><img src="{{asset('assets/image/sanpham.jpg')}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
                                     MIDNIGHT LOVER DRESS
@@ -40,7 +40,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"
+                                <td><img src="{{asset('assets/image/sanpham.jpg')}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
                                     MIDNIGHT LOVER DRESS
@@ -220,7 +220,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
         if ({{Input::old('openLoginModal', 'false')}})

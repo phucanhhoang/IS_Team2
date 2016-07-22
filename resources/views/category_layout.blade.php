@@ -19,10 +19,10 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css"
-          href="{{asset('../resources/assets/css/font-awesome/css/font-awesome.min.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset('../resources/assets/bootstrap/css/bootstrap.min.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset('../resources/assets/css/jquery-ui.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{asset('../resources/assets/css/css.css')}}"/>
+          href="{{asset('assets/css/font-awesome/css/font-awesome.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/css.css')}}"/>
 
     @yield('style')
 </head>
@@ -57,11 +57,11 @@
 
 {{-- Footer --}}
 @include('include.footer')
-<script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('../resources/assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('../resources/assets/js/jquery/jquery-ui.js')}}"/></script>
-<script type="text/javascript" src="{{asset('../resources/assets/js/back-to-top.js')}}"></script>
-<script type="text/javascript" src="{{asset('../resources/assets/js/site.js')}}" ></script>
+<script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/jquery/jquery-ui.js')}}"/></script>
+<script type="text/javascript" src="{{asset('assets/js/back-to-top.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/js/site.js')}}" ></script>
 
 @yield('javascript')
 

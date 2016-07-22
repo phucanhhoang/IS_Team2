@@ -4,10 +4,10 @@ Stylitics - Category page
 @stop
 
 @section('content')
-<img src="{{asset('../resources/assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" />
+<img src="{{asset('assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" />
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -20,7 +20,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -33,7 +33,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -46,7 +46,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -59,7 +59,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -72,7 +72,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -85,7 +85,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">
@@ -98,7 +98,7 @@ Stylitics - Category page
 
 <div class="col-sm-3 col-md-3 product">
     <div class="p-img">
-        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
     </div>
     <div class="p-title">

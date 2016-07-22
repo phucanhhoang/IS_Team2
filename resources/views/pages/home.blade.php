@@ -13,19 +13,19 @@ Stylitics - Home page
 
     <div class='carousel-inner' role="listbox">
         <div class="item active">
-            <a href="#"><img src="{{asset('../resources/assets/image/slide-1.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/slide-1.jpg')}}"/></a>
         </div>
         <div class="item">
-            <a href="#"><img src="{{asset('../resources/assets/image/slide-2.png')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/slide-2.png')}}"/></a>
         </div>
         <div class="item">
-            <a href="#"><img src="{{asset('../resources/assets/image/slide-3.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/slide-3.jpg')}}"/></a>
         </div>
     </div>
 </div>
 <div class="elements">
     <div class="col-xm-12 col-sm-4 left">
-        <a href="{{asset('category')}}"><img src="{{asset('../resources/assets/image/shirt.jpg')}}"/><span>ÁO</span></a>
+        <a href="{{asset('category')}}"><img src="{{asset('assets/image/shirt.jpg')}}"/><span>ÁO</span></a>
         <div class="policy">
             <p>
                 <span>
@@ -36,11 +36,11 @@ Stylitics - Home page
     </div>
 
     <div class="col-xm-12 col-sm-4 middle">
-        <a href="#"><img src="{{asset('../resources/assets/image/dress.jpg')}}"/><span>VÁY<br/></span></a>
+        <a href="#"><img src="{{asset('assets/image/dress.jpg')}}"/><span>VÁY<br/></span></a>
     </div>
 
     <div class="col-xm-12 col-sm-4 right">
-        <a href="#"><img src="{{asset('../resources/assets/image/jean.jpg')}}"/><span>QUẦN</span></a>
+        <a href="#"><img src="{{asset('assets/image/jean.jpg')}}"/><span>QUẦN</span></a>
         <div class="policy"><p><span><i class="fa fa-refresh"></i> ĐỔI TRẢ<br/><span>trong vòng 3 ngày</span></span></p>
         </div>
     </div>
@@ -50,7 +50,7 @@ Stylitics - Home page
     <div class="heading"><span>SẢN PHẨM MỚI</span></div>
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -63,7 +63,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -80,7 +80,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -93,7 +93,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -106,7 +106,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -119,7 +119,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -132,7 +132,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -145,7 +145,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -158,7 +158,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -171,7 +171,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -200,7 +200,7 @@ Stylitics - Home page
             <div class="item active">
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -213,7 +213,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -230,7 +230,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -247,7 +247,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -260,7 +260,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -274,7 +274,7 @@ Stylitics - Home page
             <div class="item">
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -287,7 +287,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -304,7 +304,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -317,7 +317,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -330,7 +330,7 @@ Stylitics - Home page
 
                 <div class="col-md-5ths col-xs-6 product">
                     <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
                         <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
                     </div>
                     <div class="p-title">
@@ -358,7 +358,7 @@ Stylitics - Home page
     <div class="heading"><span>SẢN PHẨM BÁN CHẠY</span></div>
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -371,7 +371,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -388,7 +388,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -401,7 +401,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -414,7 +414,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -427,7 +427,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -440,7 +440,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -453,7 +453,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -466,7 +466,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -479,7 +479,7 @@ Stylitics - Home page
 
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="#"><img src="{{asset('../resources/assets/image/sanpham.jpg')}}"/></a>
+            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
