@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function showDetail($id){
         $product = Product::where('pro_id', '=', $id)->get();
-//        dd($product);
+        
         return view('pages.product', compact('product'));
     }
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
         $product->short_des   = $request->short_des;
     	$product->full_des    = $request->full_des;
         $product->image       = $file_name;
-        $target = 'resources/upload/images';
+        $target = 'upload/images';
         $request->file('image')->move($target, $file_name);
         $product->save();
 
