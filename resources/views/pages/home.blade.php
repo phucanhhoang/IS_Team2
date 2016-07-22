@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Stylitics - Home page
+Home page
 @stop
 
 @section('content')
@@ -48,143 +48,20 @@ Stylitics - Home page
 
 <div class="list-products">
     <div class="heading"><span>SẢN PHẨM MỚI</span></div>
+    @foreach($pros as $pro)
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+            <a href="{{asset('product/'.$pro->pro_id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
             <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
+                <span class="p-name">{{$pro->pro_name}}</span>
+                <span class="price-new pull-right">{{number_format($pro->price, 0, ',', '.')}}đ</span>
             </div>
         </div>
     </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="sale-label">SALE</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-            <div class="div-row">
-                <span class="p-name pull-left">ÁO SƠ MI</span>
-                <span class="price-old pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="sale-label">SALE</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-            <div class="div-row">
-                <span class="p-name pull-left">ÁO SƠ MI</span>
-                <span class="price-old pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
+    @endforeach
 </div>
 
 <div class="list-products list-p-slide">
@@ -241,6 +118,76 @@ Stylitics - Home page
                         <div class="div-row">
                             <span class="p-name pull-left">ÁO SƠ MI</span>
                             <span class="price-old pull-right">200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5ths col-xs-6 product">
+                    <div class="p-img">
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+                    </div>
+                    <div class="p-title">
+                        <div class="div-row">
+                            <span class="p-name">ÁO SƠ MI</span>
+                            <span class="price-new pull-right">200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5ths col-xs-6 product">
+                    <div class="p-img">
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+                    </div>
+                    <div class="p-title">
+                        <div class="div-row">
+                            <span class="p-name">ÁO SƠ MI</span>
+                            <span class="price-new pull-right">200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="col-md-5ths col-xs-6 product">
+                    <div class="p-img">
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+                    </div>
+                    <div class="p-title">
+                        <div class="div-row">
+                            <span class="p-name">ÁO SƠ MI</span>
+                            <span class="price-new pull-right">200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5ths col-xs-6 product">
+                    <div class="p-img">
+                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+                    </div>
+                    <div class="p-title">
+                        <div class="div-row">
+                            <span class="sale-label">SALE</span>
+                            <span class="price-new pull-right">200.000đ</span>
+                        </div>
+                        <div class="div-row">
+                            <span class="p-name pull-left">ÁO SƠ MI</span>
+                            <span class="price-old pull-right">200.000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-5ths col-xs-6 product">
+                    <div class="p-img">
+                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
+                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+                    </div>
+                    <div class="p-title">
+                        <div class="div-row">
+                            <span class="p-name">ÁO SƠ MI</span>
+                            <span class="price-new pull-right">200.000đ</span>
                         </div>
                     </div>
                 </div>

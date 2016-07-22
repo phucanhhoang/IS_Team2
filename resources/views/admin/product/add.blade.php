@@ -40,7 +40,15 @@
 					</div>
 					<div class="form-group">
 						<label for="cat_id">Product Category</label>
-						<input type="text" name="cat_id">
+						<select name="cat_id" class="form-control" required="required">
+							<option value="">Please choose a category</option>
+							<option value="2">Áo Phông</option>
+							<option value="3">Áo sơ mi</option>
+							<option value="5">Chân váy</option>
+							<option value="8">Quần short</option>
+							<option value="9">Quần jeans</option>
+							<option value="6">Váy dài</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="price">Price</label>

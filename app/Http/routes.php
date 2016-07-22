@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('home', 'HomeController@index');
-Route::get('index', 'HomeController@index');
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('index', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 //Login
 //Route::get('auth/login', ['as' => 'getLogin', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@postLogin']);
+
+Route::get('auth/logout', ['as' => 'Logout', 'uses' => 'Auth\AuthController@logout']);
 
 //Facebook login
 //Route::get('facebook', function () {
@@ -30,16 +32,12 @@ Route::get('auth/facebook/callback', 'Auth\AuthController@handleFacebookCallback
 //Route::get('auth/register', ['as' => 'getRegister', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
-Route::get('auth/logout', 'Auth\AuthController@logout');
-
 Route::get('refereshcapcha', 'HelperController@refereshCapcha');
 
 Route::get('category', function () {
     return view('pages.category');
 });
-Route::get('product', function () {
-    return view('pages.product');
-});
+Route::get('product/{id}', 'ProductController@showDetail');
 Route::get('checkout', function () {
     return view('pages.checkout');
 });
@@ -67,7 +65,7 @@ Route::post('check/captcha', 'HelperController@checkCaptcha');
 
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('/', [
+    Route::get('/home', [
         'as' => 'admin.home',
         'uses' => 'HomeController@adminHomePage'
     ]);

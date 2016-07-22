@@ -29,7 +29,7 @@
                     <span id="cart-num">2</span>
                     <div class="dropdown-menu box-cart">
                         <p class="title">GIỎ HÀNG</p>
-                        <table class="table" style="border-bottom: 1px solid #ddd">
+                        <table id="shopping_cart" class="table">
                             <tr>
                                 <td width="20%"><img src="{{asset('assets/image/sanpham.jpg')}}"
                                          style="width: 100%;height: auto"/></td>
@@ -38,6 +38,7 @@
                                     <br>
                                     <input type="number" value="2" /> x 200.000đ
                                 </td>
+                                <td><i class="fa fa-times-circle" </td>
                             </tr>
                             <tr>
                                 <td><img src="{{asset('assets/image/sanpham.jpg')}}"
@@ -47,6 +48,7 @@
                                     <br>
                                     <input type="number" value="2" /> x 200.000đ
                                 </td>
+                                <td><i class="fa fa-times-circle" </td>
                             </tr>
                         </table>
                         <span id="cart_total" style="font-weight: bold;line-height: 2.8;">Tổng tiền: 800.000đ</span>
@@ -96,7 +98,7 @@
                     <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
                     <input type="hidden" name="rtn_url" value="{{URL::previous()}}"/>
                     <div class="form-group">
-                        <input type="email" name="email" class="form-control" value="{{old('email')}}"
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}"
                                placeholder="E-mail">
                     </div>
                     <div class="form-group">
@@ -223,12 +225,12 @@
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
 <script>
     $(document).ready(function () {
-        if ({{Input::old('openLoginModal', 'false')}})
+        if ({{old('openLoginModal', 'false')}})
         {
             $('#error_msg').html('E-mail hoặc mật khẩu không chính xác.');
             $('#login_modal').modal('show');
         }
-        if ({{Input::old('openRegisterModal', 'false')}})
+        if ({{old('openRegisterModal', 'false')}})
         {
             $('#register_modal').modal('show');
         }
@@ -325,8 +327,7 @@
     $('#btn-login').click(function () {
         $('#error_msg').html('');
     });
-</script>
-<script>
+
     function refreshCaptcha() {
         $.ajax({
             url: "{{asset('refereshcapcha')}}",

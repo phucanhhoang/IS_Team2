@@ -11,20 +11,20 @@ Stylitics - Product page
 </nav>
 <div class="container detail-p">
     <div class="col-xs-12 col-sm-2 col-md-1 list">
-        <img src="{{asset('assets/image/sanpham.jpg')}}"/>
-        <img src="{{asset('assets/image/sanpham1.jpg')}}"/>
-        <img src="{{asset('assets/image/sanpham2.jpg')}}"/>
+<!--        <img src="{{asset('assets/image/sanpham.jpg')}}"/>-->
+<!--        <img src="{{asset('assets/image/sanpham1.jpg')}}"/>-->
+<!--        <img src="{{asset('assets/image/sanpham2.jpg')}}"/>-->
     </div>
 
     <div class="col-xs-12 col-sm-5 col-md-3 detail">
         <div class="large"></div>
-        <img class="small" src="{{asset('assets/image/sanpham.jpg')}}"/>
+        <img class="small" src="{{asset('upload/images/'.$product[0]->image)}}"/>
     </div>
 
     <div class="col-xs-12 col-sm-5 col-md-5 info">
         <div>
             <div class="div-1">
-                <p class="title">MIDNIGHT LOVER DRESS<span>200.000đ</span></p>
+                <p class="title">{{$product[0]->pro_name}}<span>{{number_format($product[0]->price, 0, ',', '.')}}đ</span></p>
                 <p>Chất liệu: cotton<br/>Đánh giá: 4.5</p>
             </div>
 
@@ -57,6 +57,10 @@ Stylitics - Product page
                     </div>
                 </div>
             </form>
+
+            <div class="div-1" style="text-align: justify">
+                {{$product[0]->short_des}}
+            </div>
 
             <div>
                 <div id="fb-root"></div>

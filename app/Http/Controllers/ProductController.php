@@ -8,6 +8,13 @@ use App\Category;
 use App\Product;
 class ProductController extends Controller
 {
+    public function showDetail($id){
+        $product = Product::where('pro_id', '=', $id)->get();
+//        dd($product);
+        return view('pages.product', compact('product'));
+    }
+
+    //Admin zone
     public function getListPro(){
         $products = Product::all();
     	return view('admin.product.list', compact('products'));

@@ -210,6 +210,21 @@ div.box-cart .title{
 	text-align: center;
 }
 
+#shopping_cart{
+	border-bottom: 1px solid #ddd;
+}
+#shopping_cart > tbody > tr > td{
+	vertical-align: middle;
+}
+#shopping_cart .fa-times-circle{
+	font-size: 15px;
+	color: #ccc;
+}
+#shopping_cart .fa-times-circle:hover{
+	color: #252525;
+}
+
+
 /*box info*/
 ul.box-info{
 	padding: 0;
@@ -1256,6 +1271,32 @@ footer li {
 		width: 20%;
 		float: left;
 	}
+}
+
+/*CHeck ou*/
+.container.checkoutpage{
+	margin-top: 20px;
+}
+.checkout_content{
+	border-top: solid 1px #dbdbdb;
+	padding-top: 10px;
+}
+.badge{
+	margin-right: 5px;
+}
+.checkout_title{
+	font-variant: small-caps;
+	font-size: 17px;
+	margin-bottom: 10px;
+}
+#checkout_alert_adr{display: none;}
+#checkout_alert_paym{display: none;}
+.border{
+	border-right: solid 1px #dbdbdb;
+	border-left: solid 1px #dbdbdb;
+}
+table{
+	font-size: 12px;
 }
 
 
