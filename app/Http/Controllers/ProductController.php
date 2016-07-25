@@ -6,12 +6,16 @@ use App\Http\Requests;
 use App\Http\Requests\ProductRequest;
 use App\Category;
 use App\Product;
+use App\Image;
+use App\ProSize;
 class ProductController extends Controller
 {
     public function showDetail($id){
-        $product = Product::where('pro_id', '=', $id)->get();
+        $product = Product::find($id);
+        $img_colors = Image::join('colors', 'colors.id', '=', 'images.id')->where('pro_id', '=', $id)->get();
+        $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->where('pro_id', '=', $id)->get();
         
-        return view('pages.product', compact('product'));
+        return view('pages.product', compact('product', 'img_colors', 'sizes'));
     }
 
     //Admin zone
@@ -21,7 +25,7 @@ class ProductController extends Controller
     }
 
     public function getAddPro(){
-        $pro_cat = Category::select('cat_id', 'cat_title', 'parent_id')->get()->toArray();
+        $pro_cat = Category::select('id', 'cat_title', 'parent_id')->get()->toArray();
     	return view('admin.product.add', compact('pro_cat'));
     }
 

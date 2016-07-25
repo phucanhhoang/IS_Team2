@@ -38,6 +38,8 @@ Route::get('category', function () {
     return view('pages.category');
 });
 Route::get('product/{id}', 'ProductController@showDetail');
+
+Route::post('cart/add', 'CartController@add');
 Route::get('checkout', function () {
     return view('pages.checkout');
 });

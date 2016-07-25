@@ -47,11 +47,11 @@ Home page
 </div>
 
 <div class="list-products">
-    <div class="heading"><span>SẢN PHẨM MỚI</span></div>
+    <div class="heading"><span>SẢN PHẨM</span></div>
     @foreach($pros as $pro)
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
-            <a href="{{asset('product/'.$pro->pro_id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
+            <a href="{{asset('product/'.$pro->id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
             <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
@@ -64,383 +64,383 @@ Home page
     @endforeach
 </div>
 
-<div class="list-products list-p-slide">
-    <div class="heading"><span>SẢN PHẨM GIẢM GIÁ</span></div>
-    <div id="p-slider" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#p-slider" data-slide-to="0" class="active"></li>
-            <li data-target="#p-slider" data-slide-to="1"></li>
-            <li data-target="#p-slider" data-slide-to="2"></li>
-        </ol>
+<!--<div class="list-products list-p-slide">-->
+<!--    <div class="heading"><span>SẢN PHẨM GIẢM GIÁ</span></div>-->
+<!--    <div id="p-slider" class="carousel slide" data-ride="carousel">-->
+<!--        <ol class="carousel-indicators">-->
+<!--            <li data-target="#p-slider" data-slide-to="0" class="active"></li>-->
+<!--            <li data-target="#p-slider" data-slide-to="1"></li>-->
+<!--            <li data-target="#p-slider" data-slide-to="2"></li>-->
+<!--        </ol>-->
+<!---->
+<!--        <div class='carousel-inner' role="listbox">-->
+<!--            <div class="item active">-->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="sale-label">SALE</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                            <span class="price-old pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="sale-label">SALE</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                            <span class="price-old pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="sale-label">SALE</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                            <span class="price-old pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="item">-->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="sale-label">SALE</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                            <span class="price-old pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col-md-5ths col-xs-6 product">-->
+<!--                    <div class="p-img">-->
+<!--                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--                    </div>-->
+<!--                    <div class="p-title">-->
+<!--                        <div class="div-row">-->
+<!--                            <span class="p-name">ÁO SƠ MI</span>-->
+<!--                            <span class="price-new pull-right">200.000đ</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--        <a class="left carousel-control" href="#p-slider" role="button" data-slide="prev">-->
+<!--            <span class="fa fa-angle-left" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+<!--        <a class="right carousel-control" href="#p-slider" role="button" data-slide="next">-->
+<!--            <span class="fa fa-angle-right" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Next</span>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</div>-->
 
-        <div class='carousel-inner' role="listbox">
-            <div class="item active">
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="sale-label">SALE</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                        <div class="div-row">
-                            <span class="p-name pull-left">ÁO SƠ MI</span>
-                            <span class="price-old pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="sale-label">SALE</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                        <div class="div-row">
-                            <span class="p-name pull-left">ÁO SƠ MI</span>
-                            <span class="price-old pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="sale-label">SALE</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                        <div class="div-row">
-                            <span class="p-name pull-left">ÁO SƠ MI</span>
-                            <span class="price-old pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="sale-label">SALE</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                        <div class="div-row">
-                            <span class="p-name pull-left">ÁO SƠ MI</span>
-                            <span class="price-old pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-5ths col-xs-6 product">
-                    <div class="p-img">
-                        <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-                        <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-                    </div>
-                    <div class="p-title">
-                        <div class="div-row">
-                            <span class="p-name">ÁO SƠ MI</span>
-                            <span class="price-new pull-right">200.000đ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <a class="left carousel-control" href="#p-slider" role="button" data-slide="prev">
-            <span class="fa fa-angle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#p-slider" role="button" data-slide="next">
-            <span class="fa fa-angle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-</div>
-
-<div class="list-products">
-    <div class="heading"><span>SẢN PHẨM BÁN CHẠY</span></div>
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="sale-label">SALE</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-            <div class="div-row">
-                <span class="p-name pull-left">ÁO SƠ MI</span>
-                <span class="price-old pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="p-name">ÁO SƠ MI</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-5ths col-xs-6 product">
-        <div class="p-img">
-            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
-        </div>
-        <div class="p-title">
-            <div class="div-row">
-                <span class="sale-label">SALE</span>
-                <span class="price-new pull-right">200.000đ</span>
-            </div>
-            <div class="div-row">
-                <span class="p-name pull-left">ÁO SƠ MI</span>
-                <span class="price-old pull-right">200.000đ</span>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="list-products">-->
+<!--    <div class="heading"><span>SẢN PHẨM BÁN CHẠY</span></div>-->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="sale-label">SALE</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                <span class="price-old pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="{{asset('product')}}"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name">ÁO SƠ MI</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-md-5ths col-xs-6 product">-->
+<!--        <div class="p-img">-->
+<!--            <a href="#"><img src="{{asset('assets/image/sanpham.jpg')}}"/></a>-->
+<!--            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>-->
+<!--        </div>-->
+<!--        <div class="p-title">-->
+<!--            <div class="div-row">-->
+<!--                <span class="sale-label">SALE</span>-->
+<!--                <span class="price-new pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--            <div class="div-row">-->
+<!--                <span class="p-name pull-left">ÁO SƠ MI</span>-->
+<!--                <span class="price-old pull-right">200.000đ</span>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 @stop
 
 @section('javascript')

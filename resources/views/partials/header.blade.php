@@ -26,32 +26,50 @@
                 <li><input type="text"/></li>
                 <li id="cart" class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
-                    <span id="cart-num">2</span>
+                    <?php
+                        $cart = App\Cart::join('products', 'products.id', '=', 'cart.product_id')
+                            ->join('images', function ($join) {
+                                $join->on('images.pro_id', '=', 'cart.product_id');
+                                $join->on('images.color_id', '=', 'cart.color_id');
+                            })
+                            ->join('colors', 'colors.id', '=', 'cart.color_id')
+                            ->join('sizes', 'sizes.id', '=', 'cart.size_id')
+                            ->select('product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
+                                'images.images as image', 'size', 'discount');
+                        if(Auth::check()){
+                            $carts = $cart->where('user_id', '=', Auth::user()->id)->get();
+                        }
+                        else{
+                            $carts = $cart->where('remember_token', '=', csrf_token())->get();
+                        }
+
+                    ?>
+                    <label id="cart_num">{{$cart->count()}}</label>
                     <div class="dropdown-menu box-cart">
                         <p class="title">GIỎ HÀNG</p>
                         <table id="shopping_cart" class="table">
+                            <?php
+                                $total_money = 0;
+                                foreach($carts as $cart){
+                                $price = $cart->price - $cart->price * $cart->discount / 100;
+                                $total_money += $price * $cart->quantity;
+                            ?>
                             <tr>
-                                <td width="20%"><img src="{{asset('assets/image/sanpham.jpg')}}"
+                                <td width="20%"><img src="{{asset('upload/images/'.$cart->image)}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
-                                    MIDNIGHT LOVER DRESS
+                                    {{$cart->pro_name}}
                                     <br>
-                                    <input type="number" value="2" /> x 200.000đ
+                                    <input type="number" class="quan_num" name="cart_quantity" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
+                                </td>
+                                <td>
+                                    Size <label class="box-size">{{$cart->size}}</label>
                                 </td>
                                 <td><i class="fa fa-times-circle" </td>
                             </tr>
-                            <tr>
-                                <td><img src="{{asset('assets/image/sanpham.jpg')}}"
-                                         style="width: 100%;height: auto"/></td>
-                                <td>
-                                    MIDNIGHT LOVER DRESS
-                                    <br>
-                                    <input type="number" value="2" /> x 200.000đ
-                                </td>
-                                <td><i class="fa fa-times-circle" </td>
-                            </tr>
+                            <?php } ?>
                         </table>
-                        <span id="cart_total" style="font-weight: bold;line-height: 2.8;">Tổng tiền: 800.000đ</span>
+                        <span style="font-weight: bold;line-height: 2.8;">Tổng tiền: <label id="cart_total">{{number_format($total_money, 0, ',', '.')}}</label>đ</span>
                         <a href="{{asset('checkout')}}" class="bt-link pull-right" style="margin-bottom: 5px" >ĐẶT HÀNG</a>
                     </div>
                 </li>

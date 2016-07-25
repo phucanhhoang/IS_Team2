@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css"
           href="{{asset('assets/css/font-awesome/css/font-awesome.min.css')}}"/>
@@ -30,7 +31,7 @@
 <!-- <input type="hidden" id="_token" name='_token' value="{{ csrf_token() }}"/> -->
 
 <!--header outside class container because header in full screens-->
-@include('include.header')
+@include('partials.header')
 <nav class="container breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
@@ -48,7 +49,7 @@
 {{-- Content --}}
 <div class="container">
     <!--sidebar content-->
-    @include('include.sidebar')
+    @include('partials.sidebar')
     <!--main content-->
     <div id='content' class='col-md-9 col-sm-9'>
         @yield('content')
@@ -56,7 +57,7 @@
 </div>
 
 {{-- Footer --}}
-@include('include.footer')
+@include('partials.footer')
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-ui.js')}}"/></script>

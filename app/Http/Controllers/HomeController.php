@@ -1,13 +1,20 @@
-<?php
+<?php namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Product;
-
 class HomeController extends Controller
 {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Home Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller renders your application's "dashboard" for users that
+    | are authenticated. Of course, you are free to change or remove the
+    | controller as you wish. It is just here to get your app started!
+    |
+    */
+
     /**
      * Create a new controller instance.
      *
@@ -19,17 +26,18 @@ class HomeController extends Controller
 //    }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard to the user.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        $pros = Product::take(10)->get();
+        $pros = Product::all();
         return view('pages.home', compact('pros'));
     }
 
-    //-------------------Admin zone------------------------//
+
+//-------------------Admin zone------------------------//
 
     public function adminHomePage()
     {

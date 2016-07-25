@@ -53,7 +53,7 @@ input[type=submit], input[type=button], button, .bt-link {
 	color: white;
 	padding: 6px 12px;
 	padding-bottom: 4px;
-	font-family: Lato-bold;
+	font-family: Lato-bold, Tahoma;
 	box-sizing: border-box;
 
 	transition: background-color 0.25s ease;
@@ -171,7 +171,7 @@ body {
 }
 
 #myNav ul:last-child li {
-	margin: 0px 10px;
+	margin: 0px 8px;
 }
 
 #myNav input[type=text] {
@@ -202,8 +202,13 @@ body {
 	padding: 0 10px;
 }
 
+.nav .account.open>a, .nav .account.open>a:focus, .nav .account.open>a:hover{
+	background-color: transparent;
+	border: none;
+}
+
 div.box-cart{
-	width: 300px;
+	width: 350px;
 	padding: 10px 15px;
 }
 div.box-cart .title{
@@ -262,7 +267,7 @@ ul.box-info > li{
 	position: relative;
 }
 
-#cart-num {
+#cart_num {
 	background-color: red;
 	border-radius: 10px;
 	width: 15px;
@@ -275,7 +280,7 @@ ul.box-info > li{
 	font-size: 11px;
 	font-weight: bold;
 	text-align: center;
-	font-family: lato;
+	font-family: Lato, Tahoma;
 	padding-top: 1px;
 }
 
@@ -880,6 +885,10 @@ i.fa.fa-sign-in {
 	border: none;
 }
 
+.detail-p .info .div-1 {
+	padding-top: 0;
+}
+
 .detail-p .info .div-1 p:first-child {
 	overflow: auto;
 }
@@ -910,7 +919,7 @@ i.fa.fa-sign-in {
 }
 
 .mausac label,
-.kichco label {
+.kichco label, .box-size, .box-color {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -921,8 +930,9 @@ i.fa.fa-sign-in {
 	background-clip: content-box;
 }
 
-.kichco label {
+.kichco label, .box-size {
 	border: 1px solid #252525;
+	font-size: 14px;
 }
 
 .detail-p .info .div-2 div:last-child {
@@ -931,17 +941,21 @@ i.fa.fa-sign-in {
 
 .detail-p .info .div-2 div:last-child p {
 	float: left;
+	line-height: 2.5;
 }
 
-.detail-p .info .div-2 input[type=number] {
+.detail-p .info .div-2 input[type=number], .quan_num {
 	height: 20px;
 	width: 50px;
 	border: 1px solid #252525;
 	border-radius: 5px;
 	padding: 5px;
 }
+.detail-p .info .div-2 input[type=number]:focus, .quan_num:focus {
+	outline: none;
+}
 
-.detail-p .info .div-2 input[type=submit] {
+.detail-p .info .div-2 input[type=submit], .detail-p .info .div-2 input[type=button] {
 	float: right;
 }
 
@@ -1126,7 +1140,7 @@ footer {
 	overflow: auto;
 	background-color: #252525;
 	color: white;
-	font-family: Lato;
+	font-family: Lato, Tahoma;
 	padding: 20px;
 }
 
@@ -1185,14 +1199,14 @@ footer li {
 	#myNav li.fa-shopping-cart::after {
 		content: 'GIỎ HÀNG';
 		font-size: 14px;
-		font-family: Lato;
+		font-family: Lato, Tahoma;
 		padding-left: 20px;
 	}
 
 	#myNav li.fa-user::after {
 		content: 'ĐĂNG NHẬP - ĐĂNG XUẤT';
 		font-size: 14px;
-		font-family: Lato;
+		font-family: Lato, Tahoma;
 		padding-left: 25px;
 	}
 }
