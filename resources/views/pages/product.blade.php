@@ -129,6 +129,7 @@ Stylitics - Product page
                 }
                 else{
                     $('#cart_num').html(data.length);
+                    $('#cart_num').show();
                     $('#shopping_cart').html('');
                     var price;
                     var total_money = 0;

@@ -27,7 +27,6 @@ class CreateUsersTable extends Migration
 //            $table->string('email')->unique();
 //            $table->string('password', 60);
 //            $table->integer('userable_id')->unsigned();
-//            $table->foreign('userable_id')->references('id')->on('customers')->onDelete('cascade');
 //            $table->string('userable_type');
 //            $table->boolean('ban')->default(0);
 //            $table->boolean('deleted')->default(0);

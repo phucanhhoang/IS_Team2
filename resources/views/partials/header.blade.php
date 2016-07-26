@@ -44,10 +44,19 @@
                         }
 
                     ?>
-                    <label id="cart_num">{{$cart->count()}}</label>
+                    <label id="cart_num" style="{{$carts->count() > 0 ? 'display: block' : 'display: none'}}">{{$cart->count()}}</label>
                     <div class="dropdown-menu box-cart">
                         <p class="title">GIỎ HÀNG</p>
                         <table id="shopping_cart" class="table">
+                            <?php
+                                if(!$carts->count() > 0){
+                                    ?>
+                                    <tr>
+                                        <td><h5>Bạn chưa có sản phẩm nào trong giỏ hàng.</h5></td>
+                                    </tr>
+                                    <?php
+                                } else
+                            ?>
                             <?php
                                 $total_money = 0;
                                 foreach($carts as $cart){
@@ -65,13 +74,15 @@
                                 <td>
                                     Size <label class="box-size">{{$cart->size}}</label>
                                 </td>
-                                <td><i class="fa fa-times-circle" </td>
+                                <td><i class="fa fa-times-circle"></i></td>
                             </tr>
                             <?php } ?>
                         </table>
+
                         <span style="font-weight: bold;line-height: 2.8;">Tổng tiền: <label id="cart_total">{{number_format($total_money, 0, ',', '.')}}</label>đ</span>
                         <a href="{{asset('checkout')}}" class="bt-link pull-right" style="margin-bottom: 5px" >ĐẶT HÀNG</a>
                     </div>
+
                 </li>
                 <li class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>

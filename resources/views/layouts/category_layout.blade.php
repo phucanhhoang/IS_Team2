@@ -39,13 +39,7 @@
     <span class="divider">›</span>
     Áo sơ mi
 </nav>
-@if (session('message'))
-<div class="alert {{session('alert-class')}} alert-dismissable fade in"
-     style="position: fixed;top: 10px;left: 30%;width: 40%;">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <i class="icon fa {{session('fa-class')}}"></i> {{ session('message') }}
-</div>
-@endif
+
 {{-- Content --}}
 <div class="container">
     <!--sidebar content-->

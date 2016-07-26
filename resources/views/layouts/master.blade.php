@@ -17,15 +17,10 @@
 <body>
 <!--header outside class container because header in full screens-->
 @include('partials.header')
-@if (session('message'))
-<div class="alert {{session('alert-class')}} alert-dismissable fade in"
-     style="position: fixed;top: 10px;left: 30%;width: 40%;">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <i class="icon fa {{session('fa-class')}}"></i> {{ session('message') }}
-</div>
-@endif
 
-@yield('content')
+<div id="content">
+  @yield('content')
+</div>
 
 @include('partials.footer')
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
@@ -35,6 +30,14 @@
 <script type="text/javascript" src="{{asset('assets/js/back-to-top.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/accounting.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/site.js')}}"></script>
+
+<script>
+  $(document).ready(function(){
+    var content_height = $(window).height() - 348;
+    $('#content').css('min-height', content_height + 'px');
+    $('#ft_id').show();
+  });
+</script>
 
 @yield('javascript')
 

@@ -1,4 +1,4 @@
-<footer style="margin-top: 20px">
+<footer id="ft_id" style="margin-top: 20px; display: none">
     <div class="col-sm-4">
         <a href="#"><img src="{{asset('assets/image/logo-inverse.png')}}"></a>
         <ul>

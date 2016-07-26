@@ -40,9 +40,8 @@ Route::get('category', function () {
 Route::get('product/{id}', 'ProductController@showDetail');
 
 Route::post('cart/add', 'CartController@add');
-Route::get('checkout', function () {
-    return view('pages.checkout');
-});
+Route::get('checkout', 'CheckoutController@getCheckout');
+Route::post('checkout', 'CheckoutController@postCheckout');
 
 Route::get('sendemail', function () {
 
@@ -67,6 +66,11 @@ Route::post('check/captcha', 'HelperController@checkCaptcha');
 
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'admin'], function(){
+    Route::get('auth/login', ['as' => 'getLoginAdmin', 'uses' => 'Auth\AuthController@getLogin']);
+    Route::post('auth/login', ['as' => 'postLoginAdmin', 'uses' => 'Auth\AuthController@postLogin']);
+
+    Route::get('auth/logout', ['as' => 'logoutAdmin', 'uses' => 'Auth\AuthController@logoutAdmin']);
+
     Route::get('/home', [
         'as' => 'admin.home',
         'uses' => 'HomeController@adminHomePage'
@@ -107,6 +111,37 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('list', [
             'as' => 'admin.product.getListPro',
             'uses' => 'ProductController@getListPro'
+        ]);
+    });
+
+    Route::group(['prefix' => 'order'], function(){
+        Route::get('list', [
+            'as' => 'admin.order.list',
+            'uses' => 'OrderController@getList'
+        ]);
+        Route::get('detail/{id}', [
+            'as' => 'admin.order.detail',
+            'uses' => 'OrderController@getDetail'
+        ]);
+        Route::post('detail/{id}', ['
+            as' => 'admin.order.detail',
+            'uses' => 'OrderController@postChange'
+        ]);
+        Route::get('edit/{id}', [
+            'as' => 'admin.order.edit',
+            'uses' => 'OrderController@getEdit'
+        ]);
+        Route::post('edit/{id}', [
+            'as' => 'admin.order.edit',
+            'uses' => 'OrderController@postEdit'
+        ]);
+        Route::get('add', ['as' =>
+            'admin.order.add',
+            'uses' => 'OrderController@getAdd'
+        ]);
+        Route::post('add', [
+            'as' => 'admin.order.add',
+            'uses' => 'OrderController@postAdd'
         ]);
     });
 });

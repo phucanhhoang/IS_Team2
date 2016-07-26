@@ -80,6 +80,10 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getLogin(){
+        return view('auth.login');
+    }
+
     public function postLogin(LoginRequest $request)
     {
         // create our user data for the authentication
@@ -171,6 +175,11 @@ class AuthController extends Controller
     {
         \Auth::logout();
         return redirect('/');
+    }
+    public function logoutAdmin()
+    {
+        \Auth::logout();
+        return redirect()->route('getLoginAdmin');
     }
 
     public function getRegister()
