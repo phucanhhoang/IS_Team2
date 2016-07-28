@@ -132,24 +132,28 @@ Stylitics - Product page
                     $('#cart_num').show();
                     $('#shopping_cart').html('');
                     var price;
+                    var price_int;
                     var total_money = 0;
                     for(var i=0; i < data.length; i++){
                         var url = "{{asset('upload/images')}}" + "/" + data[i].image;
                         var quantity = data[i].quantity;
-                        price = data[i].price - data[i].price * data[i].discount / 100;
-                        total_money += price * data[i].quantity;
-                        price = accounting.formatNumber(price, 0, ".", ",");
-                        $('#shopping_cart').append("<tr>" +
+                        price_int = data[i].price - data[i].price * data[i].discount / 100;
+                        total_money += price_int * data[i].quantity;
+                        price = accounting.formatNumber(price_int, 0, ".", ",");
+                        $('#shopping_cart').append("<tr class='cart_id"+ data[i].id +"'>" +
+                            "<td><a class='btn_del' onclick='cart_del(this);' id='"+ data[i].id +"'" +
+                            "p-name='"+ data[i].pro_name +"' money='"+ price_int * data[i].quantity +"'>" +
+                            "<i class='fa fa-times-circle'></i></a></td>" +
                             "<td width='20%'><img src='"+ url +"' style='width: 100%;height: auto'/></td>" +
                             "<td>"+ data[i].pro_name +"<br>" +
                             "<input type='number' class='quan_num' name='cart_quantity' value='"+ data[i].quantity +"' /> " +
                             "x "+ price +"đ</td>" +
                             "<td>Size <label class='box-size'>"+ data[i].size +"</label></td>" +
-                            "<td><i class='fa fa-times-circle' </td>" +
                             "</tr>");
                     }
+                    $('#total_money').val(total_money);
                     total_money = accounting.formatNumber(total_money, 0, ".", ",");
-                    $('#cart_total').html(total_money);
+                    $('.cart_total').html(total_money);
                     $('#cart').addClass('open');
                 }
             }

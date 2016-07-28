@@ -4,14 +4,14 @@
 	<title>Admin @yield('head.title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset= "utf-8" />
-	<link href="{!! asset('admin/css/bootstrap.min.css') !!}" rel='stylesheet' />
-	<link href="{!! asset('admin/css/font-awesome.css') !!}" rel="stylesheet"> 
-	<link href="{!! asset('admin/css/icon-font.min.css') !!}"  rel="stylesheet"/>
-	<link href="{!! asset('admin/css/animate.css') !!}" rel="stylesheet"  media="all">
-	<link href="{!! asset('admin/css/style.css') !!}" rel='stylesheet' />
-	<link href="{!! asset('admin/css/main.css') !!}" rel='stylesheet' />
+	<link href="{!! asset('assets-admin/css/bootstrap.min.css') !!}" rel='stylesheet' />
+	<link href="{!! asset('assets-admin/css/font-awesome.css') !!}" rel="stylesheet"> 
+	<link href="{!! asset('assets-admin/css/icon-font.min.css') !!}"  rel="stylesheet"/>
+	<link href="{!! asset('assets-admin/css/animate.css') !!}" rel="stylesheet"  media="all">
+	<link href="{!! asset('assets-admin/css/style.css') !!}" rel='stylesheet' />
+	<link href="{!! asset('assets-admin/css/main.css') !!}" rel='stylesheet' />
 	
-	<script src="{!! asset('admin/ckeditor/ckeditor.js') !!}"></script>
+	<script src="{!! asset('assets-admin/ckeditor/ckeditor.js') !!}"></script>
 
 </head> 
 <body class="sticky-header left-side-collapsed">
@@ -41,8 +41,8 @@
 							</a>
 							<ul class="sub-menu-list">
 								<li>
-									<a href="{!! url('admin/product/list') !!}">Product List</a> </li>
-								<li><a href="{!! url('admin/product/add') !!}">Add Product</a></li>
+									<a href="{!! url('assets-admin/product/list') !!}">Product List</a> </li>
+								<li><a href="{!! url('assets-admin/product/add') !!}">Add Product</a></li>
 							</ul>
 						</li>
 						<li class="menu-list">
@@ -52,8 +52,8 @@
 							</a>
 							<ul class="sub-menu-list">
 								<li>
-									<a href="{!! url('admin/category/list') !!}">Category List</a> </li>
-								<li><a href="{!! url('admin/category/add') !!}">Add Product</a></li>
+									<a href="{!! url('assets-admin/category/list') !!}">Category List</a> </li>
+								<li><a href="{!! url('assets-admin/category/add') !!}">Add Product</a></li>
 							</ul>
 						</li>              
 						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>MailBox</span></a>
@@ -140,7 +140,7 @@
 						<ul>
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									<div class="profile_img"> <span><img src="{!! url('admin/images/1.png') !!}" alt=""> </span>
+									<div class="profile_img"> <span><img src="{!! url('assets-admin/images/1.png') !!}" alt=""> </span>
 										 <div class="user-name">
 											<p>Michael<span>Administrator</span></p>
 										 </div>
@@ -176,11 +176,11 @@
 				@yield('content')
 			</div>
     </section>
-    <script src="{!! asset('admin/js/jquery-1.10.2.min.js') !!}"></script>
-	<script src="{!! asset('admin/js/jquery.nicescroll.js') !!}"></script>
-	<script src="{!! asset('admin/js/scripts.js') !!}"></script>
-	<script src="{!! asset('admin/js/bootstrap.min.js') !!}"></script>
-<!--	<script src="{!! asset('admin/js/myscripts.js') !!}"></script>-->
+    <script src="{!! asset('assets-admin/js/jquery-1.10.2.min.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/jquery.nicescroll.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/scripts.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/bootstrap.min.js') !!}"></script>
+<!--	<script src="{!! asset('assets-admin/js/myscripts.js') !!}"></script>-->
 	@yield('body.js')
 </body>
 </html>

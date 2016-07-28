@@ -173,8 +173,14 @@ class AuthController extends Controller
 
     public function logout()
     {
+        if(\Auth::user()->userable_type == 'admin'){
+            $re_path = '/admin/auth/login';
+        }
+        else{
+            $re_path = '/';
+        }
         \Auth::logout();
-        return redirect('/');
+        return redirect($re_path);
     }
     public function logoutAdmin()
     {

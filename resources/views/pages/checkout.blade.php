@@ -124,21 +124,22 @@ Stylitics - Product page
                         $price = $cart->price - $cart->price * $cart->discount / 100;
                         $total_money += $price * $cart->quantity;
                         ?>
-                        <tr>
-                            <td><i class="fa fa-times-circle"></i></td>
+                        <tr class="cart_id{{$cart->id}}">
+                            <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}"
+                                   money="{{$price * $cart->quantity}}"><i class="fa fa-times-circle"></i></a></td>
                             <td width="90px"><img src="{{asset('upload/images/'.$cart->image)}}" style="width: 75px" /></td>
                             <td>{{$cart->pro_name}}</td>
                             <td style="text-align: center"><label class="box-color"><img src="{{asset('upload/images/'.$cart->color)}}" /></label></td>
                             <td><label class="box-size">{{$cart->size}}</label></td>
                             <td>{{number_format($price, 0, ',', '.')}} đ</td>
-                            <td><input type="number" class="quan_num" name="qty_{{$cart->product_id}}" value="{{$cart->quantity}}" /></td>
+                            <td><input type="number" class="qty_num" onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /></td>
                             <td>{{$price * $cart->quantity}} đ</td>
                         </tr>
                         <?php } ?>
                         <tr>
                             <td colspan="6"></td>
                             <td><strong>Tổng tiền</strong></td>
-                            <td><strong>{{$total_money}} đ</strong></td>
+                            <td><strong><label class="cart_total">{{$total_money}}</label> đ</strong></td>
                         </tr>
                         </tbody>
                     </table>
@@ -153,5 +154,7 @@ Stylitics - Product page
 @stop
 
 @section('javascript')
+<script>
 
+</script>
 @stop

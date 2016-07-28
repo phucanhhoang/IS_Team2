@@ -40,6 +40,8 @@ Route::get('category', function () {
 Route::get('product/{id}', 'ProductController@showDetail');
 
 Route::post('cart/add', 'CartController@add');
+Route::post('cart/delete', 'CartController@delete');
+
 Route::get('checkout', 'CheckoutController@getCheckout');
 Route::post('checkout', 'CheckoutController@postCheckout');
 
@@ -69,8 +71,6 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('auth/login', ['as' => 'getLoginAdmin', 'uses' => 'Auth\AuthController@getLogin']);
     Route::post('auth/login', ['as' => 'postLoginAdmin', 'uses' => 'Auth\AuthController@postLogin']);
 
-    Route::get('auth/logout', ['as' => 'logoutAdmin', 'uses' => 'Auth\AuthController@logoutAdmin']);
-
     Route::get('/home', [
         'as' => 'admin.home',
         'uses' => 'HomeController@adminHomePage'
@@ -95,7 +95,7 @@ Route::group(['prefix' => 'admin'], function(){
         ]);
     });
 
-    Route::group(['prefix' => 'product'], function(){
+    Route::group(['prefix' => 'product', 'middleware' => 'auth'], function(){
         Route::get('add', [
             'as' => 'admin.product.getAddPro',
             'uses' => 'ProductController@getAddPro'

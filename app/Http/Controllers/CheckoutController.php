@@ -28,7 +28,7 @@ class CheckoutController extends Controller
             })
             ->join('colors', 'colors.id', '=', 'cart.color_id')
             ->join('sizes', 'sizes.id', '=', 'cart.size_id')
-            ->select('product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
+            ->select('cart.id as id', 'product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
                 'images.images as image','colors.color as color', 'size', 'discount');
         if(Auth::check()){
             $carts = $cart->where('user_id', '=', Auth::user()->id)->get();

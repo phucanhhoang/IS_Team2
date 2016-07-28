@@ -68,7 +68,7 @@ input[type=submit], input[type=button], button, .bt-link {
 }
 
 .bt-link {
-	padding: 8px 12px;
+	padding: 8px 12px 5px;
 }
 
 input[type=submit]:hover, input[type=button]:hover, button:hover, .bt-link:hover {
@@ -954,14 +954,14 @@ label.box-color img{
 	line-height: 2.5;
 }
 
-.detail-p .info .div-2 input[type=number], .quan_num {
+.detail-p .info .div-2 input[type=number], .qty_num {
 	height: 20px;
 	width: 50px;
 	border: 1px solid #252525;
 	border-radius: 5px;
 	padding: 5px;
 }
-.detail-p .info .div-2 input[type=number]:focus, .quan_num:focus {
+.detail-p .info .div-2 input[type=number]:focus, .qty_num:focus {
 	outline: none;
 }
 

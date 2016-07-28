@@ -34,7 +34,7 @@
                             })
                             ->join('colors', 'colors.id', '=', 'cart.color_id')
                             ->join('sizes', 'sizes.id', '=', 'cart.size_id')
-                            ->select('product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
+                            ->select('cart.id as id', 'product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
                                 'images.images as image', 'size', 'discount');
                         if(Auth::check()){
                             $carts = $cart->where('user_id', '=', Auth::user()->id)->get();
@@ -63,23 +63,25 @@
                                 $price = $cart->price - $cart->price * $cart->discount / 100;
                                 $total_money += $price * $cart->quantity;
                             ?>
-                            <tr>
+                            <tr class="cart_id{{$cart->id}}">
+                                <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}"
+                                       money="{{$price * $cart->quantity}}"><i class="fa fa-times-circle"></i></a></td>
                                 <td width="20%"><img src="{{asset('upload/images/'.$cart->image)}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
                                     {{$cart->pro_name}}
                                     <br>
-                                    <input type="number" class="quan_num" name="cart_quantity" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
+                                    <input type="number" class="qty_num" onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
                                 </td>
                                 <td>
                                     Size <label class="box-size">{{$cart->size}}</label>
                                 </td>
-                                <td><i class="fa fa-times-circle"></i></td>
                             </tr>
                             <?php } ?>
                         </table>
 
-                        <span style="font-weight: bold;line-height: 2.8;">Tổng tiền: <label id="cart_total">{{number_format($total_money, 0, ',', '.')}}</label>đ</span>
+                        <input type="hidden" id="total_money" value="{{$total_money}}" />
+                        <span style="font-weight: bold;line-height: 2.8;">Tổng tiền: <label class="cart_total">{{number_format($total_money, 0, ',', '.')}}</label>đ</span>
                         <a href="{{asset('checkout')}}" class="bt-link pull-right" style="margin-bottom: 5px" >ĐẶT HÀNG</a>
                     </div>
 
@@ -125,7 +127,7 @@
                 <form id="login_form" class="form-horizontal" role="form" action="{{asset('auth/login')}}"
                       method="post">
                     <input type="hidden" name="_token" value="{!! csrf_token() !!}"/>
-                    <input type="hidden" name="rtn_url" value="{{URL::previous()}}"/>
+                    <input type="hidden" name="rtn_url" value="{{URL::current()}}"/>
                     <div class="form-group">
                         <input type="email" name="email" class="form-control" value="{{ old('email') }}"
                                placeholder="E-mail">
@@ -376,4 +378,45 @@
     $('#link_to_register').click(function(){
         $('#login_modal').modal('hide');
     });
+
+    function cart_del(btn) {
+        var pro_name = $(btn).attr('p-name');
+        if(confirm("Bạn chắc chắn muốn xóa [ "+ pro_name +" ] này khỏi giỏ hàng?")){
+            var cart_id = $(btn).attr('id');
+            $.ajax({
+                type: 'POST',
+                url: "{{asset('cart/delete')}}",
+                data: {id: cart_id},
+                cache: false,
+                success: function(msg){
+                    if (msg === 'true') {
+                        $('.cart_id' + cart_id).fadeOut(function () {
+                            $(this).remove();
+                        });
+                        var total_money = parseInt($('#total_money').val()) - parseInt($(btn).attr('money'));
+                        $('#total_money').val(total_money);
+                        total_money = accounting.formatNumber(total_money, 0, ".", ",");
+                        $('.cart_total').html(total_money);
+                        var cart_num = parseInt($('#cart_num').html()) - 1;
+                        $('#cart_num').html(cart_num);
+                        if(cart_num == 0){
+                            $('#cart_num').hide();
+                            if("{{URL::current()}}" == "{{asset('checkout')}}")
+                                location.reload();
+                        }
+                    }
+                    else{
+                        alert('Có lỗi xảy ra. Vui lòng thử lại sau!');
+                    }
+                }
+            });
+        }
+    }
+
+    function qty_onchange(num){
+        $('.qty_num').val($(num).val());
+        if($(num).val() == 0){
+            cart_del($(num).parents('tr'));
+        }
+    }
 </script>
