@@ -40,7 +40,7 @@ Stylitics - Product page
                                     $stt++;
                                     $url_img = asset('upload/images/'.$color->color);
                             ?>
-                                    <input type="radio" name="color_id" value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
+                                    <input type="radio" name="color_id" class="chk_color" value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
                                     <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
 
                             <?php } ?>
@@ -50,15 +50,15 @@ Stylitics - Product page
                     <div>
                         <p class="title">Kích cỡ</p>
                         <div class="kichco">
-                            <?php
-                            $stt = 0;
-                            foreach($sizes as $size){
-                                $stt++;
-                                ?>
-                                <input type="radio" name="size_id" value="{{$size->size_id}}" id="{{'kc-check'.$stt}}"/>
-                                <label for="{{'kc-check'.$stt}}">{{$size->size}}</label>
+                            <div class="form-group" style="width: 160px">
+                                <select class="form-control" id="size_id"  name="size_id">
+                                    <option value="">Vui lòng chọn size</option>
+                                    @foreach($sizes as $size)
+                                    <option value="{{$size->size_id}}">{{$size->size}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                            <?php } ?>
                         </div>
                     </div>
 
@@ -117,6 +117,19 @@ Stylitics - Product page
 @section('javascript')
 <script>
     $('#btn_add').click(function(){
+        if(!$('.chk_color').is(':checked') && $('#size_id').val() == ''){
+            alert('Vui lòng chọn màu sắc và kích cỡ!');
+            return true;
+        }
+        else if(!$('.chk_color').is(':checked')){
+            alert('Vui lòng chọn màu sắc!');
+            return true;
+        }
+        else if($('#size_id').val() == ''){
+            alert('Vui lòng chọn kích cỡ!');
+            return true;
+        }
+
         var data = $('#cart_form').serialize();
         $.ajax({
             type: 'POST',
@@ -146,7 +159,7 @@ Stylitics - Product page
                             "<i class='fa fa-times-circle'></i></a></td>" +
                             "<td width='20%'><img src='"+ url +"' style='width: 100%;height: auto'/></td>" +
                             "<td>"+ data[i].pro_name +"<br>" +
-                            "<input type='number' class='quan_num' name='cart_quantity' value='"+ data[i].quantity +"' /> " +
+                            "<input type='number' class='qty_num' name='cart_quantity' value='"+ data[i].quantity +"' /> " +
                             "x "+ price +"đ</td>" +
                             "<td>Size <label class='box-size'>"+ data[i].size +"</label></td>" +
                             "</tr>");

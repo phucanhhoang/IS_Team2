@@ -1,8 +1,9 @@
-<nav class="navbar">
+<header id="header" class="header header--fixed hide-from-print" role="banner">
+    <nav class="navbar">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="{{asset('')}}" class="navbar-brand"><img src="{{asset('assets/image/logo.png')}}"
-                                                              height="50px"></a>
+                                                              height="40px"></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
                 <i class="fa fa-bars fa-2x"></i>
             </button>
@@ -11,15 +12,27 @@
         <div class="collapse navbar-collapse" id="myNav">
             <ul class="nav navbar-nav">
                 <li><a class="active" href="{{asset('')}}">TRANG CHỦ</a></li>
-                <li class="dropdown open-hover">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">ÁO <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Áo phông</a></li>
-                        <li><a href="#">Áo sơ-mi</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">VÁY</a></li>
-                <li><a href="#">QUẦN</a></li>
+                <?php
+                    $cat_parents = App\Category::where('parent_id', 0)->get();
+                    foreach($cat_parents as $cat_parent){
+                        $cat_childs = App\Category::where('parent_id', $cat_parent->id)->get();
+                        ?>
+                        @if($cat_childs->count() > 0)
+                        <li class="dropdown open-hover">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{mb_strtoupper($cat_parent->cat_title)}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @foreach($cat_childs as $cat_child)
+                                <li><a href="#">{{$cat_child->cat_title}}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        @else
+                        <li><a href="#">{{strtoupper($cat_parent->cat_title)}}</a></li>
+                        @endif
+                        <?php
+                    }
+                ?>
+
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -63,15 +76,17 @@
                                 $price = $cart->price - $cart->price * $cart->discount / 100;
                                 $total_money += $price * $cart->quantity;
                             ?>
-                            <tr class="cart_id{{$cart->id}}">
-                                <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}"
-                                       money="{{$price * $cart->quantity}}"><i class="fa fa-times-circle"></i></a></td>
+                            <tr class="cart_id{{$cart->id}}" money="{{$price * $cart->quantity}}">
+                                <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}">
+                                        <i class="fa fa-times-circle"></i></a></td>
                                 <td width="20%"><img src="{{asset('upload/images/'.$cart->image)}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
                                     {{$cart->pro_name}}
                                     <br>
-                                    <input type="number" class="qty_num" onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
+                                    <input type="number" class="qty_num qty_num{{$cart->id}}" id="{{$cart->id}}" price="{{$price}}"
+                                           onkeyup="this.value=this.value.replace(/[^1-9]/g,'');"
+                                           onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
                                 </td>
                                 <td>
                                     Size <label class="box-size">{{$cart->size}}</label>
@@ -105,6 +120,7 @@
         </div>
     </div>
 </nav>
+</header>
 
 <div class="modal" id="login_modal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 500px">
@@ -393,7 +409,7 @@
                         $('.cart_id' + cart_id).fadeOut(function () {
                             $(this).remove();
                         });
-                        var total_money = parseInt($('#total_money').val()) - parseInt($(btn).attr('money'));
+                        var total_money = parseInt($('#total_money').val()) - parseInt($(btn).parents('tr').attr('money'));
                         $('#total_money').val(total_money);
                         total_money = accounting.formatNumber(total_money, 0, ".", ",");
                         $('.cart_total').html(total_money);
@@ -414,9 +430,31 @@
     }
 
     function qty_onchange(num){
-        $('.qty_num').val($(num).val());
-        if($(num).val() == 0){
-            cart_del($(num).parents('tr'));
-        }
+        var cart_id = $(num).attr('id');
+        $('.qty_num' + cart_id).val($(num).val());
+        var qty = $(num).val();
+        $.ajax({
+            type: 'POST',
+            url: "{{asset('cart/change')}}",
+            data: {id: cart_id, quantity: qty},
+            cache: false,
+            success: function(data){
+                if(data['msg'] == 'true'){
+                    var delta_money = data['delta_qty'] * parseInt($(num).attr('price'));
+                    var money = parseInt($(num).parents('tr').attr('money')) + delta_money;
+                    var total_money = parseInt($('#total_money').val()) + delta_money;
+                    $(num).parents('tr').attr('money', money);
+                    $('#total_money').val(total_money);
+                    money = accounting.formatNumber(money, 0, ".", ",");
+                    total_money = accounting.formatNumber(total_money, 0, ".", ",");
+
+                    $('#order_table > tbody > tr.cart_id'+ cart_id +' > td:last-child').html(money + ' đ');
+                    $('.cart_total').html(total_money);
+                }
+                else{
+                    alert('Có lỗi xảy ra. Vui lòng thử lại sau!');
+                }
+            }
+        });
     }
 </script>

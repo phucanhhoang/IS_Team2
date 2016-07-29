@@ -6,7 +6,7 @@ Home page
 @section('content')
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0"></li>
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
@@ -52,7 +52,7 @@ Home page
     <div class="col-md-5ths col-xs-6 product">
         <div class="p-img">
             <a href="{{asset('product/'.$pro->id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-basket fa-1-2"></i></a>
+            <a href="#" class="icon-cart" style="display: none"><i class="fa fa-shopping-basket fa-1-2"></i></a>
         </div>
         <div class="p-title">
             <div class="div-row">

@@ -41,6 +41,7 @@ Route::get('product/{id}', 'ProductController@showDetail');
 
 Route::post('cart/add', 'CartController@add');
 Route::post('cart/delete', 'CartController@delete');
+Route::post('cart/change', 'CartController@change');
 
 Route::get('checkout', 'CheckoutController@getCheckout');
 Route::post('checkout', 'CheckoutController@postCheckout');

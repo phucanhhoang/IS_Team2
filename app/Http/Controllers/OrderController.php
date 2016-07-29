@@ -12,29 +12,56 @@ use App\OrderDetail;
 use App\Product;
 use App\Prosize;
 use App\Size;
+use App\Customer;
+use App\Image;
+use App\Color;
+
+use DB;
 
 class OrderController extends Controller
 {
     public function getList()
     {
-    	$orders = Order::select('id','customer_id','total_money','status')->orderBy('id','desc')->get();
+    	$orders = Order::join('customers','orders.customer_id','=','customers.id')
+                ->select('orders.id','orders.customer_id',DB::raw('SUM(orders.total_money) as total'),'orders.status',DB::raw('max(orders.updated_at) as time'),'customers.name','customers.phone')
+                ->groupBy('customers.name')
+                ->orderBy('orders.status','asc')
+                ->get();
+
     	return view('admin.order.list',compact('orders'));
     }
 
     public function getDetail($id)
     {
-    	$detail = OrderDetail::where('order_id','=',$id)->get();
-    	$product_id = OrderDetail::where('order_id',$id)->get()->first();
-    	$product = Product::select('id','pro_name','price','discount','image')->where('id','=',$product_id->pro_id)->get()->first();
+        $detail = OrderDetail::join('products', 'orderdetails.pro_id','=','products.id')
+                ->join('orders','orderdetails.order_id','=','orders.id')
+                ->select('orderdetails.pro_id','orderdetails.pro_name','orderdetails.color_id','orderdetails.size_id','products.price','products.discount','products.image',DB::raw('SUM(orderdetails.qty) as quantity'),'orderdetails.updated_at as time','orders.id')
+                ->where('orders.customer_id','=',$id)
+                ->groupBy('orderdetails.size_id')
+                ->orderBy('time','desc')
+                ->get();
+
+        $state = Order::select('customer_id','status')->where('customer_id','=',$id)->get()->first();
+        $sizes = Prosize::join('sizes', 'prosizes.size_id','=','sizes.id')
+                ->select('sizes.id','sizes.size','prosizes.pro_id as product_id')
+                ->get();
+
+        $img_colors = Image::join('colors', 'images.color_id','=','colors.id')
+                ->select('colors.id','colors.color','images.pro_id as product_id','images.color_id')
+                ->get();
+
+        $customers = Customer::where('id','=',$id)->get();
     	$data = Order::find($id);
-    	return view('admin.order.detail',compact('detail','data','product'));
+    	return view('admin.order.detail',compact('detail','data','customers','sizes','img_colors','state'));
     }
 
     public function postChange($id, Request $request)
     {
-    	$data = Order::find($id);
-    	$data->status = $request->status=="on" ? 1 : 0;
-    	$data->save();
+        $data = Order::where('customer_id','=',$id)->get();
+        foreach ($data as $item) {
+            $item->status = $request->status;
+            $item->save();
+        }
     	return redirect()->route('admin.order.list');
     }
 
@@ -66,11 +93,15 @@ class OrderController extends Controller
 
     public function getAdd()
     {
-        $orders = Order::select('customer_id')->distinct()->get();
+        $customers = Customer::select('id','name')->get();
         $products = Product::select('id','pro_name')->get();
-        $sizes = Size::select('id','size')->get();
-        $colors = OrderDetail::select('color_id')->distinct()->get();
-    	return view('admin.order.add',compact('orders','products','sizes','colors'));
+        $sizes = Size::select('id','size')
+                ->groupBy('size')
+                ->get();
+        $img_colors = Image::join('colors', 'images.id','=','colors.id')
+                ->select('colors.id','colors.color','images.color_id')
+                ->get();
+    	return view('admin.order.add',compact('customers','products','sizes','img_colors'));
     }
 
     public function postAdd(OrderRequest $orderrequest, OrderDetailRequest $detailrequest)

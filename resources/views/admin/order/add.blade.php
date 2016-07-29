@@ -23,19 +23,19 @@
 			<div class="panel-heading text-center">Add Order</div>
 			<div class="panel-body">
 
-				<form method="post" action="" enctype="multipart/form-data">
+				<form method="post" action="{!! url('admin/order/add') !!}">
 					<input type="hidden" value="{!! csrf_token() !!}" name="_token" />
 					<div class="form-group">
-						<label for="customer_id">Customer ID</label>
+						<label for="customer_id">Customer Name</label>
 						<select name="customer_id" class="form-control" required>
 							<option value="">Please Choose Customer</option>
-							@foreach($orders as $order)
-							<option value="{!! $order['customer_id'] !!}">{!! $order['customer_id'] !!}</option>
+							@foreach($customers as $customer)
+							<option value="{!! $customer['id'] !!}">{!! $customer['name'] !!}</option>
 							@endforeach
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="pro_id">Product ID</label>
+						<label for="pro_id">Product</label>
 						<select name="pro_id" class="form-control" required>
 							<option value="">Please Choose Product</option>
 							@foreach($products as $product)
@@ -53,13 +53,18 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="color_id">Color ID</label>
-						<select name="color_id" class="form-control" required>
-							<option value="">Please Choose Color</option>
-							@foreach($colors as $color)
-							<option value="{!! $color['color_id'] !!}">{!! $color['color_id'] !!}</option>
+						<p class="title">Color</p>
+						<div class="mausac">
+							<?php $stt = 0; ?>
+							@foreach($img_colors as $color)
+							<?php 
+								$stt++;
+								$url_img = asset('upload/images/'.$color->color); 
+							?>
+							<input type="radio" name="color_id" value="{{ $color->id }}" id="{{ 'ms-check'.$stt }}"  />
+                            <label for="{{ 'ms-check'.$stt }}" style="background-image: url('<?php echo $url_img; ?>')"></label>
 							@endforeach
-						</select>
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="qty">Quantity Order</label>

@@ -56,6 +56,7 @@
 <script type="text/javascript" src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-ui.js')}}"/></script>
 <script type="text/javascript" src="{{asset('assets/js/back-to-top.js')}}"></script>
+<!--<script type="text/javascript" src="{{asset('assets/js/headroom.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('assets/js/site.js')}}" ></script>
 
 @yield('javascript')

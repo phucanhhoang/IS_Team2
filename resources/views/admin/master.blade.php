@@ -10,6 +10,7 @@
 	<link href="{!! asset('assets-admin/css/animate.css') !!}" rel="stylesheet"  media="all">
 	<link href="{!! asset('assets-admin/css/style.css') !!}" rel='stylesheet' />
 	<link href="{!! asset('assets-admin/css/main.css') !!}" rel='stylesheet' />
+	<link href="{!! asset('assets-admin/css/mycss.css') !!}" rel='stylesheet' />
 	
 	<script src="{!! asset('assets-admin/ckeditor/ckeditor.js') !!}"></script>
 
@@ -41,8 +42,8 @@
 							</a>
 							<ul class="sub-menu-list">
 								<li>
-									<a href="{!! url('assets-admin/product/list') !!}">Product List</a> </li>
-								<li><a href="{!! url('assets-admin/product/add') !!}">Add Product</a></li>
+									<a href="{!! url('admin/product/list') !!}">Product List</a> </li>
+								<li><a href="{!! url('admin/product/add') !!}">Add Product</a></li>
 							</ul>
 						</li>
 						<li class="menu-list">
@@ -56,25 +57,19 @@
 								<li><a href="{!! url('assets-admin/category/add') !!}">Add Product</a></li>
 							</ul>
 						</li>              
-						<li class="menu-list"><a href="#"><i class="lnr lnr-envelope"></i> <span>MailBox</span></a>
+						<li class="menu-list"><a href="#">
+							<i class="lnr lnr-envelope"></i> 
+							<span>Order</span>
+						</a>
 							<ul class="sub-menu-list">
-								<li><a href="inbox.html">Inbox</a> </li>
-								<li><a href="compose-mail.html">Compose Mail</a></li>
+								<li><a href="{!! url('admin/order/list') !!}">Order List</a> </li>
+								<li><a href="{!! url('admin/order/add') !!}">Order Add</a></li>
 							</ul>
 						</li>      
-						<li class="menu-list"><a href="#"><i class="lnr lnr-indent-increase"></i> <span>Menu Levels</span></a>  
-							<ul class="sub-menu-list">
-								<li><a href="charts.html">Basic Charts</a> </li>
-							</ul>
-						</li>
-						<li><a href="codes.html"><i class="lnr lnr-pencil"></i> <span>Typography</span></a></li>
-						<li><a href="media.html"><i class="lnr lnr-select"></i> <span>Media Css</span></a></li>
-						<li class="menu-list"><a href="#"><i class="lnr lnr-book"></i>  <span>Pages</span></a> 
-							<ul class="sub-menu-list">
-								<li><a href="sign-in.html">Sign In</a> </li>
-								<li><a href="sign-up.html">Sign Up</a></li>
-								<li><a href="blank_page.html">Blank Page</a></li>
-							</ul>
+						<li class="menu-list"><a href="#">
+							<i class="lnr lnr-indent-increase"></i>
+						 	<span>Customer</span>
+						 </a>  
 						</li>
 					</ul>
 				<!--sidebar nav end-->
@@ -92,55 +87,11 @@
 			<!--notification menu start -->
 			<div class="menu-right">
 				<div class="user-panel-top">  	
-					<div class="profile_details_left">
-						<ul class="nofitications-dropdown">
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									<i class="fa fa-envelope"></i>
-									<span class="badge">1</span>
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<div class="notification_header">
-											<h3>You have 3 new messages</h3>
-										</div>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									<i class="fa fa-bell"></i>
-									<span class="badge blue">3</span>
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<div class="notification_header">
-											<h3>You have 3 new notification</h3>
-										</div>
-									</li>
-								</ul>
-							</li>	
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									<i class="fa fa-tasks"></i>
-									<span class="badge blue1">22</span>
-								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<div class="notification_header">
-											<h3>You have 8 pending task</h3>
-										</div>
-									</li>
-								</ul>
-							</li>		   							   		
-							<div class="clearfix"></div>	
-						</ul>
-					</div>
 					<div class="profile_details">		
 						<ul>
 							<li class="dropdown profile_details_drop">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									<div class="profile_img"> <span><img src="{!! url('assets-admin/images/1.png') !!}" alt=""> </span>
+									<div class="profile_img"> <span><img src="{!! url('admin/images/1.png') !!}" alt=""> </span>
 										 <div class="user-name">
 											<p>Michael<span>Administrator</span></p>
 										 </div>
@@ -176,11 +127,11 @@
 				@yield('content')
 			</div>
     </section>
-    <script src="{!! asset('assets-admin/js/jquery-1.10.2.min.js') !!}"></script>
-	<script src="{!! asset('assets-admin/js/jquery.nicescroll.js') !!}"></script>
-	<script src="{!! asset('assets-admin/js/scripts.js') !!}"></script>
-	<script src="{!! asset('assets-admin/js/bootstrap.min.js') !!}"></script>
-<!--	<script src="{!! asset('assets-admin/js/myscripts.js') !!}"></script>-->
+    <script src="{!! asset('admin/js/jquery-1.10.2.min.js') !!}"></script>
+	<script src="{!! asset('admin/js/jquery.nicescroll.js') !!}"></script>
+	<script src="{!! asset('admin/js/scripts.js') !!}"></script>
+	<script src="{!! asset('admin/js/bootstrap.min.js') !!}"></script>
+	<script src="{!! asset('assets/js/myscript.js') !!}"></script>
 	@yield('body.js')
 </body>
 </html>

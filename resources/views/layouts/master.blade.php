@@ -29,6 +29,7 @@
 <script type="text/javascript" src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/back-to-top.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/accounting.js')}}"></script>
+<!--<script type="text/javascript" src="{{asset('assets/js/headroom.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('assets/js/site.js')}}"></script>
 
 <script>
@@ -36,6 +37,7 @@
     var content_height = $(window).height() - 348;
     $('#content').css('min-height', content_height + 'px');
     $('#ft_id').show();
+
   });
 </script>
 

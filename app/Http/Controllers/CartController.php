@@ -68,4 +68,22 @@ class CartController extends Controller
             return 'false';
         }
     }
+
+    public function change(Request $request){
+        $cart = Cart::find($request->id);
+        $old_qty = $cart->quantity;
+        $cart->quantity = $request->quantity;
+        $check = $cart->save();
+        $delta_qty = $request->quantity - $old_qty;
+
+        if($check) {
+            $data = array(
+                'msg' => 'true',
+                'delta_qty' => $delta_qty
+            );
+            return $data;
+        }
+        else
+            return 'false';
+    }
 }

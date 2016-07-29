@@ -124,22 +124,24 @@ Stylitics - Product page
                         $price = $cart->price - $cart->price * $cart->discount / 100;
                         $total_money += $price * $cart->quantity;
                         ?>
-                        <tr class="cart_id{{$cart->id}}">
-                            <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}"
-                                   money="{{$price * $cart->quantity}}"><i class="fa fa-times-circle"></i></a></td>
+                        <tr class="cart_id{{$cart->id}}" money="{{$price * $cart->quantity}}">
+                            <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}">
+                                    <i class="fa fa-times-circle"></i></a></td>
                             <td width="90px"><img src="{{asset('upload/images/'.$cart->image)}}" style="width: 75px" /></td>
                             <td>{{$cart->pro_name}}</td>
                             <td style="text-align: center"><label class="box-color"><img src="{{asset('upload/images/'.$cart->color)}}" /></label></td>
                             <td><label class="box-size">{{$cart->size}}</label></td>
                             <td>{{number_format($price, 0, ',', '.')}} đ</td>
-                            <td><input type="number" class="qty_num" onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /></td>
-                            <td>{{$price * $cart->quantity}} đ</td>
+                            <td><input type="number" id="{{$cart->id}}" class="qty_num qty_num{{$cart->id}}" price="{{$price}}"
+                                       onkeyup="this.value=this.value.replace(/[^1-9]/g,'');"
+                                       onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /></td>
+                            <td>{{number_format($price * $cart->quantity, 0, ',', '.')}} đ</td>
                         </tr>
                         <?php } ?>
                         <tr>
                             <td colspan="6"></td>
                             <td><strong>Tổng tiền</strong></td>
-                            <td><strong><label class="cart_total">{{$total_money}}</label> đ</strong></td>
+                            <td><strong><label class="cart_total">{{number_format($total_money, 0, ',', '.')}}</label> đ</strong></td>
                         </tr>
                         </tbody>
                     </table>
