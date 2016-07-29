@@ -71,10 +71,16 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('auth/login', ['as' => 'getLoginAdmin', 'uses' => 'Auth\AuthController@getLogin']);
     Route::post('auth/login', ['as' => 'postLoginAdmin', 'uses' => 'Auth\AuthController@postLogin']);
 
-    Route::get('/home', [
-        'as' => 'admin.home',
-        'uses' => 'HomeController@adminHomePage'
-    ]);
+    Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
+        Route::get('/', [
+            'as' => 'admin.home',
+            'uses' => 'HomeController@adminHomePage'
+        ]);
+        Route::get('/home', [
+            'as' => 'admin.home',
+            'uses' => 'HomeController@adminHomePage'
+        ]);
+    });
 
     Route::group(['prefix' => 'category'], function(){
         Route::get('add', [

@@ -70,11 +70,11 @@
     <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('assets-admin/css/bootstrap.min.css')}}" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="{{asset('admin/css/style.css')}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset('assets-admin/css/style.css')}}" rel='stylesheet' type='text/css' />
     <!-- Graph CSS -->
-    <link href="{{asset('admin/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{asset('assets-admin/css/font-awesome.css')}}" rel="stylesheet">
     <style>
         .log-input .has-error input{
             border-color: #ee3b27;
