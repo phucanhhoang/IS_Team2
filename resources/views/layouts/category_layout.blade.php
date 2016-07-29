@@ -35,9 +35,7 @@
 <nav class="container breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
-    <a href="{{asset('/')}}">Áo</a>
-    <span class="divider">›</span>
-    Áo sơ mi
+    @yield('breadcrumbs')
 </nav>
 
 {{-- Content --}}

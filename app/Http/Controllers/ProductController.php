@@ -24,6 +24,12 @@ class ProductController extends Controller
     	return view('admin.product.list', compact('products'));
     }
 
+    public function getProFollowCate($id, $name_cate){
+        $pro_cate = Product::select('id','pro_name','image','price','cat_id')->where('cat_id',$id)->get();
+        $cate_id = $id;
+        return view('pages.category', compact('name_cate','cate_id','pro_cate'));
+    }
+
     public function getAddPro(){
         $pro_cat = Category::select('id', 'cat_title', 'parent_id')->get()->toArray();
     	return view('admin.product.add', compact('pro_cat'));

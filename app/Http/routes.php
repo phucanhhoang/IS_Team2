@@ -34,9 +34,7 @@ Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthContro
 
 Route::get('refereshcapcha', 'HelperController@refereshCapcha');
 
-Route::get('category', function () {
-    return view('pages.category');
-});
+Route::get('category/{id}/{name_cate}',['as'=>'cate','uses'=>'ProductController@getProFollowCate']);
 Route::get('product/{id}', 'ProductController@showDetail');
 
 Route::post('cart/add', 'CartController@add');
