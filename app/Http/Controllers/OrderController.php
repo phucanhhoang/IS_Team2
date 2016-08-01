@@ -23,9 +23,9 @@ class OrderController extends Controller
     public function getList()
     {
     	$orders = Order::join('customers','orders.customer_id','=','customers.id')
-                ->select('orders.id','orders.customer_id',DB::raw('SUM(orders.total_money) as total'),'orders.status',DB::raw('max(orders.updated_at) as time'),'customers.name','customers.phone')
-                ->groupBy('customers.name')
-                ->orderBy('orders.status','asc')
+                ->select('orders.id','orders.customer_id',DB::raw('SUM(orders.total_money) as total'),'orders.status',DB::raw('max(orders.created_at) as time'),'customers.name','customers.phone')
+                ->groupBy('orders.id')
+                ->orderBy('time','asc')
                 ->get();
 
     	return view('admin.order.list',compact('orders'));
@@ -35,13 +35,12 @@ class OrderController extends Controller
     {
         $detail = OrderDetail::join('products', 'orderdetails.pro_id','=','products.id')
                 ->join('orders','orderdetails.order_id','=','orders.id')
-                ->select('orderdetails.pro_id','orderdetails.pro_name','orderdetails.color_id','orderdetails.size_id','products.price','products.discount','products.image',DB::raw('SUM(orderdetails.qty) as quantity'),'orderdetails.updated_at as time','orders.id')
-                ->where('orders.customer_id','=',$id)
-                ->groupBy('orderdetails.size_id')
+                ->select('orderdetails.pro_id','orderdetails.pro_name','orderdetails.color_id','orderdetails.size_id','products.price','products.discount','products.image','qty','orderdetails.updated_at as time','orders.id')
+                ->where('orders.id','=',$id)
                 ->orderBy('time','desc')
                 ->get();
 
-        $state = Order::select('customer_id','status')->where('customer_id','=',$id)->get()->first();
+        $state = Order::select('customer_id','status')->where('id','=',$id)->get()->first();
         $sizes = Prosize::join('sizes', 'prosizes.size_id','=','sizes.id')
                 ->select('sizes.id','sizes.size','prosizes.pro_id as product_id')
                 ->get();
@@ -50,18 +49,19 @@ class OrderController extends Controller
                 ->select('colors.id','colors.color','images.pro_id as product_id','images.color_id')
                 ->get();
 
-        $customers = Customer::where('id','=',$id)->get();
+        $customers = Customer::join('orders','customers.id','=','orders.customer_id')
+                ->select('orders.id','customers.id','customers.name','customers.address','customers.district','customers.city','customers.phone')
+                ->where('orders.id','=',$id)
+                ->get();
     	$data = Order::find($id);
     	return view('admin.order.detail',compact('detail','data','customers','sizes','img_colors','state'));
     }
 
     public function postChange($id, Request $request)
     {
-        $data = Order::where('customer_id','=',$id)->get();
-        foreach ($data as $item) {
-            $item->status = $request->status;
-            $item->save();
-        }
+        $data = Order::find($id);
+        $data->status = $request->status;
+        $data->save();
     	return redirect()->route('admin.order.list');
     }
 
@@ -84,7 +84,6 @@ class OrderController extends Controller
     	$detail->qty = $request->qty;
 
     	$data = Order::find($id);
-    	$data->status = $request->status=="on" ? 1 : 0;
     	$data->save();
 
     	$detail->save();

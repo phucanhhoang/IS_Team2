@@ -10,7 +10,11 @@
         "mews/captcha": "~2.0",
         "intervention/image": "^2.3",
         "laravel/socialite": "~2.0",
-        "illuminate/html": "^5.0"
+        "illuminate/html": "^5.0",
+        "moltin/currency": "dev-master",
+		"moltin/tax": "dev-master",
+		"moltin/cart": "dev-master",
+		"moltin/laravel-cart": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

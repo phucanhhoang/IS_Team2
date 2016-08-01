@@ -3,13 +3,15 @@
 Stylitics - Product page
 @stop
 
-@section('content')
+@section('breadcrumbs')
 <nav class="container breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
     Đặt hàng
 </nav>
+@stop
 
+@section('content')
 <div class="container checkoutpage" style="padding: 0 45px">
     <div class="row">
 <!--        <div class="col-md-0.3"></div>-->
@@ -31,12 +33,22 @@ Stylitics - Product page
             <p><a class="txt-link" href="{{asset('')}}">Click vào đây</a> để tiếp tục mua hàng.</p>
         @elseif($carts->count() > 0)
         <div class="checkout_content">
+
             <form id="checkout_form" role="form" method="post" action="{{asset('checkout')}}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="border col-md-5">
                     <div class="checkout_title">
                         <div><span class="badge">1</span>Địa chỉ giao hàng</div>
                     </div>
+                    @if (count($errors) > 0)
+                    <div id="checkout_alert" class="alert alert-danger">
+                        <ul style="list-style-type: inherit">
+                            @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div id="checkout_alert_adr" class="alert alert-danger">
                         <p>Error: </p>
                         <span></span>

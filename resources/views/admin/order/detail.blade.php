@@ -77,7 +77,7 @@
             ?>
             <tr align="center">
                 <td>{!! $item['id'] !!}</td>
-                <td>{!! $item['pro_name'] !!}</td>
+                <td>{!! $item->pro_name !!}</td>
                 <td><img src="{!! asset('upload/images/'.$item['image']) !!}" width="75"; height="75"></td>
                 <td>
                 @foreach($sizes as $size)
@@ -92,7 +92,7 @@
                 @endforeach
                 </td>
                 <td>{!! number_format($item['price'],'0',',','.') !!}</td>
-                <td>{!! $item['quantity'] !!}</td>
+                <td>{!! $item['qty'] !!}</td>
                 <td>{!! $item['time'] !!}</td>
             </tr>
             @endforeach

@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css"
         href="{{asset('assets/css/font-awesome/css/font-awesome.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/css.css')}}"/>
 
   @yield('head.css')
@@ -17,6 +18,8 @@
 <body>
 <!--header outside class container because header in full screens-->
 @include('partials.header')
+
+@yield('breadcrumb')
 
 <div id="content">
   @yield('content')
@@ -34,9 +37,6 @@
 
 <script>
   $(document).ready(function(){
-    var content_height = $(window).height() - 348;
-    $('#content').css('min-height', content_height + 'px');
-    $('#ft_id').show();
 
   });
 </script>

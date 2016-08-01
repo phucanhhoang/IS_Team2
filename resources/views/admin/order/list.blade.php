@@ -33,7 +33,7 @@
                 <td>{!! $order->phone !!}</td>
                 <td>{!! $order->status==0?'Pending':($order->status==1?'Processing':($order->status==2?'Complete':($order->status==3?'Cancel':''))) !!}</td>
                 <td>{!! $order->time !!}</td>
-                <td><i class="fa fa-eye fa-fw"></i><a href="{!! url('admin/order/detail') !!}/{!! $order->customer_id !!}">View</a></td>
+                <td><i class="fa fa-eye fa-fw"></i><a href="{!! url('admin/order/detail') !!}/{!! $order->id !!}">View</a></td>
                 <!-- <td><i class="fa fa-pencil fa-fw"></i><a href="{!! url('admin/order/edit') !!}/{!! $order->customer_id !!}">Edit</a></td> -->
             </tr>
             @endforeach

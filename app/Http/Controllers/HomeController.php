@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
 class HomeController extends Controller
 {
 
@@ -33,7 +34,9 @@ class HomeController extends Controller
     public function index()
     {
         $pros = Product::all();
-        return view('pages.home', compact('pros'));
+        $cat_parents = Category::where('parent_id', 0)->take(3)->get();
+
+        return view('pages.home', compact('pros', 'cat_parents'));
     }
 
 

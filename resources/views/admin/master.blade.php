@@ -127,11 +127,11 @@
 				@yield('content')
 			</div>
     </section>
-    <script src="{!! asset('admin/js/jquery-1.10.2.min.js') !!}"></script>
-	<script src="{!! asset('admin/js/jquery.nicescroll.js') !!}"></script>
-	<script src="{!! asset('admin/js/scripts.js') !!}"></script>
-	<script src="{!! asset('admin/js/bootstrap.min.js') !!}"></script>
-	<script src="{!! asset('assets/js/myscript.js') !!}"></script>
+    <script src="{!! asset('assets-admin/js/jquery-1.10.2.min.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/jquery.nicescroll.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/scripts.js') !!}"></script>
+	<script src="{!! asset('assets-admin/js/bootstrap.min.js') !!}"></script>
+<!--	<script src="{!! asset('assets/js/myscript.js') !!}"></script>-->
 	@yield('body.js')
 </body>
 </html>

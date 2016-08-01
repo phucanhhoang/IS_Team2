@@ -11,12 +11,10 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
-use App\Product;
-use App\Image;
-use App\ProSize;
 use App\Cart;
 use App\Customer;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CheckoutRequest;
 
 class CheckoutController extends Controller
 {
@@ -40,8 +38,8 @@ class CheckoutController extends Controller
         return view('pages.checkout', compact('carts'));
     }
 
-    public function postCheckout(Request $request){
-//        try {
+    public function postCheckout(CheckoutRequest $request){
+        try {
             if(!Auth::check()){
                 $customer = new Customer;
                 $customer->name = $request->name;
@@ -73,8 +71,8 @@ class CheckoutController extends Controller
                 ->with('message', 'Đặt hàng thành công. Chúng tôi sẽ sớm liên lạc với bạn!')
                 ->with('alert-class', 'alert-success')
                 ->with('fa-class', 'fa-check');
-//        }catch(\Exception $e){
-//            dd(get_class($e));
-//        }
+        }catch(\Exception $e){
+            dd(get_class($e));
+        }
     }
 }

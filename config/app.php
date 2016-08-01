@@ -157,6 +157,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+		Moltin\Cart\CartServiceProvider::class,
 
     ],
 
@@ -205,7 +206,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form'      => Illuminate\Html\FormFacade::class,
         'View'      => Illuminate\Html\HtmlFacade::class,
-        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'Captcha' 	=> Mews\Captcha\Facades\Captcha::class,
+		'Cart' 		=> Moltin\Cart\Facade::class,
     ],
 
 ];

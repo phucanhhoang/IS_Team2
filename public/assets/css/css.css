@@ -407,7 +407,7 @@ i.fa.fa-sign-in {
 
 #myCarousel img {
 	width: 100%;
-	height: 525px;
+	height: 540px;
 }
 
 @media only screen and (max-width: 1024px){
@@ -926,11 +926,12 @@ i.fa.fa-sign-in {
 .mausac label,
 .kichco label, .box-size, .box-color {
 	display: inline-block;
-	width: 20px;
+	min-width: 20px;
 	height: 20px;
 	padding: 1px;
 	text-align: center;
 	margin-right: 5px;
+	margin-bottom: 8px;
 	background-clip: content-box;
 }
 

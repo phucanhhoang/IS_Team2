@@ -20,7 +20,7 @@
         {!! $name_cate !!}
     @endif
 @stop
-@section('content')
+@section('content_right')
 <!--    <img src="{{asset('assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" /> -->
     @foreach($pro_cate as $pro)
         <div class="col-sm-3 col-md-3 product">

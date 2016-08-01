@@ -108,5 +108,14 @@ $(document).ready(function () {
 
     });
 
+    var content_height = $(window).height() - 333;
+    $('#content').css('min-height', content_height + 'px');
+    $('#ft_id').show();
+
+    jQuery.validator.addMethod("phoneno", function (phone_number, element) {
+        phone_number = phone_number.replace(/\s+/g, "");
+        return this.optional(element) || phone_number.length > 9 &&
+            phone_number.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
+    }, "Vui lòng nhập đúng số điện thoại");
 
 });

@@ -25,7 +25,7 @@ Home page
 </div>
 <div class="elements">
     <div class="col-xm-12 col-sm-4 left">
-        <a href="{{asset('category')}}"><img src="{{asset('assets/image/shirt.jpg')}}"/><span>ÁO</span></a>
+        <a href="{{asset('category/'.$cat_parents[0]->id.'/'.$cat_parents[0]->cat_title)}}"><img src="{{asset('assets/image/shirt.jpg')}}"/><span>{{mb_strtoupper($cat_parents[0]->cat_title)}}</span></a>
         <div class="policy">
             <p>
                 <span>
@@ -36,11 +36,11 @@ Home page
     </div>
 
     <div class="col-xm-12 col-sm-4 middle">
-        <a href="#"><img src="{{asset('assets/image/dress.jpg')}}"/><span>VÁY<br/></span></a>
+        <a href="{{asset('category/'.$cat_parents[1]->id.'/'.$cat_parents[1]->cat_title)}}"><img src="{{asset('assets/image/dress.jpg')}}"/><span>{{mb_strtoupper($cat_parents[1]->cat_title)}}<br/></span></a>
     </div>
 
     <div class="col-xm-12 col-sm-4 right">
-        <a href="#"><img src="{{asset('assets/image/jean.jpg')}}"/><span>QUẦN</span></a>
+        <a href="{{asset('category/'.$cat_parents[2]->id.'/'.$cat_parents[2]->cat_title)}}"><img src="{{asset('assets/image/jean.jpg')}}"/><span>{{mb_strtoupper($cat_parents[2]->cat_title)}}</span></a>
         <div class="policy"><p><span><i class="fa fa-refresh"></i> ĐỔI TRẢ<br/><span>trong vòng 3 ngày</span></span></p>
         </div>
     </div>

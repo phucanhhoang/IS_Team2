@@ -25,7 +25,7 @@ Stylitics - Product page
         <div>
             <div class="div-1">
                 <p class="title">{{$product->pro_name}}<span>{{number_format($product->price, 0, ',', '.')}}đ</span></p>
-                <p>Chất liệu: cotton<br/>Đánh giá: 4.5</p>
+<!--                <p>Chất liệu: cotton<br/>Đánh giá: 4.5</p>-->
             </div>
 
             <form id="cart_form" method="post" action="">

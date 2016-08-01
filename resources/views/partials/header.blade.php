@@ -19,10 +19,11 @@
                         ?>
                         @if($cat_childs->count() > 0)
                         <li class="dropdown open-hover">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{mb_strtoupper($cat_parent->cat_title)}} <span class="caret"></span></a>
+                            <a href="{{asset('category/'.$cat_parent->id.'/'.$cat_parent->cat_title)}}">
+                                {{mb_strtoupper($cat_parent->cat_title)}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @foreach($cat_childs as $cat_child)
-                                <li><a href="#">{{$cat_child->cat_title}}</a></li>
+                                <li><a href="{{asset('category/'.$cat_child->id.'/'.$cat_child->cat_title)}}">{{$cat_child->cat_title}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -307,11 +308,7 @@
                 }
             }
         });
-        jQuery.validator.addMethod("phoneno", function (phone_number, element) {
-            phone_number = phone_number.replace(/\s+/g, "");
-            return this.optional(element) || phone_number.length > 9 &&
-                phone_number.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
-        }, "Vui lòng nhập đúng số điện thoại");
+
 //        $("#register_form").validate({
 //            rules: {
 //                name: 'required',
