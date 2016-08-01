@@ -25,9 +25,18 @@ class ProductController extends Controller
     }
 
     public function getProFollowCate($id, $name_cate){
-        $pro_cate = Product::select('id','pro_name','image','price','cat_id')->where('cat_id',$id)->get();
-        $cate_id = $id;
-        return view('pages.category', compact('name_cate','cate_id','pro_cate'));
+        $pa = Category::select('cat_title','parent_id')->where('id',$id)->first();
+        $parent_id = $pa->parent_id;
+        if($parent_id == 0){
+            $pro_cate = Product::select('id','pro_name','image','price','cat_id')->whereIn('cat_id',[$id+1, $id+2])->get();
+            return view('pages.category', compact('name_cate','parent_id','pro_cate'));
+        }
+        else {
+            $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id')->where('cat_id', $id)->get();
+            $parent = Category::select('cat_title')->where('id',$parent_id)->first();
+            $parent_name = $parent->cat_title;
+            return view('pages.category', compact('name_cate','parent_id','pro_cate','parent_name'));
+        }
     }
 
     public function getAddPro(){
