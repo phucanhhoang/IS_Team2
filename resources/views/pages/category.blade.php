@@ -4,22 +4,15 @@
 @stop
 
 @section('breadcrumbs')
-    @if($cate_id == 1 || $cate_id == 4 || $cate_id == 7)
+    @if($parent_id == 0)
         <a href="{{asset('/')}}">{!! $name_cate !!}</a>
-    @elseif($cate_id == 2 || $cate_id == 3)
-        <a href="{{asset('/category/1/Áo')}}">Áo</a>
-        <span class="divider">›</span>
-        {!! $name_cate !!}
-    @elseif($cate_id == 5 || $cate_id == 6)
-        <a href="{{asset('/category/4/Váy')}}">Váy</a>
-        <span class="divider">›</span>
-        {!! $name_cate !!}
-    @elseif($cate_id == 8 || $cate_id == 9)
-        <a href="{{asset('/category/7/Quần')}}">Quần</a>
+    @else
+        <a href="{{asset('/category/'.$parent_id.'/'.$parent_name)}}">{!! $parent_name !!}</a>
         <span class="divider">›</span>
         {!! $name_cate !!}
     @endif
 @stop
+
 @section('content_right')
 <!--    <img src="{{asset('assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" /> -->
     @foreach($pro_cate as $pro)
