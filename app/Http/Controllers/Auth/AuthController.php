@@ -99,14 +99,18 @@ class AuthController extends Controller
 
         if (\Auth::attempt($userdata, $r)) {
             if (\Auth::user()->userable_type == 'customer') {
-                if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {
-                    return redirect()->away($request->rtn_url);
+                if($request->rtn_url) {
+                    if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {
+                        return redirect()->away($request->rtn_url);
+                    } else {
+                        \Auth::logout();
+                        return redirect()->away($request->rtn_url)
+                            ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+                            ->with('alert-class', 'alert-warning')
+                            ->with('fa-class', 'fa-warning');
+                    }
                 } else {
-                    \Auth::logout();
-                    return redirect()->away($request->rtn_url)
-                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
-                        ->with('alert-class', 'alert-warning')
-                        ->with('fa-class', 'fa-warning');
+                    return redirect('/');
                 }
             } else if (\Auth::user()->userable_type == 'admin'){
                 if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {

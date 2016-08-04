@@ -15,6 +15,9 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('index', ['as' => 'home', 'uses' => 'HomeController@index']);
 
+//AJAX load product
+Route::post('load-product', 'HomeController@loadProduct');
+
 //Login
 //Route::get('auth/login', ['as' => 'getLogin', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@postLogin']);
@@ -81,43 +84,33 @@ Route::group(['prefix' => 'admin'], function(){
         ]);
     });
 
-    Route::group(['prefix' => 'category'], function(){
-        Route::get('add', [
-            'as' => 'admin.category.getAddCat',
-            'uses' => 'CategoryController@getAddCat'
-        ]);
-        Route::post('add', [
-            'as' => 'admin.category.postAddCat',
-            'uses' => 'CategoryController@postAddCat'
-        ]);
-        Route::get('edit', [
-            'as' => 'admin.category.getEditCat',
-            'uses' => 'CategoryController@getEditCat'
-        ]);
-        Route::get('list', [
-            'as' => 'admin.category.getListCat',
-            'uses' => 'CategoryController@getListCat'
-        ]);
-    });
+    Route::delete('sizecolor/delete/{id}', [
+        'as' => 'admin.sizecolor.delete',
+        'uses' => 'CategoryController@deleteSize'
+    ]);
 
-    Route::group(['prefix' => 'product', 'middleware' => 'auth'], function(){
-        Route::get('add', [
-            'as' => 'admin.product.getAddPro',
-            'uses' => 'ProductController@getAddPro'
-        ]);
-        Route::post('add', [
-            'as' => 'admin.product.postAddPro',
-            'uses' => 'ProductController@postAddPro'
-        ]);
-        Route::get('edit', [
-            'as' => 'admin.product.getEditPro',
-            'uses' => 'ProductController@getEditPro'
-        ]);
-        Route::get('list', [
-            'as' => 'admin.product.getListPro',
-            'uses' => 'ProductController@getListPro'
-        ]);
-    });
+    Route::get('sizecolor', [
+        'as' => 'sizecolor',
+        'uses' => 'ProductController@getSizeColor'
+    ]);
+    Route::post('newsize', [
+        'as' => 'admin.product.newSize',
+        'uses' => 'ProductController@newSize'
+    ]);
+    Route::post('newcat', [
+        'as' => 'admin.category.newCatParent',
+        'uses' => 'CategoryController@newCatParent'
+    ]);
+
+    Route::post('newcolor', [
+        'as' => 'admin.category.newColor',
+        'uses' => 'CategoryController@newColor'
+    ]);
+
+
+    Route::resource('category', 'CategoryController');
+    Route::resource('product', 'ProductController');
+
 
     Route::group(['prefix' => 'order'], function(){
         Route::get('list', [
@@ -128,8 +121,8 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'admin.order.detail',
             'uses' => 'OrderController@getDetail'
         ]);
-        Route::post('detail/{id}', ['
-            as' => 'admin.order.detail',
+        Route::post('detail/{id}', [
+            'as' => 'admin.order.detail',
             'uses' => 'OrderController@postChange'
         ]);
         Route::get('edit/{id}', [
@@ -147,6 +140,10 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('add', [
             'as' => 'admin.order.add',
             'uses' => 'OrderController@postAdd'
+        ]);
+        Route::post('pro_change', [
+            'as' => 'admin.order.pro_change',
+            'uses' => 'OrderController@proChange'
         ]);
     });
 });

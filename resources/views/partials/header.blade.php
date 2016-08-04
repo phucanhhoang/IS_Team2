@@ -41,29 +41,29 @@
                 <li id="cart" class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
                     <?php
-                        $cart = App\Cart::join('products', 'products.id', '=', 'cart.product_id')
-                            ->join('images', function ($join) {
-                                $join->on('images.pro_id', '=', 'cart.product_id');
-                                $join->on('images.color_id', '=', 'cart.color_id');
-                            })
-                            ->join('colors', 'colors.id', '=', 'cart.color_id')
-                            ->join('sizes', 'sizes.id', '=', 'cart.size_id')
-                            ->select('cart.id as id', 'product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
-                                'images.images as image', 'size', 'discount');
-                        if(Auth::check()){
-                            $carts = $cart->where('user_id', '=', Auth::user()->id)->get();
-                        }
-                        else{
-                            $carts = $cart->where('remember_token', '=', csrf_token())->get();
-                        }
-
+//                        $cart = App\Cart::join('products', 'products.id', '=', 'cart.product_id')
+//                            ->join('images', function ($join) {
+//                                $join->on('images.pro_id', '=', 'cart.product_id');
+//                                $join->on('images.color_id', '=', 'cart.color_id');
+//                            })
+//                            ->join('colors', 'colors.id', '=', 'cart.color_id')
+//                            ->join('sizes', 'sizes.id', '=', 'cart.size_id')
+//                            ->select('cart.id as id', 'product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
+//                                'images.images as image', 'size', 'discount');
+//                        if(Auth::check()){
+//                            $carts = $cart->where('user_id', '=', Auth::user()->id)->get();
+//                        }
+//                        else{
+//                            $carts = $cart->where('remember_token', '=', csrf_token())->get();
+//                        }
+                        $carts = \Cart::content();
                     ?>
-                    <label id="cart_num" style="{{$carts->count() > 0 ? 'display: block' : 'display: none'}}">{{$cart->count()}}</label>
+                    <label id="cart_num" style="{{sizeof($carts) > 0 ? 'display: block' : 'display: none'}}">{{\Cart::count()}}</label>
                     <div class="dropdown-menu box-cart">
                         <p class="title">GIỎ HÀNG</p>
                         <table id="shopping_cart" class="table">
                             <?php
-                                if(!$carts->count() > 0){
+                                if(!sizeof($carts) > 0){
                                     ?>
                                     <tr>
                                         <td><h5>Bạn chưa có sản phẩm nào trong giỏ hàng.</h5></td>
@@ -74,23 +74,23 @@
                             <?php
                                 $total_money = 0;
                                 foreach($carts as $cart){
-                                $price = $cart->price - $cart->price * $cart->discount / 100;
-                                $total_money += $price * $cart->quantity;
+                                $price = $cart->price - $cart->discount;
+                                $total_money += $cart->subtotal;
                             ?>
-                            <tr class="cart_id{{$cart->id}}" money="{{$price * $cart->quantity}}">
-                                <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}">
+                            <tr class="cart_id{{$cart->rowid}}" money="{{$cart->subtotal}}">
+                                <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->rowid}}" p-name="{{$cart->name}}">
                                         <i class="fa fa-times-circle"></i></a></td>
-                                <td width="20%"><img src="{{asset('upload/images/'.$cart->image)}}"
+                                <td width="20%"><img src="{{asset('upload/images/'.$cart->options->image)}}"
                                          style="width: 100%;height: auto"/></td>
                                 <td>
-                                    {{$cart->pro_name}}
+                                    {{$cart->name}}
                                     <br>
-                                    <input type="number" class="qty_num qty_num{{$cart->id}}" id="{{$cart->id}}" price="{{$price}}"
-                                           onkeyup="this.value=this.value.replace(/[^1-9]/g,'');"
-                                           onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /> x {{number_format($price, 0, ',', '.')}}đ
+                                    <input type="number" class="qty_num qty_num{{$cart->rowid}}" id="{{$cart->rowid}}" price="{{$price}}"
+                                           onkeyup="num_cart_validate(this);"
+                                           onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->qty}}" /> x {{number_format($price, 0, ',', '.')}}đ
                                 </td>
                                 <td>
-                                    Size <label class="box-size">{{$cart->size}}</label>
+                                    Size <label class="box-size">{{$cart->options->size}}</label>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -103,7 +103,12 @@
 
                 </li>
                 <li class="dropdown account">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x"></i></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user fa-2x" style="width:25%; float: left; text-align: center"></i>
+                        <span style="">Xin chào,</span>
+                        <br>
+                        <span class="small">Phuc Anh Hoang</span>
+                    </a>
                     <ul class="dropdown-menu">
                         @if(Auth::check())
                         <li><a href="#">Quản lý tài khoản</a></li>
@@ -372,6 +377,10 @@
         $('#error_msg').html('');
     });
 
+    function num_cart_validate(btn){
+        $(btn).val($(btn).val().replace(/[^1-9]/g,''));
+    }
+
     function refreshCaptcha() {
         $.ajax({
             url: "{{asset('refereshcapcha')}}",
@@ -410,7 +419,7 @@
                         $('#total_money').val(total_money);
                         total_money = accounting.formatNumber(total_money, 0, ".", ",");
                         $('.cart_total').html(total_money);
-                        var cart_num = parseInt($('#cart_num').html()) - 1;
+                        var cart_num = parseInt($('#cart_num').html()) - parseInt($($('.cart_id' + cart_id).find('input')[0]).val());
                         $('#cart_num').html(cart_num);
                         if(cart_num == 0){
                             $('#cart_num').hide();
@@ -436,10 +445,11 @@
             data: {id: cart_id, quantity: qty},
             cache: false,
             success: function(data){
+                console.log(data);
                 if(data['msg'] == 'true'){
-                    var delta_money = data['delta_qty'] * parseInt($(num).attr('price'));
-                    var money = parseInt($(num).parents('tr').attr('money')) + delta_money;
-                    var total_money = parseInt($('#total_money').val()) + delta_money;
+                    $('#cart_num').html(parseInt(data['count']));
+                    var money = parseInt(data['money']);
+                    var total_money = parseInt(data['subtotal']);
                     $(num).parents('tr').attr('money', money);
                     $('#total_money').val(total_money);
                     money = accounting.formatNumber(money, 0, ".", ",");

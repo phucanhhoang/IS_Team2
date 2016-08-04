@@ -3,7 +3,7 @@
 Stylitics - Product page
 @stop
 
-@section('breadcrumbs')
+@section('breadcrumb')
 <nav class="container breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
@@ -133,21 +133,21 @@ Stylitics - Product page
                         <?php
                         $total_money = 0;
                         foreach($carts as $cart){
-                        $price = $cart->price - $cart->price * $cart->discount / 100;
-                        $total_money += $price * $cart->quantity;
+                        $price = $cart->price - $cart->discount;
+                        $total_money += $cart->subtotal;
                         ?>
-                        <tr class="cart_id{{$cart->id}}" money="{{$price * $cart->quantity}}">
-                            <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->id}}" p-name="{{$cart->pro_name}}">
+                        <tr class="cart_id{{$cart->rowid}}" money="{{$cart->subtotal}}">
+                            <td><a class="btn_del" onclick="cart_del(this);" id="{{$cart->rowid}}" p-name="{{$cart->name}}">
                                     <i class="fa fa-times-circle"></i></a></td>
-                            <td width="90px"><img src="{{asset('upload/images/'.$cart->image)}}" style="width: 75px" /></td>
-                            <td>{{$cart->pro_name}}</td>
-                            <td style="text-align: center"><label class="box-color"><img src="{{asset('upload/images/'.$cart->color)}}" /></label></td>
-                            <td><label class="box-size">{{$cart->size}}</label></td>
+                            <td width="90px"><img src="{{asset('upload/images/'.$cart->options->image)}}" style="width: 75px" /></td>
+                            <td>{{$cart->name}}</td>
+                            <td style="text-align: center"><label class="box-color"><img src="{{asset('upload/images/colors/'.$cart->options->color)}}" /></label></td>
+                            <td><label class="box-size">{{$cart->options->size}}</label></td>
                             <td>{{number_format($price, 0, ',', '.')}} đ</td>
-                            <td><input type="number" id="{{$cart->id}}" class="qty_num qty_num{{$cart->id}}" price="{{$price}}"
-                                       onkeyup="this.value=this.value.replace(/[^1-9]/g,'');"
-                                       onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->quantity}}" /></td>
-                            <td>{{number_format($price * $cart->quantity, 0, ',', '.')}} đ</td>
+                            <td><input type="number" id="{{$cart->rowid}}" class="qty_num qty_num{{$cart->rowid}}" price="{{$price}}"
+                                       onkeyup="num_cart_validate(this);"
+                                       onchange="qty_onchange(this);" min="1" max="20" value="{{$cart->qty}}" /></td>
+                            <td>{{number_format($cart->subtotal, 0, ',', '.')}} đ</td>
                         </tr>
                         <?php } ?>
                         <tr>

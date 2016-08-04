@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\OrderDetailRequest;
+//use App\Http\Requests\CustomerRequest;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
@@ -25,7 +26,7 @@ class OrderController extends Controller
     	$orders = Order::join('customers','orders.customer_id','=','customers.id')
                 ->select('orders.id','orders.customer_id',DB::raw('SUM(orders.total_money) as total'),'orders.status',DB::raw('max(orders.created_at) as time'),'customers.name','customers.phone')
                 ->groupBy('orders.id')
-                ->orderBy('time','asc')
+                ->orderBy('time','desc')
                 ->get();
 
     	return view('admin.order.list',compact('orders'));
@@ -73,7 +74,8 @@ class OrderController extends Controller
         $sizes = Size::select('id','size')->get();
         $colors = OrderDetail::select('color_id')->distinct()->get();
     	$data = Order::find($id);
-    	return view('admin.order.edit',compact('detail','data','product','sizes','colors'));
+        $state = Order::select('customer_id','status')->where('id','=',$id)->get()->first();
+    	return view('admin.order.edit',compact('detail','data','product','sizes','colors','state'));
     }
 
     public function postEdit($id, Request $request)
@@ -94,11 +96,10 @@ class OrderController extends Controller
     {
         $customers = Customer::select('id','name')->get();
         $products = Product::select('id','pro_name')->get();
-        $sizes = Size::select('id','size')
-                ->groupBy('size')
-                ->get();
-        $img_colors = Image::join('colors', 'images.id','=','colors.id')
+        $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->select('sizes.id','prosizes.pro_id','sizes.size')->get();
+        $img_colors = Image::join('colors', 'images.color_id','=','colors.id')
                 ->select('colors.id','colors.color','images.color_id')
+                ->groupBy('colors.id')
                 ->get();
     	return view('admin.order.add',compact('customers','products','sizes','img_colors'));
     }
@@ -110,6 +111,17 @@ class OrderController extends Controller
 
         $product = Product::where('id',$detailrequest->pro_id)->get()->first();
 
+//        $customers = Customer::where('name','=',$customrequest->customer_name)->get();
+//        if (!isset($customers)) {
+//            $customer = new Customer();
+//            $customer->name = $customrequest->customer_name;
+//            $customer->address = $customrequest->address;
+//            $customer->district = $customrequest->district;
+//            $customer->city = $customrequest->city;
+//            $customer->phone = $customrequest->phone;
+//            $customer->save();
+//        }
+        
         $order->customer_id = $orderrequest->customer_id;
         $order->total_money = $product->price*$detailrequest->qty*(1-$product->discount/100);
         $order->status = 0;
@@ -127,5 +139,19 @@ class OrderController extends Controller
         $orderdetail->save();
 
         return redirect()->route('admin.order.list');
+    }
+
+    public function proChange(Request $request){
+        $customers = Customer::where('name',$request->customer_name)->get();
+        $sizes = Prosize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')
+                ->where('pro_id', $request->pro_id)->get();
+        $colors = Image::join('colors', 'colors.id', '=', 'images.color_id')
+                ->where('pro_id', $request->pro_id)->get();
+        $data = array(
+            'customers' => $customers,
+            'sizes' => $sizes,
+            'colors' => $colors
+        );
+        return $data;
     }
 }

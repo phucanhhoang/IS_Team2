@@ -1,3 +1,40 @@
+.group_img_color {
+    border: 1px solid #C8C8C8;
+}
+
+input[type= 'checkbox'] {
+    width: 18px;
+    height: 18px;
+    background: red;
+}
+.ck_size {
+    font-size: 22px;
+   
+}
+.mausac input{
+    display: none;
+}
+ 
+.mausac input:checked + label{
+    border: 1px solid #252525;
+}
+
+.mausac label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    text-align: center;
+    margin-right: 5px;
+    background-clip: content-box;
+}
+
+label {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+}
+
+
 /*---------------------------------
             LEFT SIDE
 ----------------------------------*/
@@ -18,7 +55,7 @@
 }
 
 .sticky-left-side .custom-nav {
-    margin-top: 59px;
+    margin-top: 71px;
 	background: #000;
 }
 
@@ -189,7 +226,7 @@ ul.dropdown-menu.drp-mnu li {
 }
 
 .custom-nav .menu-list.active ul {
-    display: block;
+    /*display: block;*/
 }
 .nav>li>a {
 position: relative;
@@ -502,22 +539,4 @@ ul.dropdown-menu li {
 	float:left;
 	margin-left:15px;
 	position:relative;
-}
-
-.mausac input{
-    display: none;
-}
- 
-.mausac input:checked + label{
-    border: 1px solid #252525;
-}
-
-.mausac label{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    padding: 1px;
-    text-align: center;
-    margin-right: 5px;
-    background-clip: content-box;
 }

@@ -85,9 +85,10 @@
                 @endforeach
                 </td>
                 <td>
+                    <?php //dd($img_colors) ?>
                 @foreach($img_colors as $color)
                     @if($item['pro_id']==$color['product_id'] && $item['color_id']==$color['id'])
-                        <img src="{!! asset('upload/images/'.$color['color']) !!}">
+                        <img src="{!! asset('upload/images/colors/'.$color['color']) !!}">
                     @endif
                 @endforeach
                 </td>

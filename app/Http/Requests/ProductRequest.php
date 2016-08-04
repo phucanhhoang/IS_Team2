@@ -1,4 +1,5 @@
-<?php namespace App\Http\Requests;
+<?php 
+namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
@@ -23,19 +24,17 @@ class ProductRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required'
+            'pro_name' => 'required|unique:products',
+            'pro_code' => 'required|unique:products',
+            'cat_id' => 'required',
+            'price' => 'required|numeric',
+            'discount' => 'required|numeric',
+            'image' => 'required|image',
+            'full_des' => 'required|min:100',
+            'size_id' => 'required|unique:prosizes',
+            'color_id' => 'required|unique:images'
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'username.required' => 'Vui lòng nhập username',
-            'password.required' => 'Vui lòng nhập password',
-            'email.required' => 'Vui lòng nhập email',
-            'email.email' => 'Email sai định dạng'
-        ];
-    }
 
 }

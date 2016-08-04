@@ -20,7 +20,7 @@
                     $stt = 0;
                     foreach($img_colors as $color){
                         $stt++;
-                        $url_img = asset('upload/images/'.$color->color);
+                        $url_img = asset('upload/images/colors/'.$color->color);
                         ?>
                         <input type="checkbox" name="color_id" class="chk_color" value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
                         <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
@@ -33,7 +33,7 @@
                 <p class="title">Kích cỡ</p>
                 <div class="kichco">
                     <?php
-                    $sizes = App\Size::all();
+                    $sizes = App\Size::orderBy('size')->get();
                     $stt = 0;
                     foreach($sizes as $size){
                         $stt++;

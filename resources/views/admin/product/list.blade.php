@@ -1,60 +1,86 @@
 @extends('admin.master')
-@section('head.title', ' | Category List')
+@section('head.title', ' | Product List')
 @section('content')
 <div class="row">
-    <div class="col-sm-6">
+    <ol class="breadcrumb">
+      <li><a href="{!! url('admin/home') !!}">Admin</a></li>
+      <li><a href="{!! url('admin/product') !!}">Product</a></li>
+      <li class="active">List</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        @if(Session::has('delete'))
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success:</strong> {!! Session::get('delete') !!}
+            </div>
+        @endif
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        @if(Session::has('message'))
+            <div class="alert alert-success">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success:</strong> {!! Session::get('message') !!}
+            </div>
+        @endif
+    </div>
+</div>
+<div class="row">
+    <a href="{!! route('admin.product.create') !!}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Create New Product</a>
+</div>
+<div class="row">
+    <div class="col-sm-12">
         <h1 class="lead" style="font-size: 2em; color:rgb(255,0,0)">Product
             <small>List</small>
         </h1>
     </div>
-    <div class="col-sm-6">
-        <form class="navbar-form navbar-right" role="search">
-          <input type="text" class="form-control" placeholder="Search..">
-      </form>
-    </div>
 </div>
-<div class="row">
-    <span>Show</span>
-    <select name="items" required="required">
-        <option value="">5</option>
-        <option value="">10</option>
-        <option value="">15</option>
-        <option value="">25</option>
-        <option value="">50</option>
-        <option value="">100</option>
-    </select>
-    <span>Items</span>
-    <br>
-    <br>
-    <table class="table table-striped table-bordered table-hover">
+<div class="row col-sm-8 col-sm-offset-2">
+	<table class="table table-striped table-bordered" id="dataTable">
         <thead>
-            <tr>
-                <th class="text-center">ID</th>
-                <th class="text-center">Product Name</th>
-                <th class="text-center">Product Code</th>
-                <th class="text-center">price</th>
-                <th class="text-center">Discount</th>
-                <th class="text-center">Product Image</th>
-                <th class="text-center">Delete</th>
-                <th class="text-center">Edit</th>
-            </tr>
+        <tr align="center">
+            <th>STT</th>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
         </thead>
         <tbody>
-        @foreach($products as $pro)
-            <tr align="center">
-                <td>{!! $pro->pro_id !!}</td>
-                <td>{!! $pro->pro_name !!}</td>
-                <td>{!! $pro->pro_code !!}</td>
-                <td>{!! $pro->price !!}</td>
-                <td>{!! $pro->discount !!}</td>
-                <td><img src="{!! url('resources/upload/images',$pro->image) !!}" alt="" width="200"; height="200"></td>
-                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-            </tr>
+        <?php $stt = 0; ?>
+         @foreach($products as $pro)
+        <?php $stt++ ;?>
+        <tr class="odd gradeX" align="center">
+            <td>{!! $stt !!}</td>
+            <td ><img src="{!! url('upload/images',$pro->image) !!}" alt="" width="50"; height="50"></td>
+            <td class="text-left">{!! $pro->pro_name !!}</td>
+            <td class="text-left">{!! $pro->pro_code !!}</td>
+           	<td>
+           		<a href="{!! route('admin.product.show',$pro->id) !!}" class="btn btn-primary">
+                    <i class="fa fa-eye"></i> View
+                </a>
+           	</td>
+			<td>
+				<a href="{!! route('admin.product.edit', $pro->id) !!}" class="btn btn-warning">
+                    <i class="fa fa-pencil fa-fw"></i> Edit
+                </a>
+			</td>
+			<td>
+				{!! Form::open(['route' => ['admin.product.destroy', $pro->id], 'method' => 'DELETE']) !!}
+                    <button type="submit" onclick="return deletePro()" class="btn btn-danger">
+                        <i class="fa fa-times" aria-hidden="true" style="font-size: 15px"></i> Delete
+                    </button>
+                {!! Form::close() !!}
+			</td>    
+        </tr>
         @endforeach
         </tbody>
     </table>
 </div>
-<!-- /.row -->
+@stop
+@section('body.js')
 
 @stop
