@@ -19,11 +19,12 @@ class ProductController extends Controller
     //Show a product details
     public function showDetail($id){
         $product = Product::find($id);
-        $img_colors = Image::join('colors', 'colors.id', '=', 'images.id')->where('pro_id', '=', $id)->get();
+        $img_prods = Image::where('pro_id', $id)->get();
+        $img_colors = ProColor::join('colors', 'colors.id', '=', 'procolors.id')->where('pro_id', '=', $id)->get();
         $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->where('pro_id', '=', $id)->get();
         $products = Product::where('cat_id', $product->cat_id)->orderByRaw("RAND()")->take(8)->get();
         
-        return view('pages.product', compact('product', 'img_colors', 'sizes', 'products'));
+        return view('pages.product', compact('product', 'img_prods', 'img_colors', 'sizes', 'products'));
     }
 
     //show all categories

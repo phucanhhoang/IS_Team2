@@ -158,6 +158,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
         Kingpabel\Shoppingcart\ShoppingcartServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class
     ],
 
     /*
@@ -207,6 +208,7 @@ return [
         'View'      => Illuminate\Html\HtmlFacade::class,
         'Captcha' 	=> Mews\Captcha\Facades\Captcha::class,
         'Cart'      => Kingpabel\Shoppingcart\Facades\Cart::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class
     ],
 
 ];

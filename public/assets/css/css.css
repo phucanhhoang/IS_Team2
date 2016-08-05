@@ -157,7 +157,8 @@ body {
 }
 
 #myNav {
-	padding: 0;
+	z-index: 9999;
+	overflow-x: hidden;
 }
 
 #myNav ul:nth-of-type(1) {
@@ -709,9 +710,9 @@ i.fa.fa-sign-in {
 
 .product a:last-child .fa {
 	position: absolute;
-	left: 50%;
+	left: 48%;
 	margin-left: -9px;
-	bottom: 8px;
+	bottom: 9px;
 	color: white;
 }
 

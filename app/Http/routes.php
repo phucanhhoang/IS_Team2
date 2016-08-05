@@ -47,24 +47,10 @@ Route::post('cart/change', 'CartController@change');
 Route::get('checkout', 'CheckoutController@getCheckout');
 Route::post('checkout', 'CheckoutController@postCheckout');
 
-Route::get('sendemail', function () {
+Route::get('register/verify/sendemail/{email}', 'Auth\AuthController@sendMailVerify');
+Route::get('register/verify/{confirmation_code}', 'Auth\AuthController@confirm');
 
-    $data = array(
-        'name' => "Learning Laravel",
-    );
-
-    Mail::send('emails.verify', $data, function ($message) {
-
-        $message->from('phucanh94@gmail.com', 'Learning Laravel');
-
-        $message->to('phucanh48@gmail.com')->subject('Learning Laravel test email');
-
-    });
-
-    return "Your email has been sent successfully";
-
-});
-
+Route::post('checkexist/phone', 'HelperController@checkPhone');
 Route::post('checkexist/email', 'HelperController@checkEmail');
 Route::post('check/captcha', 'HelperController@checkCaptcha');
 

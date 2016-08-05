@@ -15,7 +15,7 @@ use App\Http\Requests\LoginRequest;
 use App\Mailers\AppMailer;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Mail;
-use Laravel\Socialite\Facades\Socialite;
+use Socialite;
 use Hash;
 
 class AuthController extends Controller
@@ -100,14 +100,14 @@ class AuthController extends Controller
         if (\Auth::attempt($userdata, $r)) {
             if (\Auth::user()->userable_type == 'customer') {
                 if($request->rtn_url) {
-                    if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {
+                    if (\Auth::user()->activated == 1) {
                         return redirect()->away($request->rtn_url);
                     } else {
                         \Auth::logout();
+                        $data['openLoginModal'] = true;
                         return redirect()->away($request->rtn_url)
-                            ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
-                            ->with('alert-class', 'alert-warning')
-                            ->with('fa-class', 'fa-warning');
+                            ->with('message', 'Tài khoản của bạn chưa được kích hoạt!')
+                            ->withInput($data);
                     }
                 } else {
                     return redirect('/');
@@ -126,6 +126,7 @@ class AuthController extends Controller
         } else {
             $data['openLoginModal'] = true;
             return redirect()->away($request->rtn_url)
+                ->with('message', 'E-mail hoặc mật khẩu không chính xác.')
                 ->withInput($data);
         }
     }
@@ -139,10 +140,9 @@ class AuthController extends Controller
     {
         try {
             $userfb = Socialite::driver('facebook')->user();
-            $social_acc = SocialAccount::where('provider', '=', 'facebook')
-                ->where('provider_user_id', '=', $userfb->id)->get();
-            if ($social_acc->count() > 0) {
-                \Auth::loginUsingId($social_acc[0]->user_id);
+            $user = User::where('email', $userfb->email)->first();
+            if ($user) {
+                \Auth::loginUsingId($user->id);
                 return redirect('home');
             } else {
                 $customer = new Customer;
@@ -156,13 +156,6 @@ class AuthController extends Controller
                     $user->userable_type = 'customer';
                     $user->remember_token = csrf_token();
                     $check = $user->save();
-                }
-                if ($check) {
-                    $social_acc = new SocialAccount();
-                    $social_acc->user_id = $user->id;
-                    $social_acc->provider_user_id = $userfb->id;
-                    $social_acc->provider = 'facebook';
-                    $check = $social_acc->save();
                 }
                 if ($check) {
                     \Auth::loginUsingId($user->id);
@@ -234,27 +227,59 @@ class AuthController extends Controller
             $check = $customer->save();
 
             if ($check) {
+                $confirmation_code = str_random(100);
                 $user = new User;
                 $user->password = Hash::make($request->password);
                 $user->email = $request->email;
                 $user->remember_token = $request->_token;
                 $user->userable_id = $customer->id;
                 $user->userable_type = 'customer';
+                $user->confirmation_code = $confirmation_code;
                 $check = $user->save();
             }
 
             if ($check) {
-//            $mailer->sendEmailConfirmationTo();
-                return redirect()->away($request->rtn_url)
-                    ->with('message', 'Đăng ký thành công!')
-                    ->with('alert-class', 'alert-success')
-                    ->with('fa-class', 'fa-check');
+                $data = array(
+                    'confirmation_code' => $confirmation_code
+                );
+                $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
+                $email = $user->email;
+                return view('pages.verify', compact('email'));
             } else {
-                return redirect('auth/register')
+                return redirect()->away($request->rtn_url)
                     ->with('alert-class', 'alert-danger')
                     ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
                     ->with('fa-class', 'fa-ban');
             }
         }
+    }
+
+    public function sendMailVerify ($email, AppMailer $mailer) {
+        $confirmation_code = str_random(100);
+        $user = User::where('email', $email)->first();
+        if($user) {
+            $user->confirmation_code = $confirmation_code;
+            $user->save();
+            $data = array(
+                'confirmation_code' => $confirmation_code
+            );
+            $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
+
+            return "Your email has been sent successfully";
+        }
+        else
+            return view('errors.404');
+    }
+
+    public function confirm($confirmation_code){
+        $user = User::where('confirmation_code', $confirmation_code)->first();
+        if( $user ){
+            $user->activated = 1;
+            $user->save();
+            $data['openLoginModal'] = true;
+            return redirect('/')->withInput($data);
+        }
+        else
+            return view('errors.404');
     }
 }

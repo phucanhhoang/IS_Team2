@@ -16,7 +16,7 @@
                 <p class="title">Màu sắc</p>
                 <div class="mausac">
                     <?php
-                    $img_colors = App\Image::join('colors', 'colors.id', '=', 'images.color_id')->get();
+                    $img_colors = App\Color::all();
                     $stt = 0;
                     foreach($img_colors as $color){
                         $stt++;

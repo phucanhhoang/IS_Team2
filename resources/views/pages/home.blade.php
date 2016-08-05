@@ -49,10 +49,10 @@ Home page
 <div class="list-products" id="list_products">
     <div class="heading"><span>SẢN PHẨM</span></div>
     @foreach($pros as $pro)
-    <div class="col-md-3 col-xs-6 product">
+    <div class="col-md-3 col-xs-12 product">
         <div class="p-img">
             <a href="{{asset('product/'.$pro->id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-search fa-1-2"></i></a>
+            <a href="#" class="icon-cart"><i class="fa fa-shopping-bag fa-1-2"></i></a>
         </div>
         <div class="p-title">
             @if($pro->discount > 0)
@@ -113,7 +113,7 @@ Home page
                                             "<div class='p-img'>" +
                                             "<a href='"+ url_product +"'>" +
                                             "<img src='"+ url_img +"'/></a>" +
-                                            "<a href='#' class='icon-cart'><i class='fa fa-search fa-1-2'></i></a>" +
+                                            "<a href='#' class='icon-cart'><i class='fa fa-shopping-bag fa-1-2'></i></a>" +
                                             "</div>" +
                                             "<div class='p-title'>"+ str_info +"</div></div>");
                                     }

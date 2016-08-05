@@ -104,17 +104,29 @@
                 </li>
                 <li class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user fa-2x" style="width:25%; float: left; text-align: center"></i>
-                        <span style="">Xin chào,</span>
-                        <br>
-                        <span class="small">Phuc Anh Hoang</span>
+                        @if(Auth::check())
+                        <i class="fa fa-user fa-2x" style="width:34px; float: left"></i>
+                        <span class="hidden-xs" style="font-size: 14px;white-space: nowrap;float: right;max-width: 75%;position: relative;top: -3px">
+                            Xin chào! <br>
+                            {!! App\User::find(Auth::user()->userable_id) ? App\User::find(Auth::user()->userable_id)->name : Auth::user()->email !!}
+                        </span>
+                        @else
+                        <i class="fa fa-user fa-2x" style="width:25%; float: left"></i>
+                        @endif
                     </a>
+
                     <ul class="dropdown-menu">
                         @if(Auth::check())
-                        <li><a href="#">Quản lý tài khoản</a></li>
-                        <li><a href="#">Đơn hàng của tôi</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>
+                            @if(Auth::user()->userable_type == 'customer')
+                            <li><a href="#">Quản lý tài khoản</a></li>
+                            <li><a href="#">Đơn hàng của tôi</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>
+                            @else
+                            <li><a href="{{asset('admin')}}">Trang quản trị</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>
+                            @endif
                         @else
                         <li><a href="#" id="btn-login" data-toggle="modal" data-target="#login_modal">Đăng nhập</a></li>
                         <li role="separator" class="divider"></li>
@@ -193,7 +205,7 @@
 
             <div class="modal-body">
                     @if (count($errors) > 0)
-                    <div id="login_alert" class="alert alert-danger">
+                    <div id="register_alert" class="alert alert-danger">
                         <ul style="list-style-type: inherit">
                             @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -280,7 +292,7 @@
     $(document).ready(function () {
         if ({{old('openLoginModal', 'false')}})
         {
-            $('#error_msg').html('E-mail hoặc mật khẩu không chính xác.');
+            $('#error_msg').html("{!! session('message') !!}");
             $('#login_modal').modal('show');
         }
         if ({{old('openRegisterModal', 'false')}})
@@ -314,67 +326,75 @@
             }
         });
 
-//        $("#register_form").validate({
-//            rules: {
-//                name: 'required',
-//                password: {
-//                    required: true,
-//                    minlength: 8
-//                },
-//                password_confirmation: {
-//                    required: true,
-//                    equalTo: "#password",
-//                    minlength: 8
-//                },
-//                phone: {
-//                    required: true,
-//                    phoneno: true,
-//                    minlength: 10,
-//                    maxlength: 11
-//                },
-//                email: {
-//                    required: true,
-//                    email: true,
-//                    remote: {
-//                        url: "{{asset('checkexist/email')}}",
-//                        type: 'POST'
-//                    }
-//                },
-//                captcha: {
-//                    required: true,
+        $("#register_form").validate({
+            rules: {
+                name: 'required',
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+                password_confirmation: {
+                    required: true,
+                    equalTo: "#password",
+                    minlength: 8
+                },
+                phone: {
+                    required: true,
+                    phoneno: true,
+                    minlength: 10,
+                    maxlength: 11,
+                    remote: {
+                        url: "{{asset('checkexist/phone')}}",
+                        type: 'POST'
+                    }
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+                        url: "{{asset('checkexist/email')}}",
+                        type: 'POST'
+                    }
+                },
+                captcha: {
+                    required: true,
 //                    remote:{
 //                        url: "{{asset('check/captcha')}}",
 //                        type: 'POST'
 //                    }
-//                }
-//            },
-//            messages: {
-//                name: "Vui lòng nhập họ tên",
-//                password: {
-//                    required: "Vui lòng nhập mật khẩu",
-//                    minlength: "Mật khẩu phải từ 8 ký tự trở lên"
-//                },
-//                password_confirmation: {
-//                    required: "Vui lòng xác nhận mật khẩu",
-//                    equalTo: "Mật khẩu không khớp nhau"
-//                },
-//                phone: {
-//                    required: "Vui lòng nhập số điện thoại"
-//                },
-//                email: {
-//                    required: "Vui lòng nhập E-mail",
-//                    email: "Vui lòng nhập đúng định dạng E-mail",
-//                    remote: "Địa chỉ E-mail đã tồn tại"
-//                },
-//                captcha: {
-//                    required: "Vui lòng nhập mã captcha",
+                }
+            },
+            messages: {
+                name: "Vui lòng nhập họ tên",
+                password: {
+                    required: "Vui lòng nhập mật khẩu",
+                    minlength: "Mật khẩu phải từ 8 ký tự trở lên"
+                },
+                password_confirmation: {
+                    required: "Vui lòng xác nhận mật khẩu",
+                    equalTo: "Mật khẩu không khớp nhau"
+                },
+                phone: {
+                    required: "Vui lòng nhập số điện thoại",
+                    remote: "Số điện thoại đã tồn tại"
+                },
+                email: {
+                    required: "Vui lòng nhập E-mail",
+                    email: "Vui lòng nhập đúng định dạng E-mail",
+                    remote: "Địa chỉ E-mail đã tồn tại"
+                },
+                captcha: {
+                    required: "Vui lòng nhập mã captcha",
 //                    remote: "Nhập sai mã captcha"
-//                }
-//            }
-//        });
+                }
+            }
+        });
     });
     $('#btn-login').click(function () {
-        $('#error_msg').html('');
+        $('#register_alert').html('');
+    });
+    $('#btn-register').click(function () {
+        $('#login_alert').html('');
     });
 
     function num_cart_validate(btn){

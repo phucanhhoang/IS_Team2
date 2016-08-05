@@ -15,13 +15,15 @@ class AppMailer
      *
      * @var string
      */
-    protected $from = 'admin@example.com';
+    protected $from = 'trangquanly1@gmail.com';
     /**
      * The recipient of the email.
      *
      * @var string
      */
     protected $to;
+
+    protected $subject;
     /**
      * The view for the email.
      *
@@ -49,11 +51,12 @@ class AppMailer
      * @param  User $user
      * @return void
      */
-    public function sendEmailConfirmationTo()
+    public function sendEmailConfirmationTo($to, $subject, $view, $data)
     {
-        $this->to = 'phucanh48@gmail.com';
-        $this->view = 'emails.verify';
-//        $this->data = compact('user');
+        $this->to = $to;
+        $this->subject = $subject;
+        $this->view = $view;
+        $this->data = $data;
         $this->deliver();
     }
     /**
@@ -64,8 +67,8 @@ class AppMailer
     public function deliver()
     {
         $this->mailer->send($this->view, $this->data, function ($message) {
-            $message->from($this->from, 'Administrator')
-                ->to($this->to);
+            $message->from($this->from, 'Stylitics')
+                ->to($this->to)->subject($this->subject);
         });
     }
 }

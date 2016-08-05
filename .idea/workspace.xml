@@ -1,619 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cfb99af-f18b-4e65-9876-f027e476256a" name="Default" comment="update sidebar">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/Sorting icons.psd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/back_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/back_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/back_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/forward_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/forward_enabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/forward_enabled_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/sort_asc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/sort_asc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/sort_both.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/sort_desc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/images/sort_desc_disabled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/image/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/jean-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/jean-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/jean-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/shirt-12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/short-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/short-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/short-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-12.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-13.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/skirt-14.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-08.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-09.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-10.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-11.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/CategoryRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/dist/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/bs-commonjs-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/bs-lessdoc-parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/bs-raw-files-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/configBridge.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/grunt/sauce_browsers.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/.jscsrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/affix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/collapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/popover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/scrollspy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/js/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/.csscomb.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/.csslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/badges.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/bootstrap.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/breadcrumbs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/button-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/carousel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/close.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/code.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/component-animations.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/dropdowns.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/glyphicons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/input-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/jumbotron.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/media.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/background-variant.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/border-radius.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/center-block.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/clearfix.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/gradients.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/grid-framework.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/hide-text.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/image.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/nav-divider.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/nav-vertical-align.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/opacity.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/progress-bar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/reset-filter.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/resize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/responsive-visibility.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/size.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/tab-focus.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/table-row.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/text-emphasis.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/text-overflow.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/mixins/vendor-prefixes.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/modals.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/navbar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/navs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/normalize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/pager.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/popovers.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/print.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/progress-bars.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/responsive-embed.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/responsive-utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/scaffolding.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/tables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/theme.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/thumbnails.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/tooltip.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/type.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/less/wells.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/bootstrap/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/average().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/column().title().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/columns().order().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnAddDataAndDisplay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnAddTr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnColumnIndexToVisible.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnDataUpdate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnDisplayRow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnDisplayStart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFakeRowspan.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFilterAll.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFilterClear.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFilterOnReturn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFindCellRowIndexes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnFindCellRowNodes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetAdjacentTr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetColumnData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetColumnIndex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetHiddenNodes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetTd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnGetTds.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnLengthChange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnMultiFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnPagingInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnProcessingIndicator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnReloadAjax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnSetFilteringDelay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnSortNeutral.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnStandingRedraw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/fnVisibleToColumnIndex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/page.jumpToData().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/api/sum().js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/row-based/TableTools.ShowSelectedOnly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/row-based/range_dates.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/row-based/range_numbers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/type-based/accent-neutralise.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/type-based/html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/filtering/type-based/phoneNumber.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Afrikaans.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Albanian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Arabic.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Azerbaijan.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Bangla.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Belarusian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Bulgarian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Catalan.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Chinese-traditional.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Chinese.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Croatian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Czech.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Danish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Dutch.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/English.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Estonian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Filipino.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Finnish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/French.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Galician.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Georgian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/German.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Greek.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Gujarati.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Hebrew.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Hindi.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Hungarian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Icelandic.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Indonesian-Alternative.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Indonesian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Irish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Italian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Japanese.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Korean.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Latvian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Lithuanian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Macedonian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Malay.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Norwegian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Persian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Polish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Portuguese-Brasil.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Portuguese.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Romanian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Russian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Serbian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Slovak.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Slovenian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Spanish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Swahili.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Swedish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Tamil.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Thai.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Turkish.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Ukranian.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Urdu.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Uzbek.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/Vietnamese.lang" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/i18n/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/1/dataTables.bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/1/dataTables.bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/2/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/bootstrap/3/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/font-awesome/bootstrap.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/font-awesome/dataTables.fontAwesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/font-awesome/datatables.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/font-awesome/foundation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/foundation/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/integration/jqueryui/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/make.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/ellipses.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/extjs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/four_button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/input.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/jPaginator/dataTables.jPaginator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/scrolling.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/pagination/select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/alt-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/anti-the.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/chinese-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/currency.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/custom-data-source/dom-checkbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/custom-data-source/dom-select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/custom-data-source/dom-text.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/date-dd-MMM-yyyy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/date-de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/date-eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/date-euro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/date-uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/datetime-moment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/datetime-us.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/enum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/file-size.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/formatted-numbers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/ip-address.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/monthYear.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/natural.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/num-html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/numeric-comma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/percent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/persian.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/scientific.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/signed-num.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/stringMonthYear.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/title-numeric.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/title-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/sorting/turkish-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/currency.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/date-uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/file-size.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/formatted-num.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/ip-address.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/num-html.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-plugins/type-detection/numeric-comma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/css/dataTables.responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/css/dataTables.responsive.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/api/responsive.index().xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/api/responsive.recalc().xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.breakpoints.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.details.renderer.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.details.target.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.details.type.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.details.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/docs/option/responsive.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/column-control.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/custom-renderer.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/disable-child-rows.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/right-column.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/child-rows/whole-row-control.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/display-control/auto.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/display-control/classes.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/display-control/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/display-control/init-classes.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/ajax.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/className.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/new.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/initialisation/option.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/styling/bootstrap.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/styling/foundation.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/examples/styling/index.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/js/dataTables.responsive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables-responsive/make.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/Contributing.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/license.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/css/jquery.dataTables.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/css/jquery.dataTables.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/css/jquery.dataTables_themeroller.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/js/jquery.dataTables.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/js/jquery.dataTables.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/datatables/media/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/extras.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/spinning.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_extras.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_spinning.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/font-awesome/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/MIT-LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/dist/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/dist/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/dist/jquery.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/jsonp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/load.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/parseJSON.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/parseXML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/var/nonce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/var/rquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/ajax/xhr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes/attr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes/classes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes/prop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/attributes/val.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/callbacks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core/access.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core/parseHTML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core/ready.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/core/var/rsingleTag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/addGetHookIf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/curCSS.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/defaultDisplay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/hiddenVisibleSelectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/swap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/var/cssExpand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/var/getStyles.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/var/isHidden.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/var/rmargin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/css/var/rnumnonpx.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/data/Data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/data/accepts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/data/var/data_priv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/data/var/data_user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/deferred.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/deprecated.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/dimensions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/effects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/effects/Tween.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/effects/animatedSelector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/event/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/event/alias.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/event/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/exports/amd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/exports/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/intro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/manipulation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/manipulation/_evalUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/manipulation/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/manipulation/var/rcheckableType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/offset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/outro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/queue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/queue/delay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/selector-native.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/selector-sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/selector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/serialize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/sizzle/dist/sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/sizzle/dist/sizzle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/sizzle/dist/sizzle.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/traversing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/traversing/findFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/traversing/var/rneedsContext.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/arr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/class2type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/concat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/hasOwn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/indexOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/pnum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/push.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/rnotwhite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/slice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/strundefined.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/var/toString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/jquery/src/wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/dist/metisMenu.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/dist/metisMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/dist/metisMenu.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/dist/metisMenu.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/src/metisMenu.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/bower_components/metisMenu/src/metisMenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/dist/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/dist/js/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets-admin/javascript/myscript.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/product/demo.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/product/show.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/product/size_color.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/upload/images/jean-01.jpg" afterPath="$PROJECT_DIR$/public/upload/images/jean-01.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/upload/images/jean-02.jpg" afterPath="$PROJECT_DIR$/public/upload/images/jean-02.jpg" />
+    <list default="true" id="3cfb99af-f18b-4e65-9876-f027e476256a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/emails/verify.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/verify.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HelperController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HelperController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/ProductRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Size.php" afterPath="$PROJECT_DIR$/app/Size.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Mailers/AppMailer.php" afterPath="$PROJECT_DIR$/app/Mailers/AppMailer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/session.php" afterPath="$PROJECT_DIR$/config/session.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets-admin/css/main.css" afterPath="$PROJECT_DIR$/public/assets-admin/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets-admin/css/style.css" afterPath="$PROJECT_DIR$/public/assets-admin/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/mail.php" afterPath="$PROJECT_DIR$/config/mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/services.php" afterPath="$PROJECT_DIR$/config/services.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/css.css" afterPath="$PROJECT_DIR$/public/assets/css/css.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/back-to-top.js" afterPath="$PROJECT_DIR$/public/assets/js/back-to-top.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/site.js" afterPath="$PROJECT_DIR$/public/assets/js/site.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/category/add.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/category/add.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/category/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/order/add.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/order/add.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/order/detail.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/order/detail.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/add.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/add.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/category.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/category.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/product.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/product.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/jean-03.jpg" afterPath="$PROJECT_DIR$/public/upload/images/jean-04.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/jean-04.jpg" afterPath="$PROJECT_DIR$/public/upload/images/jean-05.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/jean-05.jpg" afterPath="$PROJECT_DIR$/public/upload/images/jean-06.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/mau-1.png" afterPath="$PROJECT_DIR$/public/upload/images/colors/mau-1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/mau-2.png" afterPath="$PROJECT_DIR$/public/upload/images/colors/mau-2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/mau-3.png" afterPath="$PROJECT_DIR$/public/upload/images/colors/mau-3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/shirt01.jpg" afterPath="$PROJECT_DIR$/public/upload/images/shirt-02.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/shirt02.jpg" afterPath="$PROJECT_DIR$/public/upload/images/shirt-01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/shirt13.jpg" afterPath="$PROJECT_DIR$/public/upload/images/shirt-13.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt01.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt02.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-02.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt03.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-03.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt04.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-04.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt05.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-05.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt06.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-06.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt07.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-07.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/skirt09.jpg" afterPath="$PROJECT_DIR$/public/upload/images/skirt-09.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc02.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc03.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-02.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc04.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-03.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc05.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-04.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc06.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-05.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/sooc07.jpg" afterPath="$PROJECT_DIR$/public/upload/images/short-06.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/upload/images/t-shirt12.jpg" afterPath="$PROJECT_DIR$/public/upload/images/t-shirt-12.jpg" />
     </list>
     <ignored path="IS_Team2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -642,120 +51,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="product.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/product.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0384617">
-              <caret line="85" column="68" selection-start-line="83" selection-start-column="16" selection-end-line="85" selection-end-column="68" />
-              <folding>
-                <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <marker date="1470296281212" expanded="true" signature="10651:11580" placeholder="..." />
-                <marker date="1470296281212" expanded="true" signature="10994:11018" placeholder="..." />
-                <marker date="1470296281212" expanded="true" signature="11062:11440" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3518851">
-              <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
-              <folding>
-                <element signature="e#2249#2348#0#PHP" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#header#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/order/add.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.0">
-              <caret line="78" column="70" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="70" />
-              <folding>
-                <marker date="1470123955303" expanded="true" signature="5550:5582" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/home.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.269231">
-              <caret line="86" column="81" selection-start-line="86" selection-start-column="81" selection-end-line="86" selection-end-column="81" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.576923">
-              <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0384617">
-              <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+            <state vertical-scroll-proportion="-3.2293906">
+              <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
               <folding>
-                <element signature="e#39#55#0#PHP" expanded="true" />
+                <element signature="e#45#58#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.346154">
-              <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="site.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/js/site.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.153846">
-              <caret line="23" column="92" selection-start-line="23" selection-start-column="92" selection-end-line="23" selection-end-column="92" />
-              <folding>
-                <element signature="e#39#67#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="css.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/css.css">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-4.576923">
-              <caret line="713" column="13" selection-start-line="713" selection-start-column="13" selection-end-line="713" selection-end-column="13" />
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -783,20 +95,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/database.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/partials/note" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/LoginRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/ProductRequest.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Category.php" />
-        <option value="$PROJECT_DIR$/app/Cart.php" />
-        <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/app/OrderDetail.php" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/order/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/footer.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/headroom.js" />
@@ -805,35 +107,45 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/category_layout.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/session.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/app/Size.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" />
         <option value="$PROJECT_DIR$/public/assets-admin/css/main.css" />
         <option value="$PROJECT_DIR$/public/assets-admin/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/js/back-to-top.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/checkout.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/category.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/size_color.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/order/add.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/order/detail.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/css.css" />
+        <option value="$PROJECT_DIR$/resources/views/pages/category.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/home.blade.php" />
+        <option value="$PROJECT_DIR$/config/mail.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/mail/verify.blade.php" />
+        <option value="$PROJECT_DIR$/app/Mailers/AppMailer.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/HelperController.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/verify.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/verify.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/product.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
         <option value="$PROJECT_DIR$/public/assets/js/site.js" />
-        <option value="$PROJECT_DIR$/public/assets/css/css.css" />
-        <option value="$PROJECT_DIR$/resources/views/pages/product.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/errors/404.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CartController.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/config/services.php" />
       </list>
     </option>
   </component>
@@ -887,8 +199,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1023,7 +335,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="errors" />
+              <option name="myItemId" value="emails" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1045,59 +357,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IS_Team2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IS_Team2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="product" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IS_Team2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IS_Team2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="order" />
+              <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1359,7 +619,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1913,7 +1173,9 @@
       <workItem from="1470055687513" duration="13160000" />
       <workItem from="1470101816818" duration="20416000" />
       <workItem from="1470130204945" duration="421000" />
-      <workItem from="1470275091511" duration="18096000" />
+      <workItem from="1470275091511" duration="18329000" />
+      <workItem from="1470361716189" duration="19450000" />
+      <workItem from="1470386812047" duration="6028000" />
     </task>
     <task id="LOCAL-00001" summary="merge code">
       <created>1468296050328</created>
@@ -2041,11 +1303,17 @@
       <option name="project" value="LOCAL" />
       <updated>1470037635810</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update trang chủ, trang chi tiết sản phẩm">
+      <created>1470307397014</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1470307397014</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299370000" />
+    <option name="totallyTimeSpent" value="325081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -2101,7 +1369,8 @@
     <MESSAGE value="update login" />
     <MESSAGE value="update ql giỏ hàng, order" />
     <MESSAGE value="update sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="update sidebar" />
+    <MESSAGE value="update trang chủ, trang chi tiết sản phẩm" />
+    <option name="LAST_COMMIT_MESSAGE" value="update trang chủ, trang chi tiết sản phẩm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2112,7 +1381,7 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2121,111 +1390,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/js/headroom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.471698">
-          <caret line="464" column="4" selection-start-line="464" selection-start-column="4" selection-end-line="464" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/order/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5430108">
-          <caret line="35" column="106" selection-start-line="35" selection-start-column="106" selection-end-line="35" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/RegisterRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/LoginRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/CheckoutRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76301616">
-          <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/category_layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Cookie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21364452">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.545283">
-          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="208" column="65" selection-start-line="208" selection-start-column="65" selection-end-line="208" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5798923">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.27468583">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/ProductRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2275,13 +1439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-22.884615">
-          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2293,20 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34991422">
           <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/checkout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="143" column="123" selection-start-line="143" selection-start-column="123" selection-end-line="143" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-51.653847">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2324,45 +1467,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/category.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="166" column="15" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2374,27 +1482,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1153846">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/framework/views/65ba148294a7d3651eba9444af82b52589feca47.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="294.30768">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/accounting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2332761">
-          <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2402,9 +1493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27468583">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1470296284037" expanded="true" signature="11613:11637" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2412,71 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26750448">
           <caret line="87" column="28" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0384617">
-          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
-          <folding>
-            <element signature="e#39#55#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.346154">
-          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.153846">
-          <caret line="23" column="92" selection-start-line="23" selection-start-column="92" selection-end-line="23" selection-end-column="92" />
-          <folding>
-            <element signature="e#39#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/order/add.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0">
-          <caret line="78" column="70" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="70" />
-          <folding>
-            <marker date="1470123955303" expanded="true" signature="5550:5582" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/site.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/css.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="713" column="13" selection-start-line="713" selection-start-column="13" selection-end-line="713" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.269231">
-          <caret line="86" column="81" selection-start-line="86" selection-start-column="81" selection-end-line="86" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2484,43 +1507,284 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/order/add.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="78" column="70" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/accounting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.05831904">
+          <caret line="83" column="24" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/phrase.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34991422">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/css.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.769231">
+          <caret line="713" column="19" selection-start-line="713" selection-start-column="19" selection-end-line="713" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3846154">
+          <caret line="21" column="74" selection-start-line="21" selection-start-column="74" selection-end-line="21" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.06104129">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Mail/Mailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6409336">
+          <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HelperController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.846153">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/verify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3076923">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Mailers/AppMailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="46" selection-start-line="70" selection-start-column="46" selection-end-line="70" selection-end-column="46" />
           <folding>
-            <element signature="e#6#101#0#PHP" expanded="true" />
+            <element signature="e#29#42#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.576923">
-          <caret line="112" column="38" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/verify.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2437276">
+          <caret line="87" column="95" selection-start-line="87" selection-start-column="95" selection-end-line="87" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5483871">
+          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.40681">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <marker date="1470110987430" expanded="true" signature="1908:2009" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/site.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CartController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.218638">
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+          <folding>
+            <element signature="e#137#165#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/checkout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03046595">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0384617">
-          <caret line="85" column="68" selection-start-line="83" selection-start-column="16" selection-end-line="85" selection-end-column="68" />
+        <state vertical-scroll-proportion="1.218638">
+          <caret line="220" column="39" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#span#1;n#p#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <marker date="1470296281212" expanded="true" signature="10651:11580" placeholder="..." />
-            <marker date="1470296281212" expanded="true" signature="10994:11018" placeholder="..." />
-            <marker date="1470296281212" expanded="true" signature="11062:11440" placeholder="..." />
+            <marker date="1470389226089" expanded="true" signature="10650:11579" placeholder="..." />
+            <marker date="1470389226089" expanded="true" signature="10993:11017" placeholder="..." />
+            <marker date="1470389226089" expanded="true" signature="11061:11439" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3046595">
+          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6344086">
+          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.050179213">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3709677">
+          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9390681">
+          <caret line="87" column="14" selection-start-line="87" selection-start-column="14" selection-end-line="87" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3518851">
-          <caret line="106" column="79" selection-start-line="106" selection-start-column="79" selection-end-line="106" selection-end-column="79" />
+        <state vertical-scroll-proportion="-8.566308">
+          <caret line="125" column="55" selection-start-line="125" selection-start-column="55" selection-end-line="125" selection-end-column="55" />
           <folding>
             <element signature="e#2249#2348#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#li#1;n#ul#1;n#div#1;n#div#0;n#nav#0;n#header#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/socialite/src/Contracts/Factory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.5">
+          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66952056">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78673834">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2293906">
+          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+          <folding>
+            <element signature="e#45#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

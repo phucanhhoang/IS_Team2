@@ -13,13 +13,23 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
+use App\Customer;
 use Illuminate\Support\Facades\Validator;
+use App\Mailers\AppMailer;
 
 class HelperController extends Controller
 {
     public function refereshCapcha()
     {
         return captcha_img();
+    }
+
+    public function checkPhone(Request $request){
+        $count = Customer::where('phone', '=', $request->phone)->count();
+        if ($count > 0) {
+            echo 'false';
+        } else
+            echo 'true';
     }
 
     public function checkEmail(Request $request){
@@ -43,4 +53,6 @@ class HelperController extends Controller
             echo 'true';
         }
     }
+
+
 }

@@ -19,7 +19,7 @@
         <div class="col-sm-4 col-md-4 product">
             <div class="p-img">
                 <a href="{{asset('product/'.$pro->id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
-                <a href="#" class="icon-cart"><i class="fa fa-search fa-1-2"></i></a>
+                <a href="#" class="icon-cart"><i class="fa fa-shopping-bag fa-1-2"></i></a>
             </div>
             <div class="p-title">
                 @if($pro->discount > 0)

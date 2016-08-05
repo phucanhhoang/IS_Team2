@@ -43,11 +43,11 @@ $(document).ready(function () {
         $('.detail-p .large').css("background", "url(" + img_src + ")");
     });
 
-    $('.chk_color').click(function(){
-        var img_src = $(this).attr("url_prod_img");
-        $('.detail-p .small').attr("src", img_src);
-        $('.detail-p .large').css("background", "url(" + img_src + ")");
-    });
+    //$('.chk_color').click(function(){
+    //    var img_src = $(this).attr("url_prod_img");
+    //    $('.detail-p .small').attr("src", img_src);
+    //    $('.detail-p .large').css("background", "url(" + img_src + ")");
+    //});
 
 
     //var init_w = 0;

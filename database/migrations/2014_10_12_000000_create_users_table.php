@@ -90,13 +90,13 @@ class CreateUsersTable extends Migration
 //            $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');
 //        });
 
-//        Schema::create('proColors', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->integer('pro_id')->unsigned();
-//            $table->foreign('pro_id')->references('id')->on('products')->onDelete('cascade');
-//            $table->integer('color_id')->unsigned();
-//            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
-//        });
+        Schema::create('proColors', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('pro_id')->unsigned();
+            $table->foreign('pro_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('color_id')->unsigned();
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
+        });
 
 //        Schema::create('customers', function (Blueprint $table) {
 //            $table->increments('id');
@@ -108,20 +108,20 @@ class CreateUsersTable extends Migration
 //            $table->timestamps();
 //        });
 
-        Schema::create('cart', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('product_id')->unsigned();
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->integer('color_id')->unsigned();
-            $table->foreign('color_id')->references('id')->on('colors');
-            $table->integer('size_id')->unsigned();
-            $table->foreign('size_id')->references('id')->on('sizes');
-            $table->tinyInteger('quantity')->unsigned();
-            $table->rememberToken();
-            $table->timestamps();
-        });
+//        Schema::create('cart', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('user_id')->unsigned()->nullable();
+//            $table->foreign('user_id')->references('id')->on('users');
+//            $table->integer('product_id')->unsigned();
+//            $table->foreign('product_id')->references('id')->on('products');
+//            $table->integer('color_id')->unsigned();
+//            $table->foreign('color_id')->references('id')->on('colors');
+//            $table->integer('size_id')->unsigned();
+//            $table->foreign('size_id')->references('id')->on('sizes');
+//            $table->tinyInteger('quantity')->unsigned();
+//            $table->rememberToken();
+//            $table->timestamps();
+//        });
 
 //        Schema::create('orders', function (Blueprint $table) {
 //            $table->increments('id');
@@ -132,21 +132,21 @@ class CreateUsersTable extends Migration
 //            $table->timestamps();
 //        });
 //
-        Schema::create('orderDetails', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('order_id')->unsigned();
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->integer('pro_id')->unsigned();
-            $table->foreign('pro_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('color_id')->unsigned();
-            $table->foreign('color_id')->references('id')->on('colors');
-            $table->integer('size_id')->unsigned();
-            $table->foreign('size_id')->references('id')->on('sizes');
-            $table->string('pro_name');
-            $table->integer('price');
-            $table->integer('qty'); //so luong
-            $table->timestamps();
-        });
+//        Schema::create('orderDetails', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('order_id')->unsigned();
+//            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+//            $table->integer('pro_id')->unsigned();
+//            $table->foreign('pro_id')->references('id')->on('products')->onDelete('cascade');
+//            $table->integer('color_id')->unsigned();
+//            $table->foreign('color_id')->references('id')->on('colors');
+//            $table->integer('size_id')->unsigned();
+//            $table->foreign('size_id')->references('id')->on('sizes');
+//            $table->string('pro_name');
+//            $table->integer('price');
+//            $table->integer('qty'); //so luong
+//            $table->timestamps();
+//        });
     }
 
     /**

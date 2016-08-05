@@ -11,7 +11,7 @@ Stylitics - Product page
 </nav>
 <div class="container detail-p">
     <div class="col-xs-12 col-sm-2 col-md-1 list">
-        @foreach($img_colors as $img)
+        @foreach($img_prods as $img)
         <img src="{{asset('upload/images/'.$img->images)}}"/>
         @endforeach
     </div>
