@@ -7,7 +7,7 @@
     @if($parent_id == 0)
         <a href="{{asset('/')}}">{!! $name_cate !!}</a>
     @else
-        <a href="{{asset('/category/'.$parent_id.'/'.$parent_name)}}">{!! $parent_name !!}</a>
+        <a href="{{asset('/category/'.$parent_id)}}">{!! $parent_name !!}</a>
         <span class="divider">›</span>
         {!! $name_cate !!}
     @endif

@@ -19,11 +19,11 @@
                         ?>
                         @if($cat_childs->count() > 0)
                         <li class="dropdown open-hover">
-                            <a href="{{asset('category/'.$cat_parent->id.'/'.$cat_parent->cat_title)}}">
+                            <a href="{{asset('category/'.$cat_parent->id)}}">
                                 {{mb_strtoupper($cat_parent->cat_title)}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @foreach($cat_childs as $cat_child)
-                                <li><a href="{{asset('category/'.$cat_child->id.'/'.$cat_child->cat_title)}}">{{$cat_child->cat_title}}</a></li>
+                                <li><a href="{{asset('category/'.$cat_child->id)}}">{{$cat_child->cat_title}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -37,7 +37,12 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><input type="text"/></li>
+                <li>
+                    <form method="post" action="{!! url('search') !!}">
+                        {!! csrf_field() !!}
+                        <input type="text" id="tags" name="keyword" placeholder="Nhập từ khóa" />
+                    </form>
+                </li>
                 <li id="cart" class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
                     <?php
@@ -108,7 +113,7 @@
                         <i class="fa fa-user fa-2x" style="width:34px; float: left"></i>
                         <span class="hidden-xs" style="font-size: 14px;white-space: nowrap;float: right;max-width: 75%;position: relative;top: -3px">
                             Xin chào! <br>
-                            {!! App\User::find(Auth::user()->userable_id) ? App\User::find(Auth::user()->userable_id)->name : Auth::user()->email !!}
+                            {{ App\Customer::find(Auth::user()->userable_id) ? App\Customer::find(Auth::user()->userable_id)->name : Auth::user()->email }}
                         </span>
                         @else
                         <i class="fa fa-user fa-2x" style="width:25%; float: left"></i>
@@ -289,7 +294,20 @@
 
 <script type="text/javascript" src="{{asset('assets/js/jquery/jquery-2.1.4.min.js')}}"></script>
 <script>
+    $('#tags').keyup(function(){
+        $.ajax({
+            type: 'GET',
+            url: "{{url('getTags')}}",
+            success: function(data){
+                $("#tags").autocomplete({
+                    source: data
+                });
+            }
+        });
+    });
+
     $(document).ready(function () {
+
         if ({{old('openLoginModal', 'false')}})
         {
             $('#error_msg').html("{!! session('message') !!}");

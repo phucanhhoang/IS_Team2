@@ -11,16 +11,22 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
-use App\Cart;
 use App\Customer;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
+use DB;
 
 class CheckoutController extends Controller
 {
     public function getCheckout(){
         $carts = \Cart::content();
-        return view('pages.checkout', compact('carts'));
+        $provinces = DB::table('provinces')->get();
+        if(Auth::check()) {
+            $email = Auth::user()->email;
+            $customer = Customer::find(Auth::user()->userable_id);
+            $districts = DB::table('districts')->where('province_id', $customer->province_id)->get();
+        }
+        return view('pages.checkout', compact('carts', 'provinces', 'email', 'customer', 'districts'));
     }
 
     public function postCheckout(CheckoutRequest $request){
@@ -30,6 +36,8 @@ class CheckoutController extends Controller
                 $customer->name = $request->name;
                 $customer->phone = $request->phone;
                 $customer->address = $request->address;
+                $customer->district_id = $request->district;
+                $customer->province_id = $request->province;
                 $customer->save();
             }
             else{

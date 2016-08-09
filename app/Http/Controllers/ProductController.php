@@ -28,8 +28,9 @@ class ProductController extends Controller
     }
 
     //show all categories
-    public function getProFollowCate($id, $name_cate){
+    public function getProFollowCate($id){
         $pa = Category::select('cat_title','parent_id')->where('id',$id)->first();
+        $name_cate = $pa->cat_title;
         $parent_id = $pa->parent_id;
         if($parent_id == 0){
             $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$id+1, $id+2])->get();

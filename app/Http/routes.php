@@ -37,7 +37,7 @@ Route::post('auth/register', ['as' => 'postRegister', 'uses' => 'Auth\AuthContro
 
 Route::get('refereshcapcha', 'HelperController@refereshCapcha');
 
-Route::get('category/{id}/{name_cate}',['as'=>'cate','uses'=>'ProductController@getProFollowCate']);
+Route::get('category/{id}',['as'=>'cate','uses'=>'ProductController@getProFollowCate']);
 Route::get('product/{id}', 'ProductController@showDetail');
 
 Route::post('cart/add', 'CartController@add');
@@ -47,12 +47,23 @@ Route::post('cart/change', 'CartController@change');
 Route::get('checkout', 'CheckoutController@getCheckout');
 Route::post('checkout', 'CheckoutController@postCheckout');
 
-Route::get('register/verify/sendemail/{email}', 'Auth\AuthController@sendMailVerify');
-Route::get('register/verify/{confirmation_code}', 'Auth\AuthController@confirm');
+Route::get('auth/register/verify/sendmail/{email}', 'Auth\AuthController@sendMailVerify');
+Route::get('auth/register/verify/{confirmation_code}', 'Auth\AuthController@confirm');
+
+Route::get('getTags', 'HelperController@getTags');
+Route::post('search', 'HelperController@search');
 
 Route::post('checkexist/phone', 'HelperController@checkPhone');
 Route::post('checkexist/email', 'HelperController@checkEmail');
 Route::post('check/captcha', 'HelperController@checkCaptcha');
+Route::post('get/district', 'HelperController@getDistrict');
+
+Route::get('test-str', function(\App\Helper\HelperFunction $helper){
+    return $helper->stripUnicode("Tôi tên là Hoàng Phúc Anh");
+});
+Route::get('/test/{id}', function ($id) {
+    return App\User::find($id);
+});
 
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'admin'], function(){

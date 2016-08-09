@@ -35,7 +35,7 @@ Stylitics - Product page
         <div class="checkout_content">
 
             <form id="checkout_form" role="form" method="post" action="{{asset('checkout')}}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                {{ csrf_field() }}
                 <div class="border col-md-5">
                     <div class="checkout_title">
                         <div><span class="badge">1</span>Địa chỉ giao hàng</div>
@@ -55,37 +55,55 @@ Stylitics - Product page
                     </div>
                     <div class="form-group">
                         <label for="name">Họ tên</label>
+                        @if(!Auth::check())
                         <input type="text" name="name" id="name" class="form-control"/>
+                        @else
+                        <input type="text" name="name" id="name" value="{{$customer->name}}" class="form-control" disabled />
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input type="text" name="phone" id="phone" class="form-control">
+                        @if(!Auth::check())
+                        <input type="text" name="phone" id="phone" class="form-control" />
+                        @else
+                        <input type="text" name="phone" id="phone" value="{{$customer->phone}}" class="form-control" disabled />
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control">
+                        @if(!Auth::check())
+                        <input type="email" name="email" id="email" class="form-control" />
+                        @else
+                        <input type="email" name="email" id="email" value="{{$email}}" class="form-control" disabled />
+                        @endif
                     </div>
-<!--                    <div class="form-group" style="width: 47%; float: left">-->
-<!--                        <label for="city">Tỉnh/Thành phố</label>-->
-<!--                        <select class="form-control" id="city">-->
-<!--                            <option>Tỉnh/Thành phố</option>-->
-<!--                            <option>2</option>-->
-<!--                            <option>3</option>-->
-<!--                            <option>4</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                    <div class="form-group"style="width: 48%; float: right">-->
-<!--                        <label for="district">Quận/Huyện</label>-->
-<!--                        <select class="form-control" id="district">-->
-<!--                            <option>Quận/Huyện</option>-->
-<!--                            <option>2</option>-->
-<!--                            <option>3</option>-->
-<!--                            <option>4</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
+                    <div class="form-group" style="width: 47%; float: left">
+                        <label for="city">Tỉnh/Thành phố</label>
+                        <select class="form-control" id="province" name="province">
+                            <option value="">Tỉnh/Thành phố</option>
+                            @foreach($provinces as $province)
+                            <option value="{{$province->id}}">{{mb_convert_case($province->name, MB_CASE_TITLE, "UTF-8")}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group"style="width: 48%; float: right">
+                        <label for="district">Quận/Huyện</label>
+                        <select class="form-control" id="district" name="district">
+                            <option value="">Quận/Huyện</option>
+                            @if(Auth::check())
+                            @foreach($districts as $district)
+                            <option value="{{$district->id}}">{{$district->name}}</option>
+                            @endforeach
+                            @endif
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="adr">Địa chỉ</label>
+                        @if(!Auth::check())
                         <input type="text" name="address" id="address" class="form-control">
+                        @else
+                        <input type="text" name="address" id="address" value="{{$customer->address}}" class="form-control" disabled>
+                        @endif
                     </div>
 
                 </div>
@@ -169,6 +187,73 @@ Stylitics - Product page
 
 @section('javascript')
 <script>
+    $(document).ready(function(){
+        $('#province').val("{{Auth::check() ? $customer->province_id : ''}}");
+        $('#district').val("{{Auth::check() ? $customer->district_id : ''}}");
+        @if(Auth::check())
+        $('#province').attr('disabled', 'disabled');
+        $('#district').attr('disabled', 'disabled');
+        @endif
 
+        $('#checkout_form').validate({
+            rules: {
+                name: 'required',
+                phone: {
+                    required: true,
+                    phoneno: true,
+                    minlength: 10,
+                    maxlength: 11,
+                    remote: {
+                        url: "{{asset('checkexist/phone')}}",
+                        type: 'POST'
+                    }
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+                        url: "{{asset('checkexist/email')}}",
+                        type: 'POST'
+                    }
+                },
+                province: 'required',
+                district: 'required',
+                address: 'required'
+            },
+            messages:{
+                name: "Vui lòng nhập họ tên",
+                phone: {
+                    required: "Vui lòng nhập số điện thoại",
+                    remote: "Số điện thoại đã tồn tại"
+                },
+                email: {
+                    required: "Vui lòng nhập E-mail",
+                    email: "Vui lòng nhập đúng định dạng E-mail",
+                    remote: "Địa chỉ E-mail đã tồn tại"
+                },
+                province: 'Vui lòng chọn tỉnh thành',
+                district: 'Vui lòng chọn quận huyện',
+                address: 'Vui lòng nhập địa chỉ'
+            }
+        });
+    });
+$('#province').change(function(){
+    var id = $(this).val();
+    if(id == '') {
+        $('#district').html('<option>Quận/Huyện</option>');
+        return false;
+    }
+    $.ajax({
+        type: 'POST',
+        url: "{{url('get/district')}}",
+        data: {province_id: id},
+        success: function(data){
+            $('#district').html("<option value=''>Quận/Huyện</option>");
+            for(var i = 0; i<data.length; i++){
+                $('#district').append("<option value='"+ data[i].id +"'>"+ data[i].name +"</option>");
+            }
+        }
+    });
+});
 </script>
 @stop

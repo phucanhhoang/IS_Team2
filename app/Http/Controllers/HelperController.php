@@ -9,13 +9,15 @@
 namespace App\Http\Controllers;
 
 
+use App\Helper\HelperFunction;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
 use App\Customer;
 use Illuminate\Support\Facades\Validator;
-use App\Mailers\AppMailer;
+use App\Product;
+use DB;
 
 class HelperController extends Controller
 {
@@ -54,5 +56,28 @@ class HelperController extends Controller
         }
     }
 
+    public function getTags(){
+        $prods = Product::select('pro_name')->get();
 
+        $data = array();
+        foreach ($prods as $prod) {
+            array_push($data, $prod->pro_name);
+        }
+
+        return $data;
+    }
+
+    public function search(Request $request, HelperFunction $helper)
+    {
+        $keyword = $request->keyword;
+        $pros = Product::where('pro_name', 'like', '%'. $keyword .'%')->get();
+
+        return view('pages.result-search', compact('keyword', 'pros'));
+    }
+
+    public function getDistrict(Request $request){
+        $districts = DB::table('districts')->where('province_id', $request->province_id)->get();
+
+        return $districts;
+    }
 }

@@ -163,7 +163,7 @@ class AuthController extends Controller
                 }
             }
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return redirect('auth/facebook');
         }
     }
@@ -221,41 +221,45 @@ class AuthController extends Controller
         }
         else
         {
-            $customer = new Customer;
-            $customer->name = $request->name;
-            $customer->phone = $request->phone;
-            $check = $customer->save();
+            try {
+                $customer = new Customer;
+                $customer->name = $request->name;
+                $customer->phone = $request->phone;
+                $check = $customer->save();
 
-            if ($check) {
-                $confirmation_code = str_random(100);
-                $user = new User;
-                $user->password = Hash::make($request->password);
-                $user->email = $request->email;
-                $user->remember_token = $request->_token;
-                $user->userable_id = $customer->id;
-                $user->userable_type = 'customer';
-                $user->confirmation_code = $confirmation_code;
-                $check = $user->save();
-            }
+                if ($check) {
+                    $confirmation_code = str_random(50);
+                    $user = new User;
+                    $user->password = Hash::make($request->password);
+                    $user->email = $request->email;
+                    $user->remember_token = $request->_token;
+                    $user->userable_id = $customer->id;
+                    $user->userable_type = 'customer';
+                    $user->confirmation_code = $confirmation_code;
+                    $check = $user->save();
+                }
 
-            if ($check) {
-                $data = array(
-                    'confirmation_code' => $confirmation_code
-                );
-                $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
-                $email = $user->email;
-                return view('pages.verify', compact('email'));
-            } else {
-                return redirect()->away($request->rtn_url)
-                    ->with('alert-class', 'alert-danger')
-                    ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
-                    ->with('fa-class', 'fa-ban');
+                if ($check) {
+                    $data = array(
+                        'confirmation_code' => $confirmation_code
+                    );
+                    $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
+                    $email = $user->email;
+                    return view('pages.verify', compact('email'));
+                } else {
+                    return redirect()->away($request->rtn_url)
+                        ->with('alert-class', 'alert-danger')
+                        ->with('message', 'Đăng ký không thành công, vui lòng thử lại!')
+                        ->with('fa-class', 'fa-ban');
+                }
+            } catch(\Exception $e){
+                dd($e->getMessage());
             }
         }
     }
 
     public function sendMailVerify ($email, AppMailer $mailer) {
-        $confirmation_code = str_random(100);
+        $confirmation_code = str_random(50);
         $user = User::where('email', $email)->first();
         if($user) {
             $user->confirmation_code = $confirmation_code;
@@ -268,7 +272,7 @@ class AuthController extends Controller
             return "Your email has been sent successfully";
         }
         else
-            return view('errors.404');
+            return 'false';
     }
 
     public function confirm($confirmation_code){
