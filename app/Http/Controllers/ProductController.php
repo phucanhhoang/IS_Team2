@@ -32,11 +32,11 @@ class ProductController extends Controller
         $pa = Category::select('cat_title','parent_id')->where('id',$id)->first();
         $parent_id = $pa->parent_id;
         if($parent_id == 0){
-            $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$id+1, $id+2])->get();
+            $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$id+1, $id+2])->paginate(12);
             return view('pages.category', compact('name_cate','parent_id','pro_cate'));
         }
         else {
-            $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $id)->get();
+            $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $id)->paginate(12);
             $parent = Category::select('cat_title')->where('id',$parent_id)->first();
             $parent_name = $parent->cat_title;
             return view('pages.category', compact('name_cate','parent_id','pro_cate','parent_name'));
