@@ -50,6 +50,10 @@ Route::post('checkout', 'CheckoutController@postCheckout');
 Route::get('auth/register/verify/sendmail/{email}', 'Auth\AuthController@sendMailVerify');
 Route::get('auth/register/verify/{confirmation_code}', 'Auth\AuthController@confirm');
 
+Route::get('user/info', 'UserController@info');
+Route::get('user/secure', 'UserController@secure');
+Route::get('user/order', 'UserController@order');
+
 Route::get('getTags', 'HelperController@getTags');
 Route::post('search', 'HelperController@search');
 

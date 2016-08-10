@@ -11,6 +11,15 @@
 
 /**{margin:0px; padding:0px; box-sizing:border-box;}*/
 
+table{
+	/*border: 1px solid #252525;*/
+	font-size: 16px !important;
+}
+td, th{
+	padding: 5px;
+	/*border: 1px solid #252525;*/
+}
+
 a, a:hover, a:active, a:focus {
 	text-decoration: none;
 	color: #252525;
@@ -213,12 +222,38 @@ body {
 	border: none;
 }
 
+/*box dropdown style*/
+.arrow-box{
+	background: #fff;
+	border: 1px solid #252525;
+}
+.arrow-box:after, .arrow-box:before{
+	width:0;
+	height:0;
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	right: 12px;
+}
+.arrow-box:after{
+	border: 9px solid transparent;
+	border-bottom-color: #fff;
+	right: 13px;
+}
+.arrow-box:before{
+	border: 10px solid transparent;
+	border-bottom-color: #000;
+}
+
 div.box-cart{
 	width: 350px;
 	padding: 10px 15px;
 }
 div.box-cart .title{
 	text-align: center;
+}
+.dropdown-menu>li>a{
+	color: #252525;
 }
 
 #shopping_cart{
@@ -644,6 +679,27 @@ i.fa.fa-sign-in {
 	margin: 20px 70px;
 }
 
+/*Heading style*/
+.heading-2{
+	border-bottom: 3px solid #252525;
+	width: 100%;
+	margin-bottom: 20px;
+	padding-top: 5px;
+}
+.heading-2 .title-arrow{
+	position: relative;
+	bottom: 24px;
+	border-right: 40px solid transparent;
+	border-bottom: 30px solid #252525;
+}
+.heading-2 .title-arrow .title-text{
+	position: relative;
+	color: #fff;
+	padding: 0 10px;
+	top: 24px;
+}
+
+/*end*/
 .list-products > .heading {
 	border-bottom: 3px solid #252525;
 	position: relative;
@@ -895,7 +951,6 @@ i.fa.fa-sign-in {
 }
 
 .detail-p .info > div > div, .detail-p .info form {
-	margin-left: 15px;
 	border-bottom: 1px solid #ccc;
 	padding: 10px 0px;
 }
@@ -930,7 +985,7 @@ i.fa.fa-sign-in {
 }
 
 .mausac input:checked + label {
-	border: 1px solid #252525;
+	border: 1px solid red;
 }
 
 .kichco input:checked + label {
@@ -1243,7 +1298,6 @@ ul.p-menu > li > a.active{
 
 .user ul {
 	overflow: auto;
-	background-color: #252525;
 	padding: 0px;
 }
 
@@ -1252,21 +1306,24 @@ ul.p-menu > li > a.active{
 }
 
 .user a {
-	color: white;
-	line-height: 40px;
+	line-height: 30px;
 }
 
 .user .fa {
 	margin-right: 5px;
-	color: white;
 }
 
 .user li:hover {
 	background-color: #454545;
+	color: #FFFFFF;
 }
 
-.user li:hover a {
+.user a:hover  {
 	text-decoration: none;
+}
+.user li.state-focus{
+	background-color: #252525;
+	color: #FFFFFF;
 }
 
 footer {

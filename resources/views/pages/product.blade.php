@@ -41,7 +41,7 @@ Stylitics - Product page
                                     $stt++;
                                     $url_img = asset('upload/images/colors/'.$color->color);
                             ?>
-                                    <input type="radio" name="color_id" class="chk_color" url_prod_img="{{asset('upload/images/'.$color->images)}}"
+                                    <input type="radio" name="color_id" class="chk_color"
                                            value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
                                     <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
 

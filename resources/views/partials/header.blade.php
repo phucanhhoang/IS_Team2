@@ -46,25 +46,10 @@
                 <li id="cart" class="dropdown account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-shopping-cart fa-2x"></i></a>
                     <?php
-//                        $cart = App\Cart::join('products', 'products.id', '=', 'cart.product_id')
-//                            ->join('images', function ($join) {
-//                                $join->on('images.pro_id', '=', 'cart.product_id');
-//                                $join->on('images.color_id', '=', 'cart.color_id');
-//                            })
-//                            ->join('colors', 'colors.id', '=', 'cart.color_id')
-//                            ->join('sizes', 'sizes.id', '=', 'cart.size_id')
-//                            ->select('cart.id as id', 'product_id', 'pro_name', 'cart.quantity as quantity', 'products.price as price',
-//                                'images.images as image', 'size', 'discount');
-//                        if(Auth::check()){
-//                            $carts = $cart->where('user_id', '=', Auth::user()->id)->get();
-//                        }
-//                        else{
-//                            $carts = $cart->where('remember_token', '=', csrf_token())->get();
-//                        }
                         $carts = \Cart::content();
                     ?>
                     <label id="cart_num" style="{{sizeof($carts) > 0 ? 'display: block' : 'display: none'}}">{{\Cart::count()}}</label>
-                    <div class="dropdown-menu box-cart">
+                    <div class="dropdown-menu arrow-box box-cart">
                         <p class="title">GIỎ HÀNG</p>
                         <table id="shopping_cart" class="table">
                             <?php
@@ -113,17 +98,19 @@
                         <i class="fa fa-user fa-2x" style="width:34px; float: left"></i>
                         <span class="hidden-xs" style="font-size: 14px;white-space: nowrap;float: right;max-width: 75%;position: relative;top: -3px">
                             Xin chào! <br>
-                            {{ App\Customer::find(Auth::user()->userable_id) ? App\Customer::find(Auth::user()->userable_id)->name : Auth::user()->email }}
+                            {{ App\Customer::find(Auth::user()->userable_id) ?
+                            mb_convert_case(App\Customer::find(Auth::user()->userable_id)->name, MB_CASE_TITLE, "UTF-8") :
+                            Auth::user()->email }}
                         </span>
                         @else
                         <i class="fa fa-user fa-2x" style="width:25%; float: left"></i>
                         @endif
                     </a>
 
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu arrow-box">
                         @if(Auth::check())
                             @if(Auth::user()->userable_type == 'customer')
-                            <li><a href="#">Quản lý tài khoản</a></li>
+                            <li><a href="{{asset('user/info')}}">Quản lý tài khoản</a></li>
                             <li><a href="#">Đơn hàng của tôi</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>

@@ -20,8 +20,8 @@ class ProductController extends Controller
     public function showDetail($id){
         $product = Product::find($id);
         $img_prods = Image::where('pro_id', $id)->get();
-        $img_colors = ProColor::join('colors', 'colors.id', '=', 'procolors.id')->where('pro_id', '=', $id)->get();
-        $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->where('pro_id', '=', $id)->get();
+        $img_colors = ProColor::join('colors', 'colors.id', '=', 'procolors.color_id')->where('pro_id', $id)->get();
+        $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->where('pro_id', $id)->get();
         $products = Product::where('cat_id', $product->cat_id)->orderByRaw("RAND()")->take(8)->get();
         
         return view('pages.product', compact('product', 'img_prods', 'img_colors', 'sizes', 'products'));

@@ -6,7 +6,7 @@
             @foreach (App\Category::where('parent_id', 0)->orderBy('cat_title')->get() as $cat_parent)
             <li class="treeview">
                 <span class="tree-item">
-                    <a href="{{asset('category/'.$cat_parent->id)}}" cat_type="parent">{{$cat_parent->cat_title}}</a>
+                    <a href="{{asset('category/'.$cat_parent->id)}}" cat_type="parent">{{mb_convert_case($cat_parent->cat_title, MB_CASE_TITLE, "UTF-8")}}</a>
                 </span>
                 <?php
                 $cat_childs = App\Category::where('parent_id', $cat_parent->id)->get();
@@ -17,7 +17,7 @@
                 </a>
                 <ul class="treeview-menu" style="display: none;">
                     @foreach($cat_childs as $cat_child)
-                    <li><a href="{{asset('category/'.$cat_child->id)}}" cat_type="child">{{$cat_child->cat_title}}</a></li>
+                    <li><a href="{{asset('category/'.$cat_child->id)}}" cat_type="child">{{mb_convert_case($cat_child->cat_title, MB_CASE_TITLE, "UTF-8")}}</a></li>
                     @endforeach
                 </ul>
                 @endif
@@ -81,6 +81,10 @@
         if($(cat).attr('cat_type') == 'child'){
             $(cat).parents('li.treeview').addClass('active');
             $(cat).parents('ul.treeview-menu').show();
+        }
+        else{
+            $(cat).parents('li.treeview').addClass('active');
+            $(cat).parents('li.treeview').children('ul').show();
         }
     });
 </script>

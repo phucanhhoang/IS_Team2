@@ -15,6 +15,11 @@
 
 @section('content_right')
 <!--    <img src="{{asset('assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" /> -->
+    <div class="heading-2">
+        <span class="title-arrow">
+            <span class="title-text">{!! mb_strtoupper($name_cate) !!}</span>
+        </span>
+    </div>
     @foreach($pro_cate as $pro)
         <div class="col-sm-4 col-md-4 product">
             <div class="p-img">
