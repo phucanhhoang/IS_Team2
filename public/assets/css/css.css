@@ -308,7 +308,7 @@ ul.box-info > li{
 }
 
 .breadcrumbs{
-	padding: 0 30px;
+	padding: 0 70px;
 	margin: 20px auto;
 	font-size: 14px;
 }
@@ -316,6 +316,17 @@ ul.box-info > li{
 	padding: 0 6px;
 }
 
+#sort{
+	padding-top: 10px;
+	padding-left: 160px;
+}
+#menu-sort{
+	margin-top: 14px;
+    width: 180px;
+}
+#sort-button{
+	width: 180px;
+}
 /*Login modal*/
 .modal .modal-dialog .modal-content {
 	border-radius: 0px;
@@ -600,17 +611,6 @@ i.fa.fa-sign-in {
 	}
 }
 
-@-m-keyframes policy-icon {
-0% {
-	font-size: 14px;
-}
-50% {
-	font-size: 12px;
-}
-100% {
-	font-size: 14px;
-}
-}
 .elements .policy p {
 	border: 1px solid white;
 	position: relative;
@@ -1161,7 +1161,7 @@ label.box-color img{
 
 .filter #amount {
 	border: none;
-	width: 50%;
+	width: 55%;
 }
 
 .filter .ui-slider-horizontal {

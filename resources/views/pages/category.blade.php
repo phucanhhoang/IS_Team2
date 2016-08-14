@@ -13,6 +13,21 @@
     @endif
 @stop
 
+@section('sort')
+    <div class="dropdown">
+        <button id="sort-button" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+             <span class="title">{{ $title }}</span>
+             <span class="caret" style="margin-left: 20px;"></span>
+        </button>
+        <ul class="dropdown-menu" id="menu-sort">
+            <li><a href="{{ asset('category/'.$cate_id.'/sort/1') }}">Tên: A đến Z</a></li>
+            <li><a href="{{ asset('category/'.$cate_id.'/sort/2') }}">Tên: Z đến A</a></li>
+            <li><a href="{{ asset('category/'.$cate_id.'/sort/3') }}">Giá: Cao đến thấp</a></li>
+            <li><a href="{{ asset('category/'.$cate_id.'/sort/4') }}">Giá: Thấp đến cao</a></li>
+        </ul>
+    </div>
+@stop
+
 @section('content_right')
 <!--    <img src="{{asset('assets/image/aosomi.jpg')}}" style="max-width: 100%; max-height: 100%;margin-bottom: 25px;" /> -->
     @foreach($pro_cate as $pro)

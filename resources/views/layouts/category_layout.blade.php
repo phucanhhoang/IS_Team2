@@ -1,13 +1,20 @@
 @extends('layouts.master')
 
 @section('breadcrumb')
-<nav class="container breadcrumbs">
-    <a href="{{asset('/')}}">Trang chủ</a>
-    <span class="divider">›</span>
-    @yield('breadcrumbs')
-</nav>
+<div class="row">
+    <div class="col-md-8 col-sm-8">
+        <nav class="container breadcrumbs">
+            <a href="{{asset('/')}}">Trang chủ</a>
+            <span class="divider">›</span>
+            @yield('breadcrumbs')
+        </nav>
+    </div>
+    <div class="col-md-4 col-sm-4" id="sort">
+        @yield('sort')
+    </div>
+</div>
 @stop
-
+    
 @section('content')
 <div class="container">
     <!--sidebar content-->
