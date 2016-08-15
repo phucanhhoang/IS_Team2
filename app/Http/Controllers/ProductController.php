@@ -13,6 +13,7 @@ use App\ProColor;
 use App\ProSize;
 use Input;
 use App\Image;
+use DB;
 class ProductController extends Controller
 {
 
@@ -60,11 +61,11 @@ class ProductController extends Controller
                 $title = 'Tên: Từ Z đến A';
             }
             if($sort_id == 3){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('price','DESC')->paginate(12);
+                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('sale','DESC')->paginate(12);
                 $title = 'Giá: Từ cao đến thấp';
             }
             if($sort_id == 4){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('price','ASC')->paginate(12);
+                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('sale','ASC')->paginate(12);
                 $title = 'Giá: Từ thấp đến cao';
             }
             return view('pages.category', compact('name_cate','parent_id','pro_cate','cate_id','title'));
@@ -79,11 +80,11 @@ class ProductController extends Controller
                 $title = 'Tên: Từ Z đến A';
             }
             if($sort_id == 3){
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $cate_id)->orderBy('price','DESC')->paginate(12);
+                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->where('cat_id', $cate_id)->orderBy('sale','DESC')->paginate(12);
                 $title = 'Giá: Từ cao đến thấp';
             }
             if($sort_id == 4) {
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $cate_id)->orderBy('price','ASC')->paginate(12);
+                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->where('cat_id', $cate_id)->orderBy('sale','ASC')->paginate(12);
                 $title = 'Giá: Từ thấp đến cao';
             }
             $parent = Category::select('cat_title')->where('id',$parent_id)->first();
