@@ -58,7 +58,7 @@ Stylitics - Product page
                         @if(!Auth::check())
                         <input type="text" name="name" id="name" class="form-control"/>
                         @else
-                        <input type="text" name="name" id="name" value="{{$customer->name}}" class="form-control" disabled />
+                        <input type="text" name="name" id="name" value="{{$customer->name}}" class="form-control" readonly />
                         @endif
                     </div>
                     <div class="form-group">
@@ -66,7 +66,7 @@ Stylitics - Product page
                         @if(!Auth::check())
                         <input type="text" name="phone" id="phone" class="form-control" />
                         @else
-                        <input type="text" name="phone" id="phone" value="{{$customer->phone}}" class="form-control" disabled />
+                        <input type="text" name="phone" id="phone" value="{{$customer->phone}}" class="form-control" readonly />
                         @endif
                     </div>
                     <div class="form-group">
@@ -74,12 +74,12 @@ Stylitics - Product page
                         @if(!Auth::check())
                         <input type="email" name="email" id="email" class="form-control" />
                         @else
-                        <input type="email" name="email" id="email" value="{{$email}}" class="form-control" disabled />
+                        <input type="email" name="email" id="email" value="{{$customer->email}}" class="form-control" readonly />
                         @endif
                     </div>
                     <div class="form-group" style="width: 47%; float: left">
                         <label for="city">Tỉnh/Thành phố</label>
-                        <select class="form-control" id="province" name="province">
+                        <select class="form-control" id="province" name="province" onchange="province_onchange(this);">
                             <option value="">Tỉnh/Thành phố</option>
                             @foreach($provinces as $province)
                             <option value="{{$province->id}}">{{mb_convert_case($province->name, MB_CASE_TITLE, "UTF-8")}}</option>
@@ -90,7 +90,7 @@ Stylitics - Product page
                         <label for="district">Quận/Huyện</label>
                         <select class="form-control" id="district" name="district">
                             <option value="">Quận/Huyện</option>
-                            @if(Auth::check())
+                            @if(isset($districts))
                             @foreach($districts as $district)
                             <option value="{{$district->id}}">{{$district->name}}</option>
                             @endforeach
@@ -102,7 +102,7 @@ Stylitics - Product page
                         @if(!Auth::check())
                         <input type="text" name="address" id="address" class="form-control">
                         @else
-                        <input type="text" name="address" id="address" value="{{$customer->address}}" class="form-control" disabled>
+                        <input type="text" name="address" id="address" value="{{$customer->address}}" class="form-control">
                         @endif
                     </div>
 
@@ -159,7 +159,7 @@ Stylitics - Product page
                                     <i class="fa fa-times-circle"></i></a></td>
                             <td width="90px"><img src="{{asset('upload/images/'.$cart->options->image)}}" style="width: 75px" /></td>
                             <td>{{$cart->name}}</td>
-                            <td style="text-align: center"><label class="box-color"><img src="{{asset('upload/images/colors/'.$cart->options->color)}}" /></label></td>
+                            <td style="text-align: center"><label class="box-color" style="background-color: <?php echo $cart->options->color ?>"></label></td>
                             <td><label class="box-size">{{$cart->options->size}}</label></td>
                             <td>{{number_format($price, 0, ',', '.')}} đ</td>
                             <td><input type="number" id="{{$cart->rowid}}" class="qty_num qty_num{{$cart->rowid}}" price="{{$price}}"
@@ -190,10 +190,6 @@ Stylitics - Product page
     $(document).ready(function(){
         $('#province').val("{{Auth::check() ? $customer->province_id : ''}}");
         $('#district').val("{{Auth::check() ? $customer->district_id : ''}}");
-        @if(Auth::check())
-        $('#province').attr('disabled', 'disabled');
-        $('#district').attr('disabled', 'disabled');
-        @endif
 
         $('#checkout_form').validate({
             rules: {
@@ -202,19 +198,19 @@ Stylitics - Product page
                     required: true,
                     phoneno: true,
                     minlength: 10,
-                    maxlength: 11,
-                    remote: {
-                        url: "{{asset('checkexist/phone')}}",
-                        type: 'POST'
-                    }
+                    maxlength: 11
+//                    remote: {
+//                        url: "{{asset('checkexist/phone')}}",
+//                        type: 'POST'
+//                    }
                 },
                 email: {
                     required: true,
-                    email: true,
-                    remote: {
-                        url: "{{asset('checkexist/email')}}",
-                        type: 'POST'
-                    }
+                    email: true
+//                    remote: {
+//                        url: "{{asset('checkexist/email')}}",
+//                        type: 'POST'
+//                    }
                 },
                 province: 'required',
                 district: 'required',
@@ -237,23 +233,6 @@ Stylitics - Product page
             }
         });
     });
-$('#province').change(function(){
-    var id = $(this).val();
-    if(id == '') {
-        $('#district').html('<option>Quận/Huyện</option>');
-        return false;
-    }
-    $.ajax({
-        type: 'POST',
-        url: "{{url('get/district')}}",
-        data: {province_id: id},
-        success: function(data){
-            $('#district').html("<option value=''>Quận/Huyện</option>");
-            for(var i = 0; i<data.length; i++){
-                $('#district').append("<option value='"+ data[i].id +"'>"+ data[i].name +"</option>");
-            }
-        }
-    });
-});
+
 </script>
 @stop

@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '194334174266198',
         'client_secret' => '8b24a6feee1aac64a3ce24a77ed9b5a4',
-        'redirect' => asset('auth/facebook/callback'),
+        'redirect' => url('auth/facebook/callback'),
     ],
 
 ];

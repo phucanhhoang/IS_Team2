@@ -1,4 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
+
+@section('breadcrumb')
+<nav class="container breadcrumbs">
+    <a href="{{asset('/')}}">Trang chủ</a>
+    <span class="divider">›</span>
+    Quên mật khẩu
+</nav>
+@stop
 
 <!-- Main Content -->
 @section('content')
@@ -14,7 +22,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/password/email') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -33,7 +41,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit">
                                     <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
                                 </button>
                             </div>

@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class CheckoutRequest extends Request
+class CustomerRequest extends Request
 {
 
     /**
@@ -25,7 +25,8 @@ class CheckoutRequest extends Request
         return [
             'name' => 'required',
             'phone' => 'required|digits_between:10,11',
-            'email' => 'required|email|unique:users,email',
+            'province' => 'required',
+            'district' => 'required',
             'address' => 'required'
         ];
     }
@@ -36,9 +37,8 @@ class CheckoutRequest extends Request
             'name.required' => 'Vui lòng nhập họ tên',
             'phone.required' => 'Vui lòng nhập số điện thoại',
             'phone.digits_between' => 'Số điện thoại phải từ 10 đến 11 chữ số',
-            'email.required' => 'Vui lòng nhập email',
-            'email.email' => 'Email sai định dạng',
-            'email.unique' => 'Email đã tồn tại',
+            'province.required' => 'Vui lòng chọn tỉnh thành',
+            'district.required' => 'Vui lòng chọn quận huyện',
             'address.required' => 'Vui lòng nhập địa chỉ nhận hàng'
         ];
     }

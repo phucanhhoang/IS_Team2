@@ -36,10 +36,9 @@
                     $stt = 0;
                     foreach($img_colors as $color){
                         $stt++;
-                        $url_img = asset('upload/images/colors/'.$color->color);
                         ?>
                         <input type="checkbox" name="color_id" class="chk_color" value="{{$color->id}}" id="{{'ms-check'.$stt}}"/>
-                        <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
+                        <label for="{{'ms-check'.$stt}}" style="background-color: <?php echo $color->color ?>"></label>
 
                     <?php } ?>
                 </div>

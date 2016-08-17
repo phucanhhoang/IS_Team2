@@ -98,7 +98,7 @@ class AuthController extends Controller
             $r = false;
 
         if (\Auth::attempt($userdata, $r)) {
-            if (\Auth::user()->userable_type == 'customer') {
+//            if (\Auth::user()->userable_type == 'customer') {
                 if($request->rtn_url) {
                     if (\Auth::user()->activated == 1) {
                         return redirect()->away($request->rtn_url);
@@ -112,22 +112,44 @@ class AuthController extends Controller
                 } else {
                     return redirect('/');
                 }
-            } else if (\Auth::user()->userable_type == 'admin'){
-                if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {
-                    return redirect('/admin/home');
-                } else {
-                    \Auth::logout();
-                    return redirect()->away($request->rtn_url)
-                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
-                        ->with('alert-class', 'alert-warning')
-                        ->with('fa-class', 'fa-warning');
-                }
-            }
+//            } else if (\Auth::user()->userable_type == 'admin'){
+//                if (\Auth::user()->banned == 0 && \Auth::user()->deleted == 0) {
+//                    return redirect('/admin/home');
+//                } else {
+//                    \Auth::logout();
+//                    return redirect()->away($request->rtn_url)
+//                        ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+//                        ->with('alert-class', 'alert-warning')
+//                        ->with('fa-class', 'fa-warning');
+//                }
+//            }
         } else {
             $data['openLoginModal'] = true;
             return redirect()->away($request->rtn_url)
                 ->with('message', 'E-mail hoặc mật khẩu không chính xác.')
                 ->withInput($data);
+        }
+    }
+
+    public function postLoginAdmin(LoginRequest $request)
+    {
+        // create our user data for the authentication
+        $userdata = array(
+            'email' => $request->email,
+            'password' => $request->password,
+        );
+
+
+        if (\Auth::guard('admin')->attempt($userdata)) {
+            if (\Auth::guard('admin')->user()->ban == 0) {
+                return redirect('/admin/home');
+            } else {
+                \Auth::guard('admin')->logout();
+                return redirect()->route('getLoginAdmin')
+                    ->with('message', 'Xin lỗi! Tài khoản của bạn đang bị khóa.')
+                    ->with('alert-class', 'alert-warning')
+                    ->with('fa-class', 'fa-warning');
+            }
         }
     }
 
@@ -140,25 +162,18 @@ class AuthController extends Controller
     {
         try {
             $userfb = Socialite::driver('facebook')->user();
-            $user = User::where('email', $userfb->email)->first();
-            if ($user) {
-                \Auth::loginUsingId($user->id);
+            $customer = Customer::where('email', $userfb->email)->first();
+            if ($customer) {
+                \Auth::loginUsingId($customer->id);
                 return redirect('home');
             } else {
                 $customer = new Customer;
+                $customer->email = $userfb->email;
                 $customer->name = $userfb->name;
+                $customer->remember_token = csrf_token();
                 $check = $customer->save();
-
                 if ($check) {
-                    $user = new User;
-                    $user->email = $userfb->email;
-                    $user->userable_id = $customer->id;
-                    $user->userable_type = 'customer';
-                    $user->remember_token = csrf_token();
-                    $check = $user->save();
-                }
-                if ($check) {
-                    \Auth::loginUsingId($user->id);
+                    \Auth::loginUsingId($customer->id);
                     return redirect('home');
                 }
             }
@@ -170,18 +185,13 @@ class AuthController extends Controller
 
     public function logout()
     {
-        if(\Auth::user()->userable_type == 'admin'){
-            $re_path = '/admin/auth/login';
-        }
-        else{
-            $re_path = '/';
-        }
         \Auth::logout();
-        return redirect($re_path);
+        return redirect('/');
     }
+
     public function logoutAdmin()
     {
-        \Auth::logout();
+        \Auth::guard('admin')->logout();
         return redirect()->route('getLoginAdmin');
     }
 
@@ -222,30 +232,27 @@ class AuthController extends Controller
         else
         {
             try {
+                $confirmation_code = str_random(50);
                 $customer = new Customer;
                 $customer->name = $request->name;
                 $customer->phone = $request->phone;
+                $customer->password = Hash::make($request->password);
+                $customer->email = $request->email;
+                $customer->remember_token = $request->_token;
+                $customer->confirmation_code = $confirmation_code;
                 $check = $customer->save();
-
-                if ($check) {
-                    $confirmation_code = str_random(50);
-                    $user = new User;
-                    $user->password = Hash::make($request->password);
-                    $user->email = $request->email;
-                    $user->remember_token = $request->_token;
-                    $user->userable_id = $customer->id;
-                    $user->userable_type = 'customer';
-                    $user->confirmation_code = $confirmation_code;
-                    $check = $user->save();
-                }
 
                 if ($check) {
                     $data = array(
                         'confirmation_code' => $confirmation_code
                     );
-                    $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
-                    $email = $user->email;
-                    return view('pages.verify', compact('email'));
+                    $mailer->sendEmailConfirmationTo($customer->email, 'Verify your Stylitics Account', 'emails.verify', $data);
+                    $email = $customer->email;
+                    $announce = array(
+                        'tit' => 'Đăng ký tài khoản',
+                        'msg' => 'Đăng ký tài khoản thành công. Vui lòng kiểm tra email để kích hoạt tài khoản.'
+                    );
+                    return view('pages.announce', compact('email', 'announce'));
                 } else {
                     return redirect()->away($request->rtn_url)
                         ->with('alert-class', 'alert-danger')
@@ -260,14 +267,14 @@ class AuthController extends Controller
 
     public function sendMailVerify ($email, AppMailer $mailer) {
         $confirmation_code = str_random(50);
-        $user = User::where('email', $email)->first();
-        if($user) {
-            $user->confirmation_code = $confirmation_code;
-            $user->save();
+        $customer = Customer::where('email', $email)->first();
+        if($customer) {
+            $customer->confirmation_code = $confirmation_code;
+            $customer->save();
             $data = array(
                 'confirmation_code' => $confirmation_code
             );
-            $mailer->sendEmailConfirmationTo($user->email, 'Verify your Stylitics Account', 'emails.verify', $data);
+//            $mailer->sendEmailConfirmationTo($customer->email, 'Verify your Stylitics Account', 'emails.verify', $data);
 
             return "Your email has been sent successfully";
         }
@@ -276,12 +283,14 @@ class AuthController extends Controller
     }
 
     public function confirm($confirmation_code){
-        $user = User::where('confirmation_code', $confirmation_code)->first();
-        if( $user ){
-            $user->activated = 1;
-            $user->save();
+        $customer = Customer::where('confirmation_code', $confirmation_code)->first();
+        if( $customer ){
+            $customer->activated = 1;
+            $customer->save();
             $data['openLoginModal'] = true;
-            return redirect('/')->withInput($data);
+            return redirect('/')
+                ->with('message', 'Kích hoạt tài khoản thành công.')
+                ->withInput($data);
         }
         else
             return view('errors.404');

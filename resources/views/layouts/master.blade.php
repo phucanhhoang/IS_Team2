@@ -38,7 +38,30 @@
 <!--<script type="text/javascript" src="{{asset('assets/js/headroom.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('assets/js/app.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/site.js')}}"></script>
+<script>
+  $(function(){
 
+  });
+
+  function province_onchange(btn){
+    var id = $(btn).val();
+    if(id == '') {
+      $('#district').html("<option value=''>Quận/Huyện</option>");
+      return false;
+    }
+    $.ajax({
+      type: 'POST',
+      url: "{{url('get/district')}}",
+      data: {province_id: id},
+      success: function(data){
+        $('#district').html("<option value=''>Quận/Huyện</option>");
+        for(var i = 0; i<data.length; i++){
+          $('#district').append("<option value='"+ data[i].id +"'>"+ data[i].name +"</option>");
+        }
+      }
+    });
+  }
+</script>
 @yield('javascript')
 
 </body>

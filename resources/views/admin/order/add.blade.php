@@ -1,6 +1,22 @@
 @extends('admin.master')
 @section('head.title', ' | Add Order')
 @section('content')
+<style>
+	/*Search style*/
+.ui-widget-content{
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #ffffff;
+}
+.ui-menu .ui-menu-item .ui-state-focus{
+    background-color: #eeeeee;
+    color: #252525;
+    border-color: transparent;
+}
+input:focus{border:1px solid yellow;}
+</style>
+
 <div class="row">
     <div class="col-sm-6">
         <h1 class="lead" style="font-size: 2.5em; color:rgb(255,0,0)">Order
@@ -9,7 +25,29 @@
     </div>
 </div>
 <div class="row">
-	<div class="col-sm-6 col-sm-offset-3">
+	<div class="col-sm-4">
+		<div class="panel panel-info">
+			<div class="panel-heading text-center">Order Info</div>
+			<div class="panel-body" id="order_info">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Product Name</th>
+							<th>Size</th>
+							<th>Color</th>
+							<th>Quantity</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-5">
 		@if(count($errors) > 0)
 			<div class="alert alert-danger">
 				<ul>
@@ -22,74 +60,78 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading text-center">Add Order</div>
 			<div class="panel-body">
-
-				<form method="post" action="{!! url('admin/order/add') !!}">
+				<form method="post" action="{!! url('admin/order/add') !!}" id="form_id">
 					<input type="hidden" value="{!! csrf_token() !!}" name="_token" />
-					<div class="form-group">
-						<label for="customer_name">Customer Name</label>
-						<input class="form-control" name="customer_name" id="custom_name" placeholder="Please Enter Customer Name" />
-					</div>
-					<div class="form-group">
-						<input type="hidden" class="form-control" name="customer_id" id="custom_id" required="false" />
-					</div>
-					<div class="form-group">
-						<label for="address">Address</label>
-						<input class="form-control" name="address" id="custom_addr" placeholder="Please Enter Customer Address" />
-					</div>
-					<div class="form-group">
-						<label for="district">District</label>
-						<input class="form-control" name="district" id="custom_ditr" placeholder="Please Enter District" />
-					</div>
-					<div class="form-group">
-						<label for="city">City</label>
-						<input class="form-control" name="city" id="custom_city" placeholder="Please Enter City" />
-					</div>
-					<div class="form-group">
-						<label for="phone">Phone</label>
-						<input class="form-control" name="phone" id="custom_phone" placeholder="Please Enter Customer Phone" />
-					</div>
-					<div class="form-group">
-						<label for="pro_id">Product</label>
-						<select name="pro_id" class="form-control" id="drdProduct" required>
-							<option value="">Please Choose Product</option>
-							@foreach($products as $product)
-							<option value="{!! $product['id'] !!}">{!! $product['pro_name'] !!}</option>
-							@endforeach
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="size_id">Size</label>
-						<select name="size_id" class="form-control" id="chk_size" required>
-							<option value="">Please Choose Size</option>
-							@foreach($sizes as $size)
-							<option value="{!! $size['id'] !!}">{!! $size['size'] !!}</option>
-							@endforeach
-						</select>
-					</div>
-					<div class="form-group">
-						<p class="title">Color</p>
-						<div class="mausac" id="chk_color">
-							<?php $stt = 0; ?>
-							@foreach($img_colors as $color)
-							<?php 
-								$stt++;
-								$url_img = asset('upload/images/colors/'.$color->color);
-							?>
-							<input type="radio" name="color_id" value="{{ $color->id }}" id="{{ 'ms-check'.$stt }}"  />
-                            <label for="{{ 'ms-check'.$stt }}" style="background-image: url('<?php echo $url_img; ?>')"></label>
-							@endforeach
+					<div class="panel panel-info">
+						<div class="panel-heading">Customer</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="information">Customer Name Or Phone Number</label>
+								<input class="form-control" name="information" id="custom_name" placeholder="Please Enter Customer Name Or Phone Number" />
+							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="qty">Quantity Order</label>
-						<input type="number" name="qty" value="" class="form-control" style="width: 100px;">
+					<div class="panel panel-info">
+						<div class="panel-heading">Select Product</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<input type="hidden" name="str_product" id="str_product">
+								<label for="pro_id">Product</label>
+								<select name="pro_id" class="form-control" id="drdProduct" required>
+									<option value="">Please Choose Product</option>
+									@foreach($products as $product)
+									<option value="{!! $product->id !!}">{!! $product->pro_name !!}</option>
+									@endforeach
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="str_size" id="str_size">
+								<label for="size_id">Size</label>
+								<select name="size_id" class="form-control" id="chk_size" required>
+									<option value="">Please Choose Size</option>
+									@foreach($sizes as $size)
+									<option value="{!! $size->id !!}">{!! $size->size !!}</option>
+									@endforeach
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="color_id">Color</label>
+								<input type="hidden" name="str_color" id="str_color">
+								<div class="mausac" id="chk_color">	
+									<?php $stt = 0; ?>
+									@foreach($img_colors as $color)
+									<?php 
+										$stt++;
+										$url_img = asset('upload/images/'.$color->color); 
+									?>
+									<input type="radio" name="color_id" class="chk_color" value="{{ $color->id }}" id="{{ 'ms-check'.$stt }}"  />
+		                            <label for="{{ 'ms-check'.$stt }}" style="background-image: url('<?php echo $url_img; ?>')"></label>
+									@endforeach
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="hidden" name="str_qty" id="str_qty">
+								<label for="qty">Quantity Order</label>
+								<input type="number" name="qty" value="" class="form-control" id="quantity" style="width: 100px;">
+							</div>
+						</div>
+		            	<button type="button" class="btn btn-danger" id="more" style="margin-bottom: 10px; margin-left: 15px;">
+		            		<i class="fa fa-plus" aria-hidden="true"></i> Add More
+		            	</button>
 					</div>
-		            <div class="text-right">
-						<input type="submit" class="btn btn-primary" value="Add" />
-						<input type="reset" class="btn btn-default" value="Reset" />
+					<div class="divide"></div>
+					<div class="text-right">
+						<input type="submit" class="btn btn-primary" value="Add Order" />
+						<input type="reset" class="btn btn-default" id="reset_btn" value="Reset" />
 					</div>
 				</form>
 			</div>
+		</div>
+	</div>
+	<div class="col-sm-3">
+		<div class="panel panel-info">
+			<div class="panel-heading text-center">Customer Info</div>
+			<div class="panel-body" id="custom_info"></div>
 		</div>
 	</div>
 </div>
@@ -97,44 +139,34 @@
 
 @section('body.js')
 <script type="text/javascript">
-//lay thong tin khach hang
-$('#custom_name').change(function() {
-	var customer_name = $(this).val();
+$('#custom_name').keyup(function(){
 	$.ajax({
-		url: "{{ asset('admin/order/pro_change') }}",
 		type: "POST",
-		data: {customer_name: customer_name},
-		cache: false,
-		success: function (data) {
-			$('#custom_id').html("");
-			for (var i = 0; i < data['customers'].length; i++) {
-				$('#custom_id').val(data['customers'][i].id);
-			}
-			// $('#custom_id').prop('required', false);
-
-			$('#custom_addr').html("");
-			for (var i = 0; i < data['customers'].length; i++) {
-				$('#custom_addr').val(data['customers'][i].address);
-			}
-
-			$('#custom_ditr').html("");
-			for (var i = 0; i < data['customers'].length; i++) {
-				$('#custom_ditr').val(data['customers'][i].district);
-			}
-
-			$('#custom_city').html("");
-			for (var i = 0; i < data['customers'].length; i++) {
-				$('#custom_city').val(data['customers'][i].city);
-			}
-
-			$('#custom_phone').html("");
-			for (var i = 0; i < data['customers'].length; i++) {
-				$('#custom_phone').val(data['customers'][i].phone);
-			}
+		url: "{{ asset('admin/order/search') }}",
+		success: function(data){
+			$('#custom_name').autocomplete({
+				source: data,
+				select: function (event, ui) {
+					value = ui.item.value;
+					$(this).val(value);
+				}
+			});
 		}
 	});
-	
 });
+
+$('#custom_name').on('autocompleteselect', function(event, ui) {
+	$(this).val(ui.item.value);
+	value = ui.item.value.split(" - ");
+	name_ = value[0];
+	phone_ = value[1];
+	$('#custom_info').html("");
+	$('#custom_info').append("<div><b>Phone:</b> "+name_+"</div><div><b>Phone:</b> "+phone_+"</div>");
+	event.preventDefault();
+	/* Act on the event */
+});
+
+
 
 // thong tin san pham
 $('#drdProduct').change(function() {
@@ -154,16 +186,25 @@ $('#drdProduct').change(function() {
 
 			//color
 			$('#chk_color').html("");
+			str_color = '';
 			var stt=0;
 			for (var i = 0; i < data['colors'].length; i++) {
 				stt++;
-				var url = "{{asset('upload/images/colors')}}"+ '/' + data['colors'][i].color;
+				var url = "{{asset('upload/images')}}"+ '/' + data['colors'][i].color;
 				$('#chk_color').append("<input type='radio' name='color_id' value='"+data['colors'][i].id+"' id='ms-check"+stt+"' /><label for='ms-check"+stt+"' style='background-image: url("+ url +")'></label>");
+				$('#ms-check'+stt).click(function(event) {
+					str_color += $('#ms-check'+stt).val();
+				});
 			}
-			
 		}
 	});
 });
-	
+
+$(document).ready(function() {
+	$('#reset_btn').click(function() {
+		$('#custom_info').html("");
+	});	
+});
+
 </script>
 @stop

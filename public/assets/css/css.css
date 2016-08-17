@@ -13,7 +13,7 @@
 
 table{
 	/*border: 1px solid #252525;*/
-	font-size: 16px !important;
+	/*font-size: 16px !important;*/
 }
 td, th{
 	padding: 5px;
@@ -51,7 +51,7 @@ label.error {
 
 
 /************ Standard *************/
-input[type=text] {
+input[type=text], input[type=password], textarea {
 	border: 1px solid #333;
 	outline: none;
 }
@@ -262,11 +262,11 @@ div.box-cart .title{
 #shopping_cart > tbody > tr > td, #order_table > tbody > tr > td{
 	vertical-align: middle;
 }
-#shopping_cart .fa-times-circle, #order_table .fa-times-circle{
+#shopping_cart .fa-times-circle, #order_table .fa-times-circle, #order_table .fa-file-text{
 	font-size: 15px;
 	color: #ccc;
 }
-#shopping_cart .fa-times-circle:hover, #order_table .fa-times-circle:hover{
+#shopping_cart .fa-times-circle:hover, #order_table .fa-times-circle:hover, #order_table .fa-file-text:hover{
 	color: #252525;
 }
 
@@ -1314,16 +1314,14 @@ ul.p-menu > li > a.active{
 }
 
 .user li:hover {
-	background-color: #454545;
-	color: #FFFFFF;
+	background-color: #EEE;
 }
 
 .user a:hover  {
 	text-decoration: none;
 }
 .user li.state-focus{
-	background-color: #252525;
-	color: #FFFFFF;
+	background-color: #DDDDDD;
 }
 
 footer {

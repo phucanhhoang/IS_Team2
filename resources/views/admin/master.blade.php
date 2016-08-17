@@ -79,11 +79,16 @@
 								<li><a href="{!! url('admin/order/list') !!}">Order List</a> </li>
 								<li><a href="{!! url('admin/order/add') !!}">Order Add</a></li>
 							</ul>
-						</li>      
+						</li>
+						<!-- Customer -->
 						<li class="menu-list"><a href="#">
-							<i class="lnr lnr-indent-increase"></i>
-						 	<span>Customer</span>
-						 </a>  
+								<i class="lnr lnr-indent-increase"></i>
+								<span>Customer</span>
+							</a>
+							<ul class="sub-menu-list">
+								<li><a href="{!! url('admin/customer/list') !!}">Customer List</a> </li>
+								<li><a href="{!! url('admin/customer/add') !!}">Customer Add</a></li>
+							</ul>
 						</li>
 					</ul>
 				<!--sidebar nav end-->
@@ -108,7 +113,7 @@
 									<div class="profile_img">
 <!--										<span><img src="{!! url('admin/images/1.png') !!}" alt=""> </span>-->
 										 <div class="user-name">
-											<p>{{Auth::user()->email}}<span>Administrator</span></p>
+											<p>{{Auth::guard('admin')->user()->email}}<span>Administrator</span></p>
 										 </div>
 										 <i class="lnr lnr-chevron-down"></i>
 										 <i class="lnr lnr-chevron-up"></i>
@@ -118,7 +123,7 @@
 								<ul class="dropdown-menu drp-mnu">
 <!--									<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>-->
 <!--									<li> <a href="#"><i class="fa fa-user"></i>Profile</a> </li>-->
-									<li> <a href="{{asset('auth/logout')}}"><i class="fa fa-sign-out"></i> Logout</a> </li>
+									<li> <a href="{{asset('admin/auth/logout')}}"><i class="fa fa-sign-out"></i> Logout</a> </li>
 								</ul>
 							</li>
 							<div class="clearfix"> </div>

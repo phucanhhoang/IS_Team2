@@ -50,9 +50,20 @@ Route::post('checkout', 'CheckoutController@postCheckout');
 Route::get('auth/register/verify/sendmail/{email}', 'Auth\AuthController@sendMailVerify');
 Route::get('auth/register/verify/{confirmation_code}', 'Auth\AuthController@confirm');
 
-Route::get('user/info', 'UserController@info');
-Route::get('user/secure', 'UserController@secure');
-Route::get('user/order', 'UserController@order');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('user/info', 'UserController@info');
+    Route::post('user/save_user_info', 'UserController@save');
+    Route::get('user/secure', 'UserController@secure');
+    Route::post('user/change_pass', 'UserController@changePass');
+    Route::get('user/order', 'UserController@order');
+    Route::post('user/order/get-order-detail', 'UserController@getOrderDetail');
+    Route::post('user/order/search', 'UserController@searchOrder');
+});
+
+Route::get('auth/password/email',['as' => 'getEmail', 'uses' => 'Auth\PasswordController@getEmail']);
+Route::post('auth/password/email', 'Auth\PasswordController@postEmail');
+Route::get('auth/password/reset/{token?}', 'Auth\PasswordController@getResetForm');
+Route::post('auth/password/reset', 'Auth\PasswordController@postResetForm');
 
 Route::get('getTags', 'HelperController@getTags');
 Route::post('search', 'HelperController@search');
@@ -72,9 +83,10 @@ Route::get('/test/{id}', function ($id) {
 //----------------------- Admin zone -------------------------------//
 Route::group(['prefix' => 'admin'], function(){
     Route::get('auth/login', ['as' => 'getLoginAdmin', 'uses' => 'Auth\AuthController@getLogin']);
-    Route::post('auth/login', ['as' => 'postLoginAdmin', 'uses' => 'Auth\AuthController@postLogin']);
+    Route::post('auth/login', ['as' => 'postLoginAdmin', 'uses' => 'Auth\AuthController@postLoginAdmin']);
+    Route::get('auth/logout', ['as' => 'logoutAdmin', 'uses' => 'Auth\AuthController@logoutAdmin']);
 
-    Route::group(['prefix' => '/', 'middleware' => 'auth'], function() {
+    Route::group(['prefix' => '/', 'middleware' => 'admin'], function() {
         Route::get('/', [
             'as' => 'admin.home',
             'uses' => 'HomeController@adminHomePage'
@@ -83,7 +95,7 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'admin.home',
             'uses' => 'HomeController@adminHomePage'
         ]);
-    });
+
 
     Route::delete('sizecolor/delete/{id}', [
         'as' => 'admin.sizecolor.delete',
@@ -146,6 +158,39 @@ Route::group(['prefix' => 'admin'], function(){
             'as' => 'admin.order.pro_change',
             'uses' => 'OrderController@proChange'
         ]);
+        Route::post('search', [
+            'as' => 'admin.order.search',
+            'uses' => 'OrderController@searchItem'
+        ]);
+
+    });
+
+    Route::group(['prefix' => 'customer'], function(){
+        Route::get('list', [
+            'as' => 'admin.customer.list',
+            'uses' => 'CustomerController@getList'
+        ]);
+        Route::get('edit/{id}', [
+            'as' => 'admin.customer.edit',
+            'uses' => 'CustomerController@getEdit'
+        ]);
+        Route::post('edit/{id}', [
+            'as' => 'admin.customer.edit',
+            'uses' => 'CustomerController@postEdit'
+        ]);
+        Route::get('add', [
+            'as' => 'admin.customer.add',
+            'uses' => 'CustomerController@getAdd'
+        ]);
+        Route::post('add', [
+            'as' => 'admin.customer.add',
+            'uses' => 'CustomerController@postAdd'
+        ]);
+        Route::get('delete/{id}', [
+            'as' => 'admin.customer.delete',
+            'uses' => 'CustomerController@getDelete'
+        ]);
+    });
     });
 });
 

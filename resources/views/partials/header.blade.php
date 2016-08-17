@@ -98,9 +98,7 @@
                         <i class="fa fa-user fa-2x" style="width:34px; float: left"></i>
                         <span class="hidden-xs" style="font-size: 14px;white-space: nowrap;float: right;max-width: 75%;position: relative;top: -3px">
                             Xin chào! <br>
-                            {{ App\Customer::find(Auth::user()->userable_id) ?
-                            mb_convert_case(App\Customer::find(Auth::user()->userable_id)->name, MB_CASE_TITLE, "UTF-8") :
-                            Auth::user()->email }}
+                            {{ mb_convert_case(Auth::user()->name, MB_CASE_TITLE, "UTF-8") }}
                         </span>
                         @else
                         <i class="fa fa-user fa-2x" style="width:25%; float: left"></i>
@@ -109,16 +107,10 @@
 
                     <ul class="dropdown-menu arrow-box">
                         @if(Auth::check())
-                            @if(Auth::user()->userable_type == 'customer')
                             <li><a href="{{asset('user/info')}}">Quản lý tài khoản</a></li>
-                            <li><a href="#">Đơn hàng của tôi</a></li>
+                            <li><a href="{{asset('user/order')}}">Đơn hàng của tôi</a></li>
                             <li role="separator" class="divider"></li>
                             <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>
-                            @else
-                            <li><a href="{{asset('admin')}}">Trang quản trị</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{asset('auth/logout')}}">Đăng xuất</a></li>
-                            @endif
                         @else
                         <li><a href="#" id="btn-login" data-toggle="modal" data-target="#login_modal">Đăng nhập</a></li>
                         <li role="separator" class="divider"></li>
@@ -165,6 +157,7 @@
                         <input type="checkbox" name="chkRemember" id="chkRemember" value="1"/>
                         <label for="chkRemember" style="font-weight: normal;vertical-align: top;">Duy trì đăng
                             nhập</label>
+                        <a href="{{asset('auth/password/email')}}" class="txt-link pull-right">Quên mật khẩu?</a>
                     </div>
                     <div class="form-group">
                         <input type="submit" style="width: 100%" value="ĐĂNG NHẬP"/>
@@ -428,7 +421,7 @@
 
     function cart_del(btn) {
         var pro_name = $(btn).attr('p-name');
-        if(confirm("Bạn chắc chắn muốn xóa [ "+ pro_name +" ] này khỏi giỏ hàng?")){
+        if(confirm("Bạn chắc chắn muốn xóa [ "+ pro_name +" ] khỏi giỏ hàng?")){
             var cart_id = $(btn).attr('id');
             $.ajax({
                 type: 'POST',

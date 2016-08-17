@@ -36,7 +36,7 @@ class HelperController extends Controller
 
     public function checkEmail(Request $request){
         $email = $request->email;
-        $count = User::where('email', '=', $email)->where('deleted', '=', 0)->count();
+        $count = Customer::where('email', '=', $email)->count();
         if ($count > 0) {
             echo 'false';
         } else

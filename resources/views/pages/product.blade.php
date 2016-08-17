@@ -39,11 +39,11 @@ Stylitics - Product page
                                 $stt = 0;
                                 foreach($img_colors as $color){
                                     $stt++;
-                                    $url_img = asset('upload/images/colors/'.$color->color);
+                                    $c = $color->color;
                             ?>
                                     <input type="radio" name="color_id" class="chk_color"
                                            value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
-                                    <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
+                                    <label for="{{'ms-check'.$stt}}" style="<?php echo 'background-color:'.$color->color ?>"></label>
 
                             <?php } ?>
                         </div>

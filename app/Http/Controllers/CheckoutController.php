@@ -22,31 +22,46 @@ class CheckoutController extends Controller
         $carts = \Cart::content();
         $provinces = DB::table('provinces')->get();
         if(Auth::check()) {
-            $email = Auth::user()->email;
-            $customer = Customer::find(Auth::user()->userable_id);
-            $districts = DB::table('districts')->where('province_id', $customer->province_id)->get();
+            $customer = Auth::user();
+            if ($customer->province_id != 0)
+                $districts = DB::table('districts')->where('province_id', $customer->province_id)->get();
         }
-        return view('pages.checkout', compact('carts', 'provinces', 'email', 'customer', 'districts'));
+
+        return view('pages.checkout', compact('carts', 'provinces', 'customer', 'districts'));
     }
 
     public function postCheckout(CheckoutRequest $request){
         try {
             if(!Auth::check()) {
-                $customer = new Customer;
+                $cus = Customer::where('phone', $request->phone)->orWhere('email', $request->email);
+                if($cus->count() > 0){
+                    $customer = $cus->first();
+                }
+                else {
+                    $customer = new Customer;
+                }
                 $customer->name = $request->name;
                 $customer->phone = $request->phone;
+                $customer->email = $request->email;
                 $customer->address = $request->address;
                 $customer->district_id = $request->district;
                 $customer->province_id = $request->province;
                 $customer->save();
             }
             else{
-                $customer = Customer::find(Auth::user()->userable_id);
+                $customer = Auth::user();
             }
+
             $order = new Order;
             $order->customer_id = $customer->id;
             $order->total_money = \Cart::subtotal();
             $order->status = 0;
+            $order->customer_name = $customer->name;
+            $order->phone = $customer->phone;
+            $order->email = $customer->email;
+            $order->address = $request->address.', '.
+                mb_convert_case(DB::table('districts')->where('id', $request->district)->first()->name, MB_CASE_TITLE, "UTF-8").', '.
+                mb_convert_case(DB::table('provinces')->where('id', $request->province)->first()->name, MB_CASE_TITLE, "UTF-8");
             $order->save();
 
             $carts = \Cart::content();
@@ -57,6 +72,7 @@ class CheckoutController extends Controller
                 $order_detail->color_id = $cart->options->color_id;
                 $order_detail->size_id = $cart->options->size_id;
                 $order_detail->pro_name = $cart->name;
+                $order_detail->pro_image = $cart->options->image;
                 $order_detail->price = $cart->price - $cart->discount;
                 $order_detail->qty = $cart->qty;
                 $order_detail->save();
