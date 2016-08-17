@@ -1,5 +1,5 @@
 <div class="col-sm-3">
-    <div class="main-sidebar filter">
+    <div class="col-sm-12 filter">
         <p class="title">DANH MỤC SẢN PHẨM</p>
         <section class="sidebar">
         <ul class="sidebar-menu" id="category">
@@ -62,12 +62,21 @@
 
             <div style="margin-bottom: 30px">
                 <p class="title">
-                    <label for="amount">Khoảng giá</label>
+                    <label for="amount">Giá</label>
+{{--
                     <input type="text" id="amount" style="font-size: small; font-weight: normal; margin-left: 15px" readonly/>
                 </p>
                 <div id="slider-range"></div>
             </div>
-            <p id="btnGui"><input type="submit" value="TÌM KIẾM"></p>
+            <a href="javacsript: void(0)" id="btnGui" class="btn btn-danger" type="button">TÌM KIẾM</a>
+--}}
+                <ul id="filter_price">
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/0/100000')}}"> 0 - 100.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/100000/300000')}}"> 100.000 đ - 300.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/300000/500000')}}"> 300.000 đ - 500.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/500000/1000000')}}"> 500.000 đ - 1.000.000 đ</a></li>
+                </ul>
+            </div>
         </form>
     </div>
 </div>
