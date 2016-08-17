@@ -1445,3 +1445,9 @@ footer li {
 table{
 	font-size: 12px;
 }
+#filter_price{
+	font-size: 15px;
+}
+#btnGui{
+    margin-top: 10px;
+}

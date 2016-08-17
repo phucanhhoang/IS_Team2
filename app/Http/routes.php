@@ -39,6 +39,7 @@ Route::get('refereshcapcha', 'HelperController@refereshCapcha');
 
 Route::get('category/{id}',['as'=>'cate','uses'=>'ProductController@getProFollowCate']);
 Route::get('category/{cate_id}/sort/{sort_id}','ProductController@getSort');
+Route::get('category/{cate_id}/filter/{small}/{big}','ProductController@getFilter');
 
 Route::get('product/{id}', 'ProductController@showDetail');
 

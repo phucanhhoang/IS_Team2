@@ -1,30 +1,14 @@
 <div class="col-sm-3">
-    <div class="main-sidebar filter">
+    <div class="col-sm-12 filter">
         <p class="title">DANH MỤC SẢN PHẨM</p>
-        <section class="sidebar">
-        <ul class="sidebar-menu" id="category">
-            @foreach (App\Category::where('parent_id', 0)->orderBy('cat_title')->get() as $cat_parent)
-            <li class="treeview">
-                <span class="tree-item">
-                    <a href="{{asset('category/'.$cat_parent->id)}}" cat_type="parent">{{$cat_parent->cat_title}}</a>
-                </span>
-                <?php
-                $cat_childs = App\Category::where('parent_id', $cat_parent->id)->get();
-                ?>
-                @if($cat_childs->count() > 0)
-                <a href="#">
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu" style="display: none;">
-                    @foreach($cat_childs as $cat_child)
-                    <li><a href="{{asset('category/'.$cat_child->id)}}" cat_type="child">{{$cat_child->cat_title}}</a></li>
-                    @endforeach
-                </ul>
-                @endif
-            </li>
-            @endforeach
+        <ul class="p-menu">
+            <?php
+            $cat_childs = App\Category::where('parent_id', '!=', 0)->orderBy('parent_id')->get();
+            foreach($cat_childs as $cat_child){
+            ?>
+            <li><a href="{{asset('category/'.$cat_child->id.'/'.$cat_child->cat_title)}}">{{$cat_child->cat_title}}</a></li>
+            <?php } ?>
         </ul>
-            </section>
 
         <p class="title">TÌM KIẾM THEO</p>
         <form>
@@ -32,13 +16,13 @@
                 <p class="title">Màu sắc</p>
                 <div class="mausac">
                     <?php
-                    $img_colors = App\Color::all();
+                    $img_colors = App\Image::join('colors', 'colors.id', '=', 'images.color_id')->get();
                     $stt = 0;
                     foreach($img_colors as $color){
                         $stt++;
                         $url_img = asset('upload/images/colors/'.$color->color);
                         ?>
-                        <input type="checkbox" name="color_id" class="chk_color" value="{{$color->id}}" id="{{'ms-check'.$stt}}"/>
+                        <input type="checkbox" name="color_id" class="chk_color" value="{{$color->color_id}}" id="{{'ms-check'.$stt}}"/>
                         <label for="{{'ms-check'.$stt}}" style="background-image: url('<?php echo $url_img ?>')"></label>
 
                     <?php } ?>
@@ -54,7 +38,7 @@
                     foreach($sizes as $size){
                         $stt++;
                         ?>
-                        <input type="checkbox" name="kichco" class="chk_size" value="{{$size->id}}" id="{{'kc-check'.$stt}}"/>
+                        <input type="checkbox" name="kichco" class="chk_color" value="{{$size->id}}" id="{{'kc-check'.$stt}}"/>
                         <label for="{{'kc-check'.$stt}}">{{$size->size}}</label>
 
                     <?php } ?>
@@ -63,24 +47,21 @@
 
             <div style="margin-bottom: 30px">
                 <p class="title">
-                    <label for="amount">Khoảng giá</label>
+                    <label for="amount">Giá</label>
+{{--
                     <input type="text" id="amount" style="font-size: small; font-weight: normal; margin-left: 15px" readonly/>
                 </p>
                 <div id="slider-range"></div>
             </div>
-            <p id="btnGui"><input type="submit" value="TÌM KIẾM"></p>
+            <a href="javacsript: void(0)" id="btnGui" class="btn btn-danger" type="button">TÌM KIẾM</a>
+--}}
+                <ul id="filter_price">
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/0/100000')}}"> 0 - 100.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/100000/300000')}}"> 100.000 đ - 300.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/300000/500000')}}"> 300.000 đ - 500.000 đ</a></li>
+                    <li><a href="{{ asset('category/'.$cate_id.'/filter/500000/1000000')}}"> 500.000 đ - 1.000.000 đ</a></li>
+                </ul>
+            </div>
         </form>
     </div>
 </div>
-
-<script>
-    $(function(){
-        var cur_url = decodeURIComponent("{{URL::current()}}");
-        var cat = $('#category').find("a[href='"+ cur_url +"']")[0];
-        $(cat).addClass('active');
-        if($(cat).attr('cat_type') == 'child'){
-            $(cat).parents('li.treeview').addClass('active');
-            $(cat).parents('ul.treeview-menu').show();
-        }
-    });
-</script>
