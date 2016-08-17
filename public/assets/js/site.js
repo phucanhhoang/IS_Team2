@@ -95,18 +95,7 @@ $(document).ready(function () {
     //    $('.mausac label').eq(i - 1).css("background-color", $('.mausac input').eq(i - 1).attr("value"));
     //}
 
-    //Price range
-    $("#slider-range").slider({
-        range: true,
-        min: 0,
-        max: 500,
-        values: [75, 300],
-        slide: function (event, ui) {
-            $("#amount").val(ui.values[0] + "đ - " + ui.values[1] + "đ");
-        }
-    });
-    $("#amount").val($("#slider-range").slider("values", 0) +
-        "đ - " + $("#slider-range").slider("values", 1) + "đ");
+
 
     //Giao diện thay đổi khi resize màn hình
     $(window).resize(function () {

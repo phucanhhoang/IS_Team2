@@ -11,6 +11,7 @@
         href="{{asset('assets/css/font-awesome/css/font-awesome.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}"/>
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/pagination.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/AdminLTE.min.css')}}"/>
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/css.css')}}"/>
 
@@ -33,6 +34,9 @@
 <script type="text/javascript" src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <!--Zoom product-->
 <script type="text/javascript" src="{{asset('assets/js/prefixfree.js')}}"></script>
+<!--Pagination-->
+<script type="text/javascript" src="{{asset('assets/js/pagination.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('assets/js/back-to-top.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/accounting.js')}}"></script>
 <!--<script type="text/javascript" src="{{asset('assets/js/headroom.js')}}"></script>-->

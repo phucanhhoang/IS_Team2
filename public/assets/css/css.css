@@ -351,6 +351,12 @@ ul.box-info > li{
 	padding: 0 6px;
 }
 
+.dd-sort{
+	position: relative;
+	bottom: 12px;
+	width: initial;
+	height: 30px;
+}
 #sort{
 	padding-top: 10px;
 	padding-left: 160px;
@@ -361,6 +367,8 @@ ul.box-info > li{
 }
 #sort-button{
 	width: 180px;
+	padding: 4px 10px;
+	border-radius: 0;
 }
 /*Login modal*/
 .modal .modal-dialog .modal-content {
@@ -1216,7 +1224,6 @@ label.box-color img{
 
 .filter #amount {
 	border: none;
-	width: 55%;
 }
 
 .filter .ui-slider-horizontal {
@@ -1503,6 +1510,6 @@ table{
 #filter_price{
 	font-size: 15px;
 }
-#btnGui{
-    margin-top: 10px;
+#filter_price > li > label{
+	margin-left: 5px;
 }

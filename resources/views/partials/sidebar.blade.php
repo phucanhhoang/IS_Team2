@@ -27,7 +27,12 @@
             </section>
 
         <p class="title">TÌM KIẾM THEO</p>
-        <form>
+        <form id="filter_form">
+            {!! csrf_field() !!}
+            <input type="hidden" id="strColorId" name="strColorId"/>
+            <input type="hidden" id="strSizeId" name="strSizeId"/>
+            <input type="hidden" id="price_from" name="price_from" value="0"/>
+            <input type="hidden" id="price_to" name="price_to" value="0"/>
             <div style="margin-bottom: 10px">
                 <p class="title">Màu sắc</p>
                 <div class="mausac">
@@ -37,7 +42,7 @@
                     foreach($img_colors as $color){
                         $stt++;
                         ?>
-                        <input type="checkbox" name="color_id" class="chk_color" value="{{$color->id}}" id="{{'ms-check'.$stt}}"/>
+                        <input type="checkbox" class="chk_color" value="{{$color->id}}" id="{{'ms-check'.$stt}}"/>
                         <label for="{{'ms-check'.$stt}}" style="background-color: <?php echo $color->color ?>"></label>
 
                     <?php } ?>
@@ -53,7 +58,7 @@
                     foreach($sizes as $size){
                         $stt++;
                         ?>
-                        <input type="checkbox" name="kichco" class="chk_size" value="{{$size->id}}" id="{{'kc-check'.$stt}}"/>
+                        <input type="checkbox" class="chk_size" value="{{$size->id}}" id="{{'kc-check'.$stt}}"/>
                         <label for="{{'kc-check'.$stt}}">{{$size->size}}</label>
 
                     <?php } ?>
@@ -63,20 +68,21 @@
             <div style="margin-bottom: 30px">
                 <p class="title">
                     <label for="amount">Giá</label>
-{{--
                     <input type="text" id="amount" style="font-size: small; font-weight: normal; margin-left: 15px" readonly/>
                 </p>
                 <div id="slider-range"></div>
             </div>
+            {{--
             <a href="javacsript: void(0)" id="btnGui" class="btn btn-danger" type="button">TÌM KIẾM</a>
 --}}
-                <ul id="filter_price">
-                    <li><a href="{{ asset('category/'.$cate_id.'/filter/0/100000')}}"> 0 - 100.000 đ</a></li>
-                    <li><a href="{{ asset('category/'.$cate_id.'/filter/100000/300000')}}"> 100.000 đ - 300.000 đ</a></li>
-                    <li><a href="{{ asset('category/'.$cate_id.'/filter/300000/500000')}}"> 300.000 đ - 500.000 đ</a></li>
-                    <li><a href="{{ asset('category/'.$cate_id.'/filter/500000/1000000')}}"> 500.000 đ - 1.000.000 đ</a></li>
-                </ul>
-            </div>
+<!--                <ul id="filter_price">-->
+<!--                    <li><a href="{{ asset('category/'.$cate_id.'/filter/0/100000')}}"> 0 - 100.000 đ</a></li>-->
+<!--                    <li><a href="{{ asset('category/'.$cate_id.'/filter/100000/300000')}}"> 100.000 đ - 300.000 đ</a></li>-->
+<!--                    <li><a href="{{ asset('category/'.$cate_id.'/filter/300000/500000')}}"> 300.000 đ - 500.000 đ</a></li>-->
+<!--                    <li><a href="{{ asset('category/'.$cate_id.'/filter/500000/1000000')}}"> 500.000 đ - 1.000.000 đ</a></li>-->
+<!--                </ul>-->
+
+            <input type="button" id="btnFilter" value="ÁP DỤNG LỌC" />
         </form>
     </div>
 </div>
@@ -94,5 +100,62 @@
             $(cat).parents('li.treeview').addClass('active');
             $(cat).parents('li.treeview').children('ul').show();
         }
+
+        //Price range
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 1000000,
+            slide: function (event, ui) {
+                $('#price_from').val(ui.values[0]);
+                $('#price_to').val(ui.values[1]);
+                var from = accounting.formatNumber(ui.values[0], 0, '.', ',');
+                var to = accounting.formatNumber(ui.values[1], 0, '.', ',');
+                $("#amount").val(from + "đ - " + to + "đ");
+            }
+        });
+        $("#amount").val($("#slider-range").slider("values", 0) +
+            "đ - " + $("#slider-range").slider("values", 1) + "đ");
     });
+    $("#btnFilter").click(function(){
+        var strColorId = '';
+        var strSizeId = '';
+        $('.chk_color').each(function(){
+            if($(this).prop('checked')){
+                strColorId += $(this).val() + ';';
+            }
+        });
+        $('#strColorId').val(strColorId);
+        $('.chk_size').each(function(){
+            if($(this).prop('checked')){
+                strSizeId += $(this).val() + ';';
+            }
+        });
+        $('#strSizeId').val(strSizeId);
+
+        var data = $('#filter_form').serialize();
+        $.ajax({
+            type: 'POST',
+            url: "{{URL::current()}}",
+            data: data,
+            success: function(data){
+                if(data.length > 0){
+                    $('#pagination-container').pagination({
+                        dataSource: data,
+                        pageSize: 9,
+                        callback: function(data, pagination) {
+                            var html = listProduct(data);
+                            $('#product').html(html);
+                        }
+                    });
+                }
+                else{
+                    $('#product').html('');
+                    $('#pagination-container').hide();
+                }
+
+            }
+        });
+    });
+
 </script>

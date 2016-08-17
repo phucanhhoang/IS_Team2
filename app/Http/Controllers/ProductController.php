@@ -30,67 +30,63 @@ class ProductController extends Controller
 
     //show all categories
     public function getProFollowCate($id){
-        $pa = Category::select('cat_title','parent_id')->where('id',$id)->first();
-        $name_cate = $pa->cat_title;
-        $parent_id = $pa->parent_id;
+        $cat = Category::find($id);
+        $name_cate = $cat->cat_title;
+        $parent_id = $cat->parent_id;
         $cate_id = $id;
-        $title = 'Sắp xếp theo';
         if($parent_id == 0){
-            $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$id+1, $id+2])->paginate(12);
+            $cat_childs = Category::where('parent_id', $id)->get();
+            $data = array();
+            foreach($cat_childs as $cat_child){
+                array_push($data, $cat_child->id);
+            }
+            $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id', $data)->get();
             return view('pages.category', compact('name_cate','parent_id','pro_cate','cate_id','title'));
         }
         else {
-            $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $id)->paginate(12);
-            $parent = Category::select('cat_title')->where('id',$parent_id)->first();
+            $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $id)->get();
+            $parent = Category::find($parent_id);
             $parent_name = $parent->cat_title;
             return view('pages.category', compact('name_cate','parent_id','pro_cate','parent_name','cate_id','title'));
         }
     }
 
-    public function getSort($cate_id, $sort_id){
-        $pa = Category::select('cat_title','parent_id')->where('id',$cate_id)->first();
-        $name_cate = $pa->cat_title;
-        $parent_id = $pa->parent_id;
-        if($parent_id == 0){
-            if($sort_id == 1){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('pro_name','ASC')->paginate(12);
-                $title = 'Tên: Từ A đến Z';
-            }
-            if($sort_id == 2){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount')->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('pro_name','DESC')->paginate(12);
-                $title = 'Tên: Từ Z đến A';
-            }
-            if($sort_id == 3){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('sale','DESC')->paginate(12);
-                $title = 'Giá: Từ cao đến thấp';
-            }
-            if($sort_id == 4){
-                $pro_cate = Product::select('id','pro_name','image','price','cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->whereIn('cat_id',[$cate_id+1, $cate_id+2])->orderBy('sale','ASC')->paginate(12);
-                $title = 'Giá: Từ thấp đến cao';
-            }
-            return view('pages.category', compact('name_cate','parent_id','pro_cate','cate_id','title'));
+    public function getProductByFilter($id, Request $request){
+        $strColorIds = explode(';', $request->strColorId);
+        $strSizeIds = explode(';', $request->strSizeId);
+        $arrColorId = array();
+        foreach($strColorIds as $strColorId){
+            if($strColorId != '')
+                array_push($arrColorId, $strColorId);
         }
-        else {
-            if($sort_id == 1){
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $cate_id)->orderBy('pro_name','ASC')->paginate(12);
-                $title = 'Tên: Từ A đến Z';
-            }
-            if($sort_id == 2){
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $cate_id)->orderBy('pro_name','DESC')->paginate(12);
-                $title = 'Tên: Từ Z đến A';
-            }
-            if($sort_id == 3){
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->where('cat_id', $cate_id)->orderBy('sale','DESC')->paginate(12);
-                $title = 'Giá: Từ cao đến thấp';
-            }
-            if($sort_id == 4) {
-                $pro_cate = Product::select('id', 'pro_name', 'image', 'price', 'cat_id', 'discount', DB::raw('price-price*discount/100 as sale'))->where('cat_id', $cate_id)->orderBy('sale','ASC')->paginate(12);
-                $title = 'Giá: Từ thấp đến cao';
-            }
-            $parent = Category::select('cat_title')->where('id',$parent_id)->first();
-            $parent_name = $parent->cat_title;
-            return view('pages.category', compact('name_cate','parent_id','pro_cate','parent_name','cate_id','title'));
+        $arrSizeId = array();
+        foreach($strSizeIds as $strSizeId){
+            if($strSizeId != '')
+                array_push($arrSizeId, $strSizeId);
         }
+        $cat = Category::find($id);
+        if($cat->parent_id == 0){
+            $cat_childs = Category::where('parent_id', $id)->get();
+            $cat_id = array();
+            foreach($cat_childs as $cat_child){
+                array_push($cat_id, $cat_child->id);
+            }
+            $pro_cate = Product::select('products.id as id','pro_name','image','price','cat_id', 'discount')
+                ->whereIn('cat_id', $cat_id);
+        }
+        else{
+            $pro_cate = Product::join('procolors', 'procolors.pro_id', '=', 'products.id')
+                ->join('prosizes', 'prosizes.pro_id', '=', 'products.id')
+                ->select('products.id as id', 'pro_name', 'image', 'price', 'cat_id', 'discount')->where('cat_id', $id);
+        }
+        if(sizeof($arrColorId) > 0)
+            $pro_cate = $pro_cate->join('procolors', 'procolors.pro_id', '=', 'products.id')->whereIn('color_id', $arrColorId);
+        if(sizeof($arrSizeId) > 0)
+            $pro_cate = $pro_cate->join('prosizes', 'prosizes.pro_id', '=', 'products.id')->whereIn('size_id', $arrSizeId);
+        if($request->price_to > 0)
+            $pro_cate = $pro_cate->whereBetween('price', [$request->price_from, $request->price_to]);
+
+        return ($pro_cate->distinct()->get());
     }
 
     //Admin zone
