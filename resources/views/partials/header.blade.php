@@ -28,7 +28,7 @@
                             </ul>
                         </li>
                         @else
-                        <li><a href="#">{{strtoupper($cat_parent->cat_title)}}</a></li>
+                        <li><a href="{{asset('category/'.$cat_parent->id)}}">{{strtoupper($cat_parent->cat_title)}}</a></li>
                         @endif
                         <?php
                     }

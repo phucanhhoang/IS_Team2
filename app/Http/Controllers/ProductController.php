@@ -14,6 +14,7 @@ use App\ProSize;
 use Input;
 use App\Image;
 use DB;
+use File;
 class ProductController extends Controller
 {
 
@@ -26,6 +27,23 @@ class ProductController extends Controller
         $products = Product::where('cat_id', $product->cat_id)->orderByRaw("RAND()")->take(8)->get();
         
         return view('pages.product', compact('product', 'img_prods', 'img_colors', 'sizes', 'products'));
+    }
+
+    public function quickView(Request $request){
+        $id = $request->id;
+        $product = Product::find($id);
+        $img_prods = Image::where('pro_id', $id)->get();
+        $img_colors = ProColor::join('colors', 'colors.id', '=', 'procolors.color_id')->where('pro_id', $id)->get();
+        $sizes = ProSize::join('sizes', 'sizes.id', '=', 'prosizes.size_id')->where('pro_id', $id)->get();
+
+        $data = array(
+            'product' => $product,
+            'img_prods' => $img_prods,
+            'img_colors' => $img_colors,
+            'sizes' => $sizes
+        );
+
+        return $data;
     }
 
     //show all categories
@@ -89,55 +107,49 @@ class ProductController extends Controller
         return ($pro_cate->distinct()->get());
     }
 
-    //Admin zone
-    public function getListPro(){
-        $products = Product::all();
-    	return view('admin.product.list', compact('products'));
-    }
-
+    // ----Admin zone---
     // Product
+
+    //Show sizes and colors
     public function getSizeColor(){
         $sizes = Size::all();
         $colors = Color::all();
         return view('admin.product.size_color', compact('sizes', 'colors'));
     }
-
-    //Show a product
-    public function show($id){
-        $product = Product::findOrFail($id);
-        $sizes = ProSize::join('sizes', 'prosizes.size_id', '=', 'sizes.id')
-            ->where('pro_id', '=', $id)->get();
-        $colors = Image::join('colors', 'images.color_id', '=', 'colors.id')
-            ->where('pro_id', '=', $id)->get();
-        return view('admin.product.show', compact('product', 'sizes', 'colors'));
-    }
-
-
-    //Edit product
-    public function edit($id){
-        $product = Product::findOrFail($id);
-        $pro_cat = Category::select('id', 'cat_title', 'parent_id')->get();
-        $sizes = ProSize::join('sizes', 'prosizes.size_id', '=', 'sizes.id')
-            ->where('pro_id', '=', $id)->get();
-        $colors = Image::join('colors', 'images.color_id', '=', 'colors.id')
-            ->where('pro_id', '=', $id)->get();
-        return view('admin.product.edit', compact('product', 'sizes', 'colors', 'pro_cat'));
-    }
-
-    //Show all products
+    // Show all products
     public function index(){
-        $products = Product::paginate(5);
+        $products = Product::all();
         return view('admin.product.list', compact('products'));
     }
+    // //Show a product
+    public function show($id){
+        $product = Product::findOrFail($id);
+
+        $images = Product::join('images', 'products.id', '=', 'images.pro_id')
+            ->where('pro_id', '=', $id)->get();
+
+        $sizes = ProSize::join('sizes', 'prosizes.size_id', '=', 'sizes.id')
+            ->where('pro_id', '=', $id)->get();
+
+
+        $colors = ProColor::join('colors', 'procolors.color_id', '=', 'colors.id')
+            ->where('pro_id', '=', $id)->get();
+
+        return view('admin.product.show', compact('product', 'sizes', 'colors', 'images'));
+    }
+
     //Create a product
 
     public function create(){
-        $pro_cat = Category::select('id', 'cat_title', 'parent_id')->get();
+        $pro_cat = Category::all();
 
         $sizes = Size::all();
 
         $colors = Color::all();
-        return view('admin.product.add', compact('pro_cat', 'sizes', 'colors'));
+
+        $color_id = Color::select('id')->count();
+
+        return view('admin.product.add', compact('pro_cat', 'sizes', 'colors', 'color_id'));
     }
     //store a product
     public function store(ProductRequest $request){
@@ -150,45 +162,63 @@ class ProductController extends Controller
         $product->price       = $request->price;
         $product->discount    = $request->discount;
         $product->full_des    = $request->full_des;
-        $product->image       = $file_name;
+        $product->image       = time(). "_".$file_name;
         $target = 'upload/images';
-        $request->file('image')->move($target, $file_name);
+        $request->file('image')->move($target, time(). "_".$file_name);
         $product->save();
 
+        //Get product's id
         $pro_id = $product->id;
-        if($request->hasFile('images')) {
-            foreach($request->file('images') as $img){
-                $image = new Image();
-                if(isset($img)) {
-                    $image->images = $img->getClientOriginalName();
-                    $image->pro_id = $pro_id;
-                    $img->move('upload/images/details',$img->getClientOriginalName());
-                    $image->save();
-                }
-            }
-        }
+
+        //Save sizes into database
         $str_sizes = $request->str_sizes;
         $arr_sizes = explode(';', $str_sizes);
-        for ($i=0; $i < sizeof($arr_sizes)-1 ; $i++) {
+        for ($i=0; $i < sizeof($arr_sizes) ; $i++) {
             $size = new ProSize();
             $size->pro_id = $pro_id;
             $size->size_id = $arr_sizes[$i];
             $size->save();
         }
 
+        //Save sizes into database
         $str_colors = $request->str_colors;
         $arr_colors = explode(';', $str_colors);
-        for ($i=0; $i < sizeof($arr_colors)-1 ; $i++) {
-            $color = new Image();
+        for ($i=0; $i < sizeof($arr_colors); $i++) {
+            $color = new ProColor();
             $color->pro_id = $pro_id;
             $color->color_id = $arr_colors[$i];
             $color->save();
         }
+        // Save detail images to database
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $img){
+                $image = new Image();
+                $image->images = time()."_".$img->getClientOriginalName();
+                $image->pro_id = $pro_id;
+                $target = 'upload/images/details';
+                $img->move($target, time(). "_".$img->getClientOriginalName());
+                $image->save();
+            }
+        }
 
 
-        Session::flash('message', 'Created successfully');
-        return redirect()->route('admin.product.show', $product->id);
+        Session::flash('success', 'Created successfully');
+        return redirect()->route('admin.product.index');
+    }
+    //Edit product
+    public function edit($id){
+        $product = Product::findOrFail($id);
 
+        $images = Product::join('images', 'products.id', '=', 'images.pro_id')->where('pro_id', '=', $id)->get();
+        $cats = Category::all();
+
+        $sizes = ProSize::join('sizes', 'prosizes.size_id', '=', 'sizes.id')
+            ->where('pro_id', '=', $id)->get();
+
+        $colors = ProColor::join('colors', 'procolors.color_id', '=', 'colors.id')
+            ->where('pro_id', '=', $id)->get();
+        $sizess = Size::all();
+        return view('admin.product.edit', compact('product', 'sizes', 'colors', 'cats', 'images', 'sizess'));
     }
 
     //Update a product
@@ -196,13 +226,11 @@ class ProductController extends Controller
         $this->validate($request, [
             'pro_name' => 'required',
             'pro_code' => 'required',
-            'price' => 'required|numeric',
-            'discount' => 'required|numeric',
-            'full_des' => 'required|min:60'
+            'price'    => 'required|numeric',
+            'discount' => 'required|numeric|max:50',
+            'full_des' => 'required|min:60',
         ]);
 
-
-        // $file_name = $request->file('image')->getClientOriginalName();
         $product              = Product::find($id);
         $product->id          = $id;
         $product->pro_name    = $request->pro_name;
@@ -211,45 +239,90 @@ class ProductController extends Controller
         $product->discount    = $request->discount;
         $product->cat_id      = $request->cat_id;
         $product->full_des    = $request->full_des;
-        // $product->image       = $file_name;
-        // $target = 'upload/images';
-        // $request->file('image')->move($target, $file_name);
         $product->save();
-        $pro_id = $product->id;
-        $str_sizes = $request->str_sizes;
-        $arr_sizes = explode(';', $str_sizes);
-        for ($i=0; $i < sizeof($arr_sizes)-1 ; $i++) {
-            $size = new ProSize();
-            $size->pro_id = $pro_id;
-            $size->size_id = $arr_sizes[$i];
-            $size->save();
+        $img_current = 'upload/images/'.$request->img_current;
+        if(!empty($request->file('image'))) {
+
+            $file_name = $request->file('image')->getClientOriginalName();
+            $product->image       = time(). "_".$file_name;
+            $target = 'upload/images';
+            $request->file('image')->move($target, time(). "_".$file_name);
+            if(File::exists($img_current)){
+                File::delete($img_current);
+            }
+            $product->save();
         }
 
+        if(!empty($request->file('add_images'))){
+            foreach ($request->file('add_images') as $file) {
+                $image = new Image();
+                if(isset($file)) {
+                    $image->images = time(). "_".$file->getClientOriginalName();
+                    $image->pro_id = $id;
+                    $target = 'upload/images/details';
+                    $file->move($target, time(). "_".$file->getClientOriginalName());
+                    $image->save();
+                }
+            }
+        }
+        //Save sizes into database
+        // $str_sizes = $request->str_sizes;
+        // $arr_sizes = explode(';', $str_sizes);
+        // for ($i=0; $i < sizeof($arr_sizes) ; $i++) {
+        //     $size = new ProSize();
+        //     $size->pro_id = $id;
+        //     $size->size_id = $arr_sizes[$i];
+        //     $size->save();
+        // }
 
-
-        Session::flash('message', 'Changed successfully');
+        Session::flash('success', 'Changed successfully');
         return redirect()->route('admin.product.show', $product->id);
-
     }
-
     //Delete a product
     public function destroy($id){
-        $images = Product::find($id)->images->toArray();
-        $color = Product::find($id)->colors->toArray();
-        $color->delete($id);
-
-        foreach($images as $image) {
-            File::delete('upload/images/details'.$image['images']);
+        $pro = Product::find($id)->images();
+        foreach($pro as $p){
+            File::delete('upload/images/details'.$p->images);
         }
-
-        $pro = ProSize::find($id)->sizes->toArray();
-        $pro->delete($id);
-
         $product = Product::find($id);
         File::delete('upload/images/'.$product->image);
-        $product->delete();
-
-        Session::flash('delete', 'Deleted successfully!');
+        $product->delete($id);
+        Session::flash('success', 'Deleted successfully!');
         return redirect()->route('admin.product.index');
+    }
+    public function newSize(Request $request){
+        $size = new Size();
+        $size->size = $request->size;
+        $ck_size = $size->save();
+        if($ck_size)
+            return $size->id;
+        else
+            return 'false';
+    }
+    public function deleteSize($id){
+        $size = Size::find($id);
+        $size->delete($id);
+        Session::flash('success', 'Deleted successfully!');
+        return redirect()->route('sizecolor');
+    }
+
+    public function deleteColor($id){
+        $color = Color::find($id);
+        $color->delete($id);
+        Session::flash('success', 'Deleted successfully!');
+        return redirect()->route('sizecolor');
+    }
+
+    public function getDelImage(Request $request){
+        $img_id = $request->img_id;
+        $detail_img = Image::find($img_id);
+        if(!empty( $detail_img)){
+            $img_url = 'upload/images/details/'.$detail_img->images;
+            if(File::exists($img_url)){
+                File::delete($img_url);
+            }
+            $detail_img->delete();
+        }
+        return "OK";
     }
 }

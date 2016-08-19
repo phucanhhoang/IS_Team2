@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\CustomerRequest;
+use App\Http\Requests\CusRequest;
 use App\Customer;
 use App\Order;
 use DB;
@@ -14,8 +14,8 @@ class CustomerController extends Controller
 {
     public function getList()
     {
-        $customers = Customer::join('districts','customers.district_id','=','districts.id')
-                ->join('provinces','customers.province_id','=','provinces.id')
+        $customers = Customer::leftJoin('districts','customers.district_id','=','districts.id')
+                ->leftJoin('provinces','customers.province_id','=','provinces.id')
                 ->select('customers.id','customers.name','customers.address','districts.name as district','provinces.name as city','customers.phone')
                 ->get();
         return view('admin.customer.list',compact('customers'));
@@ -23,13 +23,11 @@ class CustomerController extends Controller
 
     public function getEdit($id)
     {
-        $customer = Customer::join('districts','customers.district_id','=','districts.id')
-                ->join('provinces','customers.province_id','=','provinces.id')
-                ->select('customers.id','customers.name','customers.address','districts.name as district','provinces.name as city','customers.phone')
-                ->where('customers.id','=',$id)
-                ->get()
-                ->first();
-        return view('admin.customer.edit',compact('customer','id'));
+        $customer = Customer::find($id);
+        $provinces = DB::table('provinces')->get();
+        if ($customer->province_id != 0)
+            $districts = DB::table('districts')->where('province_id', $customer->province_id)->get();
+        return view('admin.customer.edit',compact('customer','id', 'provinces', 'districts'));
     }
 
     public function postEdit($id, Request $request)
@@ -45,6 +43,7 @@ class CustomerController extends Controller
         $customer->district = $request->district;
         $customer->city = $request->city;
         $customer->phone = $request->phone;
+        $customer->email = $request->email;
         $customer->save();
 
         return redirect()->route('admin.customer.list')->with(['level' => 'success', 'message' => 'Success!!! Complete edit customer!!']);
@@ -60,7 +59,7 @@ class CustomerController extends Controller
         return view('admin.customer.add', compact('provinces'));
     }
 
-    public function postAdd(CustomerRequest $request)
+    public function postAdd(CusRequest $request)
     {
     	$customer = new Customer();
         $customer->name = $request->name;
@@ -68,6 +67,7 @@ class CustomerController extends Controller
         $customer->district_id = $request->district;
         $customer->province_id = $request->province;
         $customer->phone = $request->phone;
+        $customer->email = $request->email;
         $customer->save();
 
         return redirect()->route('admin.customer.list')->with(['level' => 'success', 'message' => 'Success!!! Complete add customer!!']);

@@ -27,7 +27,9 @@
             <tr align="center">
                 <td>{!! $stt !!}</td>
                 <td>{!! $customer->name !!}</td>
-                <td>{!! $customer->address.' - '.$customer->district.' - '.$customer->city !!}</td>
+                <td>
+                    {!! $customer->city == '' ? '' : $customer->address.' - '.$customer->district.' - '.$customer->city !!}
+                </td>
                 <td>{!! $customer->phone !!}</td>
                 <td><i class="fa fa-pencil fa-fw"></i><a href="{!! url('admin/customer/edit') !!}/{!! $customer->id !!}">Edit</a></td>
                 <td><i class="fa fa-trash-o fa-fw"></i><a href="{!! url('admin/customer/delete') !!}/{!! $customer->id !!}" onclick="return window.confirm('Are you sure want to delete this customer ?')">Delete</a></td>

@@ -11,20 +11,10 @@
 	
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-    	@if(count($errors) > 0)
-			<div class="alert alert-danger">
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<ul>
-					@foreach($errors->all() as $error)
-						<li>{!! $error !!}</li>
-					@endforeach
-				</ul>
-			</div>
-		@endif
         <div class="panel panel-primary">
             <div class="panel-heading text-center" style="font-size: 20px">Edit category</div>
             <div class="panel-body">
-                {!! Form::model($cat,['route' => ['admin.category.update',$cat->id], 'method' => 'PUT']) !!}
+                {!! Form::model($cat,['route' => ['admin.category.update',$cat->id], 'method' => 'PUT', 'id' => 'cat_form']) !!}
 					<div class="form-group">
 						{!! Form::label('cat_title', 'Category Name' ,['class' => 'control-label']) !!}
 						{!! Form::text('cat_title', null, ['class' => 'form-control']) !!}
@@ -52,4 +42,13 @@
         </div>
     </div>
 </div>
+@stop
+@section('body.js')
+    <script type="text/javascript">
+        $("#cat_form").validate({
+            rules:{
+                cat_title: 'required'
+            }
+        });
+    </script>
 @stop

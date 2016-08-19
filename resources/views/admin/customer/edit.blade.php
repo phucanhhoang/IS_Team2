@@ -34,16 +34,33 @@
 						<input class="form-control" name="address" placeholder="Please Enter Customer Address" value="{!! old('address',isset($customer)?$customer['address']:null) !!}" />
 					</div>
 					<div class="form-group">
-						<label for="district">District</label>
-						<input class="form-control" name="district" placeholder="Please Enter District" value="{!! old('district',isset($customer)?$customer['district']:null) !!}" />
+						<label for="city">City</label>
+						<select name="city" class="form-control" id="city" required>
+							<option value="">Please Select City</option>
+							@foreach($provinces as $province)
+							<option value="{!! $province->id !!}" {!! $province->id == $customer->province_id ? 'selected':'' !!}>{!! $province->name !!}</option>
+							@endforeach
+						</select>
+
 					</div>
 					<div class="form-group">
-						<label for="city">City</label>
-						<input class="form-control" name="city" placeholder="Please Enter City" value="{!! old('city',isset($customer)?$customer['city']:null) !!}" />
+						<label for="district">District</label>
+						<select name="district" class="form-control" id="district" required>
+							<option value="">Please Select District</option>
+							@if(isset($districts))
+							@foreach($districts as $district)
+							<option value="{{$district->id}}">{{$district->name}}</option>
+							@endforeach
+							@endif
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="phone">Phone</label>
 						<input class="form-control" name="phone" placeholder="Please Enter Customer Phone" value="{!! old('phone',isset($customer)?$customer['phone']:null) !!}" />
+					</div>
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input class="form-control" type="email" name="email" placeholder="Please Enter Customer Phone" value="{!! old('txtName',isset($customer)?$customer['email']:null) !!}" />
 					</div>
 		            <div class="text-right">
 						<input type="submit" class="btn btn-primary" value="Edit" />
@@ -54,4 +71,28 @@
 		</div>
 	</div>
 </div>
+@stop
+
+@section('body.js')
+<script type="text/javascript">
+	$(function(){
+		$('#province').val("{{Auth::check() ? $customer->province_id : ''}}");
+		$('#district').val("{{Auth::check() ? $customer->district_id : ''}}");
+	});
+	$('#city').change(function() {
+		var id = $(this).val();
+		$.ajax({
+			url: "{{ asset('admin/customer/district') }}",
+			type: 'POST',
+			data: {province_id: id},
+			success: function (data) {
+				$('#district').html("");
+				for (var i = 0; i < data.length; i++) {
+					$('#district').append("<option value='"+ data[i].id +"'>"+ data[i].name +"</option>");
+				}
+			}
+		});
+
+	});
+</script>
 @stop

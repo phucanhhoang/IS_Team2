@@ -28,4 +28,12 @@ class CategoryRequest extends Request
             'parent_id' => 'required'
         ];
     }
+    public function messages()
+    {
+        return [
+            'parent_id.required' => 'This field is required',
+            'cat_title.required' => 'This field is required',
+            'cat_title.unique' => 'This category name has been  existed!',
+        ];
+    }
 }

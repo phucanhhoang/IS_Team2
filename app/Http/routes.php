@@ -43,6 +43,7 @@ Route::post('category/{id}',['as'=>'postFilter','uses'=>'ProductController@getPr
 //Route::get('category/{cate_id}/filter/{small}/{big}','ProductController@getFilter');
 
 Route::get('product/{id}', 'ProductController@showDetail');
+Route::post('product/quick-view', 'ProductController@quickView');
 
 Route::post('cart/add', 'CartController@add');
 Route::post('cart/delete', 'CartController@delete');
@@ -101,73 +102,91 @@ Route::group(['prefix' => 'admin'], function(){
         ]);
 
 
-    Route::delete('sizecolor/delete/{id}', [
-        'as' => 'admin.sizecolor.delete',
-        'uses' => 'CategoryController@deleteSize'
-    ]);
-
-    Route::get('sizecolor', [
-        'as' => 'sizecolor',
-        'uses' => 'ProductController@getSizeColor'
-    ]);
-    Route::post('newsize', [
-        'as' => 'admin.product.newSize',
-        'uses' => 'ProductController@newSize'
-    ]);
-    Route::post('newcat', [
-        'as' => 'admin.category.newCatParent',
-        'uses' => 'CategoryController@newCatParent'
-    ]);
-
-    Route::post('newcolor', [
-        'as' => 'admin.category.newColor',
-        'uses' => 'CategoryController@newColor'
-    ]);
-
-
-    Route::resource('category', 'CategoryController');
-    Route::resource('product', 'ProductController');
-
-
-    Route::group(['prefix' => 'order'], function(){
-        Route::get('list', [
-            'as' => 'admin.order.list',
-            'uses' => 'OrderController@getList'
-        ]);
-        Route::get('detail/{id}', [
-            'as' => 'admin.order.detail',
-            'uses' => 'OrderController@getDetail'
-        ]);
-        Route::post('detail/{id}', [
-            'as' => 'admin.order.detail',
-            'uses' => 'OrderController@postChange'
-        ]);
-        Route::get('edit/{id}', [
-            'as' => 'admin.order.edit',
-            'uses' => 'OrderController@getEdit'
-        ]);
-        Route::post('edit/{id}', [
-            'as' => 'admin.order.edit',
-            'uses' => 'OrderController@postEdit'
-        ]);
-        Route::get('add', ['as' =>
-            'admin.order.add',
-            'uses' => 'OrderController@getAdd'
-        ]);
-        Route::post('add', [
-            'as' => 'admin.order.add',
-            'uses' => 'OrderController@postAdd'
-        ]);
-        Route::post('pro_change', [
-            'as' => 'admin.order.pro_change',
-            'uses' => 'OrderController@proChange'
-        ]);
-        Route::post('search', [
-            'as' => 'admin.order.search',
-            'uses' => 'OrderController@searchItem'
+        //delete a size or color
+        Route::delete('sizecolor/deletesize/{id}', [
+            'as' => 'admin.sizecolor.deleteSize',
+            'uses' => 'ProductController@deleteSize'
         ]);
 
-    });
+        Route::delete('sizecolor/deletecolor/{id}', [
+            'as' => 'admin.sizecolor.deleteColor',
+            'uses' => 'ProductController@deleteColor'
+        ]);
+        //show all sizes and colors
+        Route::get('sizecolor', [
+            'as' => 'sizecolor',
+            'uses' => 'ProductController@getSizeColor'
+        ]);
+        //insert new size
+        Route::post('newsize', [
+            'as' => 'admin.product.newSize',
+            'uses' => 'ProductController@newSize'
+        ]);
+        //insert new category
+        Route::post('newcat', [
+            'as' => 'admin.category.newCatParent',
+            'uses' => 'CategoryController@newCatParent'
+        ]);
+        //insert new color
+        Route::post('newcolor', [
+            'as' => 'admin.product.newColor',
+            'uses' => 'ProductController@newColor'
+        ]);
+
+        //insert, edit, update, delete products
+        Route::resource('category', 'CategoryController');
+        //insert, edit, update, delete products
+        Route::resource('product', 'ProductController');
+        //delete detail images
+        Route::post('product/deleteimage',  ['as' => 'admin.product.deleteimage', 'uses' => 'ProductController@getDelImage']);
+        Route::post('product/search_color', [
+            'as' => 'admin.product.getColor',
+            'uses' => 'ProductController@getColor'
+        ]);
+
+
+        Route::group(['prefix' => 'order'], function(){
+            Route::get('list', [
+                'as' => 'admin.order.list',
+                'uses' => 'OrderController@getList'
+            ]);
+            Route::get('detail/{id}', [
+                'as' => 'admin.order.detail',
+                'uses' => 'OrderController@getDetail'
+            ]);
+            Route::post('detail/{id}', [
+                'as' => 'admin.order.detail',
+                'uses' => 'OrderController@postChange'
+            ]);
+            Route::get('edit/{id}', [
+                'as' => 'admin.order.edit',
+                'uses' => 'OrderController@getEdit'
+            ]);
+            Route::post('edit/{id}', [
+                'as' => 'admin.order.edit',
+                'uses' => 'OrderController@postEdit'
+            ]);
+            Route::get('add', ['as' =>
+                'admin.order.add',
+                'uses' => 'OrderController@getAdd'
+            ]);
+            Route::post('add', [
+                'as' => 'admin.order.add',
+                'uses' => 'OrderController@postAdd'
+            ]);
+            Route::post('pro_change', [
+                'as' => 'admin.order.pro_change',
+                'uses' => 'OrderController@proChange'
+            ]);
+            Route::post('search', [
+                'as' => 'admin.order.search',
+                'uses' => 'OrderController@searchItem'
+            ]);
+            Route::post('order_show', [
+                'as' => 'admin.order.order_show',
+                'uses' => 'OrderController@orderShow'
+            ]);
+        });
 
     Route::group(['prefix' => 'customer'], function(){
         Route::get('list', [

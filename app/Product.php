@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 	protected $table = 'products';
-	protected $fillable = ['pro_id', 'pro_name', 'price', 'pro_code', 'discount', 'image', 'short_des', 'full_des', 'cat_id'];
+	protected $fillable = ['id', 'pro_name', 'price', 'pro_code', 'discount', 'image', 'full_des', 'cat_id'];
+
 	//category
     public function category(){
     	return $this->belongsTo('App\Category');

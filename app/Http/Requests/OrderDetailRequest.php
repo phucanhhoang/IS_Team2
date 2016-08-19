@@ -24,10 +24,10 @@ class OrderDetailRequest extends Request
     public function rules()
     {
         return [
-            'pro_id'    =>      'required',
+            'product_id'    =>      'required',
             'color_id'  =>      'required',
             'size_id'   =>      'required',
-            'qty'       =>      'required|numeric'
+            'quantity'       =>      'required|numeric'
         ];
     }
 

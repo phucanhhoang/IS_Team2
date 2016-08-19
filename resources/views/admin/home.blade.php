@@ -1,5 +1,5 @@
 @extends('admin.master')
 @section('head.title', ' | Home page')
 @section('content')
-<h3>Welcome to admin page</h3>
+<h3>Welcome</h3>
 @stop

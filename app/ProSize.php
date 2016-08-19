@@ -8,6 +8,7 @@ class ProSize extends Model
 {
     protected $table = 'prosizes';
 	protected $fillable = ['id', 'pro_id', 'size_id'];
+    public $timestamps = false;
 
 	public function products(){
     	return $this->hasMany('App\Product');

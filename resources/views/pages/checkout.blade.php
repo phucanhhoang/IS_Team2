@@ -4,7 +4,7 @@ Stylitics - Product page
 @stop
 
 @section('breadcrumb')
-<nav class="container breadcrumbs">
+<nav class="breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
     Đặt hàng

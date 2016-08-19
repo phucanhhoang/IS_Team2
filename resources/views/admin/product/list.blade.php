@@ -1,6 +1,14 @@
 @extends('admin.master')
 @section('head.title', ' | Product List')
 @section('content')
+@section('style')
+<style>
+#dataTable_filter label{
+    float: right !important;
+}
+
+</style>
+@stop
 <div class="row">
     <ol class="breadcrumb">
       <li><a href="{!! url('admin/home') !!}">Admin</a></li>
@@ -8,24 +16,7 @@
       <li class="active">List</li>
     </ol>
 </div>
-<div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-        @if(Session::has('delete'))
-            <div class="alert alert-danger">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success:</strong> {!! Session::get('delete') !!}
-            </div>
-        @endif
-    </div>
-    <div class="col-sm-6 col-sm-offset-3">
-        @if(Session::has('message'))
-            <div class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success:</strong> {!! Session::get('message') !!}
-            </div>
-        @endif
-    </div>
-</div>
+@include('admin.message')
 <div class="row">
     <a href="{!! route('admin.product.create') !!}" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> Create New Product</a>
 </div>
@@ -36,14 +27,16 @@
         </h1>
     </div>
 </div>
-<div class="row col-sm-8 col-sm-offset-2">
+<div class="row col-sm-10 col-sm-offset-1">
 	<table class="table table-striped table-bordered" id="dataTable">
         <thead>
         <tr align="center">
+            <!-- <th><input type="checkbox" id="ck_all"></th> -->
             <th>STT</th>
-            <th>Product Image</th>
             <th>Product Name</th>
             <th>Product Code</th>
+            <th>Category</th>
+            <th>Product Image</th>
             <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -51,15 +44,28 @@
         </thead>
         <tbody>
         <?php $stt = 0; ?>
-         @foreach($products as $pro)
+        @foreach($products as $pro)
         <?php $stt++ ;?>
         <tr class="odd gradeX" align="center">
+            <!-- <td><input type="checkbox"></td> -->
             <td>{!! $stt !!}</td>
-            <td ><img src="{!! url('upload/images',$pro->image) !!}" alt="" width="50"; height="50"></td>
+            
             <td class="text-left">{!! $pro->pro_name !!}</td>
             <td class="text-left">{!! $pro->pro_code !!}</td>
+            <td class="text-left">
+                <?php
+                    $cat = DB::table('categories')->where('id', '=', $pro->cat_id)->first();
+                    $parent_cat = DB::table('categories')->where('id', '=', $cat->parent_id)->first();
+
+                    if($cat && $parent_cat)
+                        echo $parent_cat->cat_title;
+                    else 
+                        echo "none";
+                ?>
+            </td>
+            <td ><img class="img-thumbnail" src="{!! url('upload/images',$pro->image) !!}" alt="" width="50"; height="50"></td>
            	<td>
-           		<a href="{!! route('admin.product.show',$pro->id) !!}" class="btn btn-primary">
+           		<a href="{!! route('admin.product.show',$pro->id) !!}"  class="btn btn-primary">
                     <i class="fa fa-eye"></i> View
                 </a>
            	</td>
@@ -82,5 +88,17 @@
 </div>
 @stop
 @section('body.js')
-
+    <script type="text/javascript">
+        // $("#btn_remove").attr("disabled", "disabled");
+        // $("#ck_all").change(function () {
+        //    state = $("input:checkbox").prop('checked', $(this).prop("checked"));
+        //    if(state == true){
+        //    } else {
+        //     alert('ok');
+        //         $("#btn_remove").removeAttr("disabled", "disabled");
+        //    }
+        // });
+      
+    </script>
 @stop
+

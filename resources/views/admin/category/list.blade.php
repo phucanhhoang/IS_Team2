@@ -1,6 +1,13 @@
 @extends('admin.master')
 @section('head.title', ' | Category List')
 @section('content')
+@section('style')
+<style>
+    #dataTable_filter label {
+        float: right !important;
+    }
+</style>
+@stop
 <div class="row">
     <ol class="breadcrumb">
       <li><a href="{!! url('admin/home') !!}">Admin</a></li>
@@ -18,33 +25,8 @@
         </h1>
     </div>
 </div>
+@include('admin.message')
 <div class="row col-sm-8 col-sm-offset-2">
- 
-    @if(Session::has('msg'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success:</strong> {!! Session::get('msg') !!}
-        </div>
-    @endif
-    @if(Session::has('delete'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success:</strong> {!! Session::get('delete') !!}
-        </div>
-    @endif
-    @if(Session::has('flash_message'))
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Success:</strong> {!! Session::get('flash_message') !!}
-        </div>
-    @endif
-    @if(Session::has('fail'))
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Error:</strong> {!! Session::get('fail') !!}
-        </div>
-    @endif
-   
    <table class="table table-striped table-bordered" id="dataTable">
         <thead>
         <tr align="center">
@@ -72,7 +54,10 @@
                         @endif
                     </td>
                     <td class="text-center">
-                        @if($cat->parent_id == 0) 
+                        <?php
+                            $parent = DB::table('categories')->where('parent_id', '=', $cat->id)->get();
+                        ?>
+                        @if($cat->parent_id == 0 && $parent) 
                             {!! '<button type="submit" class="btn btn-danger" disabled="disabled"><i class="fa fa-trash-o  fa-fw"></i> Delete</button>'; !!}
                         @else 
                             {!! Form::open(['route' => ['admin.category.destroy',$cat->id], 'method' => 'DELETE']) !!}

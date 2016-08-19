@@ -50,7 +50,11 @@
 					</div>
 					<div class="form-group">
 						<label for="phone">Phone</label>
-						<input class="form-control" name="phone" placeholder="Please Enter Customer Phone" value="{!! old('txtName',isset($customer)?$customer['phone']:null) !!}" />
+						<input class="form-control" type="text" name="phone" placeholder="Please Enter Customer Phone" value="{!! old('txtName',isset($customer)?$customer['phone']:null) !!}" />
+					</div>
+					<div class="form-group">
+						<label for="email">E-mail</label>
+						<input class="form-control" type="email" name="email" placeholder="Please Enter Customer Phone" value="{!! old('txtName',isset($customer)?$customer['phone']:null) !!}" />
 					</div>
 		            <div class="text-right">
 						<input type="submit" class="btn btn-primary" value="Add" />

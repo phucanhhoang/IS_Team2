@@ -4176,7 +4176,7 @@ p.creating{
 /*-- //sign-up --*/
 /*--404-starts-here--*/
 .error {
-  padding: 9em 0px 7em 0;
+  /*padding: 9em 0px 7em 0;*/
 }
 .error-main{
 	text-align:center;

@@ -1,5 +1,5 @@
 <div class="col-sm-3">
-    <div class="col-sm-12 filter">
+    <div class="col-sm-12 filter" style="margin-bottom: 25px;">
         <p class="title">DANH MỤC SẢN PHẨM</p>
         <section class="sidebar">
         <ul class="sidebar-menu" id="category">
@@ -117,6 +117,7 @@
         $("#amount").val($("#slider-range").slider("values", 0) +
             "đ - " + $("#slider-range").slider("values", 1) + "đ");
     });
+
     $("#btnFilter").click(function(){
         var strColorId = '';
         var strSizeId = '';
@@ -148,6 +149,7 @@
                             $('#product').html(html);
                         }
                     });
+                    prods = data;
                 }
                 else{
                     $('#product').html('');

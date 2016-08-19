@@ -7,8 +7,10 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}"/>
 	<link href="{!! asset('assets-admin/css/bootstrap.min.css') !!}" rel='stylesheet' />
 	<link href="{!! asset('assets-admin/css/font-awesome.css') !!}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}"/>
 	<link href="{!! asset('assets-admin/css/icon-font.min.css') !!}"  rel="stylesheet"/>
 	<link href="{!! asset('assets-admin/css/animate.css') !!}" rel="stylesheet"  media="all">
+	<link href="{!! asset('assets-admin/css/image_uploader.css') !!}" rel="stylesheet" type="text/css">
 	<!-- MetisMenu CSS -->
 	<link href="{!! asset('assets-admin/bower_components/metisMenu/dist/metisMenu.min.css') !!}" rel="stylesheet">
 
@@ -26,6 +28,8 @@
 	<link href="{!! asset('assets-admin/css/style.css') !!}" rel='stylesheet' />
 	<link href="{!! asset('assets-admin/css/main.css') !!}" rel='stylesheet' />
 	<script src="{!! asset('assets-admin/ckeditor/ckeditor.js') !!}"></script>
+
+	@yield('style')
 
 </head> 
 <body class="sticky-header left-side-collapsed">
@@ -45,12 +49,12 @@
 				<!--sidebar nav start-->
 					<ul class="nav nav-pills nav-stacked custom-nav">
 						<li class="active"><a href="{{asset('admin')}}">
-							<i class="lnr lnr-power-switch"></i>
+							<i class="lnr lnr-layers"></i>
 							<span>Dashboard</span></a>
 						</li>
 						<li class="menu-list">
 							<a href="#">
-								<i class="lnr lnr-briefcase"></i>
+								<i class="lnr lnr-database"></i>
 								<span>Product</span>
 							</a>
 							<ul class="sub-menu-list">
@@ -72,7 +76,7 @@
 							</ul>
 						</li>
 						<li class="menu-list"><a href="#">
-							<i class="lnr lnr-envelope"></i> 
+							<i class="lnr lnr-cart"></i>
 							<span>Order</span>
 						</a>
 							<ul class="sub-menu-list">
@@ -82,7 +86,7 @@
 						</li>
 						<!-- Customer -->
 						<li class="menu-list"><a href="#">
-								<i class="lnr lnr-indent-increase"></i>
+								<i class="lnr lnr-users"></i>
 								<span>Customer</span>
 							</a>
 							<ul class="sub-menu-list">
@@ -149,6 +153,7 @@
     </section>
 	<script src="{!! asset('assets-admin/js/jquery-1.10.2.min.js') !!}"></script>
 	<script src="{!! asset('assets-admin/js/bootstrap.min.js') !!}"></script>
+	<script type="text/javascript" src="{{asset('assets/js/jquery/jquery-ui.js')}}"></script>
 	<!-- Metis Menu Plugin JavaScript -->
 	<script src="{{ url('assets-admin/bower_components/metisMenu/dist/metisMenu.min.js') }}"></script>
 
@@ -160,6 +165,7 @@
 	<script src="{{ url('assets-admin/bower_components/datatables-responsive/js/dataTables.responsive.js') }}"></script>
 	<script src="{{ url('assets-admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js') }}"></script>
 
+	<script src="{!! asset('assets-admin/js/imgupload.min.js') !!}"></script>
 	<script src="{!! asset('assets-admin/js/jquery.nicescroll.js') !!}"></script>
 	<script src="{!! asset('assets-admin/js/scripts.js') !!}"></script>
 	<script type="text/javascript" src="{!! asset('assets-admin/javascript/myscript.js') !!}"></script>

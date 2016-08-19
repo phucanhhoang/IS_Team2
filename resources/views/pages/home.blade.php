@@ -25,7 +25,7 @@ Home page
 </div>
 <div class="elements">
     <div class="col-xm-12 col-sm-4 left">
-        <a href="{{asset('category/'.$cat_parents[0]->id.'/'.$cat_parents[0]->cat_title)}}"><img src="{{asset('assets/image/shirt.jpg')}}"/><span>{{mb_strtoupper($cat_parents[0]->cat_title)}}</span></a>
+        <a href="{{asset('category/'.$cat_parents[0]->id)}}"><img src="{{asset('assets/image/shirt.jpg')}}"/><span>{{mb_strtoupper($cat_parents[0]->cat_title)}}</span></a>
         <div class="policy">
             <p>
                 <span>
@@ -36,11 +36,11 @@ Home page
     </div>
 
     <div class="col-xm-12 col-sm-4 middle">
-        <a href="{{asset('category/'.$cat_parents[1]->id.'/'.$cat_parents[1]->cat_title)}}"><img src="{{asset('assets/image/dress.jpg')}}"/><span>{{mb_strtoupper($cat_parents[1]->cat_title)}}<br/></span></a>
+        <a href="{{asset('category/'.$cat_parents[1]->id)}}"><img src="{{asset('assets/image/dress.jpg')}}"/><span>{{mb_strtoupper($cat_parents[1]->cat_title)}}<br/></span></a>
     </div>
 
     <div class="col-xm-12 col-sm-4 right">
-        <a href="{{asset('category/'.$cat_parents[2]->id.'/'.$cat_parents[2]->cat_title)}}"><img src="{{asset('assets/image/jean.jpg')}}"/><span>{{mb_strtoupper($cat_parents[2]->cat_title)}}</span></a>
+        <a href="{{asset('category/'.$cat_parents[2]->id)}}"><img src="{{asset('assets/image/jean.jpg')}}"/><span>{{mb_strtoupper($cat_parents[2]->cat_title)}}</span></a>
         <div class="policy"><p><span><i class="fa fa-refresh"></i> ĐỔI TRẢ<br/><span>trong vòng 3 ngày</span></span></p>
         </div>
     </div>
@@ -52,7 +52,7 @@ Home page
     <div class="col-md-3 col-xs-12 product">
         <div class="p-img">
             <a href="{{asset('product/'.$pro->id)}}"><img src="{{asset('upload/images/'.$pro->image)}}"/></a>
-            <a href="#" class="icon-cart"><i class="fa fa-shopping-bag fa-1-2"></i></a>
+            <a href='#' id="{{$pro->id}}" data-toggle='modal' data-target='#product_modal' onclick='quickViewClick(this);' class='icon-cart'><i class="fa fa-shopping-bag fa-1-2"></i></a>
         </div>
         <div class="p-title">
             @if($pro->discount > 0)
@@ -76,6 +76,7 @@ Home page
 </div>
 
 <div id="loading" style='text-align:center;display:none'><img src="{{asset('assets/image/loading.gif')}}" /></div>
+
 
 @stop
 

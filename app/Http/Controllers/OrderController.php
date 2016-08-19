@@ -17,16 +17,13 @@ use App\Customer;
 use App\Image;
 use App\Color;
 use App\ProColor;
-
 use DB;
 
 class OrderController extends Controller
 {
     public function getList()
     {
-    	$orders = Order::join('customers','orders.customer_id','=','customers.id')
-                ->select('orders.id','orders.customer_id',DB::raw('SUM(orders.total_money) as total'),'orders.status',DB::raw('max(orders.created_at) as time'),'customers.name','customers.phone')
-                ->groupBy('orders.id')
+    	$orders = Order::select('id','customer_id','total_money as total','status','created_at as time','customer_name','phone')
                 ->orderBy('time','desc')
                 ->get();
 
@@ -35,10 +32,8 @@ class OrderController extends Controller
 
     public function getDetail($id)
     {
-        $detail = OrderDetail::join('products', 'orderdetails.pro_id','=','products.id')
-                ->join('orders','orderdetails.order_id','=','orders.id')
-                ->select('orderdetails.id','orderdetails.pro_id','orderdetails.pro_name','orderdetails.color_id','orderdetails.size_id','products.price','products.discount','products.image','orderdetails.qty','orderdetails.updated_at as time')
-                ->where('orders.id','=',$id)
+        $detail = OrderDetail::select('id','pro_id','pro_name','color_id','size_id','price','pro_image','qty','created_at as time','order_id')
+                ->where('order_id','=',$id)
                 ->orderBy('time','desc')
                 ->get();
 
@@ -51,11 +46,7 @@ class OrderController extends Controller
                 ->select('colors.id','colors.color','procolors.pro_id as product_id','procolors.color_id')
                 ->get();
 
-        $customers = Customer::join('orders','customers.id','=','orders.customer_id')
-                ->join('districts','customers.district_id','=','districts.id')
-                ->join('provinces','customers.province_id','=','provinces.id')
-                ->select('orders.id','customers.id','customers.name','customers.address','districts.name as district','provinces.name as city','customers.phone')
-                ->where('orders.id','=',$id)
+        $customers = Order::where('id','=',$id)
                 ->get();
     	$data = Order::find($id);
     	return view('admin.order.detail',compact('detail','data','customers','sizes','img_colors','state'));
@@ -71,24 +62,17 @@ class OrderController extends Controller
 
     public function getEdit($id)
     {
-        $details = OrderDetail::join('products', 'orderdetails.pro_id','=','products.id')
-                ->join('orders','orderdetails.order_id','=','orders.id')
-                ->select('orderdetails.pro_id','orderdetails.pro_name','products.id','products.price','products.discount','products.image','orderdetails.qty','orderdetails.size_id','orderdetails.color_id')
+        $details = OrderDetail::find($id);
+
+        $customer = Order::where('id','=',$details->order_id)->get()->first();
+
+        $state = Order::select('status')->where('id','=',$details->order_id)->get()->first();
+
+        $product = Product::join('orderdetails','products.id','=','orderdetails.pro_id')
+                ->select('products.discount','orderdetails.id')
                 ->where('orderdetails.id','=',$id)
                 ->get()
                 ->first();
-
-        $detail_id = OrderDetail::select('order_id')->where('id','=',$id)->get()->first();
-
-        $customer = Customer::join('orders','customers.id','=','orders.customer_id')
-                ->join('districts','customers.district_id','=','districts.id')
-                ->join('provinces','customers.province_id','=','provinces.id')
-                ->select('orders.id','customers.id','customers.name','customers.address','districts.name as district','provinces.name as city','customers.phone')
-                ->where('orders.id','=',$detail_id->order_id)
-                ->get()
-                ->first();
-
-        $state = Order::select('customer_id','status')->where('id','=',$detail_id->order_id)->get()->first();
 
         $sizes = Prosize::join('sizes', 'prosizes.size_id','=','sizes.id')
                 ->join('orderdetails','prosizes.pro_id','=','orderdetails.pro_id')
@@ -102,13 +86,11 @@ class OrderController extends Controller
                 ->where('orderdetails.id','=',$id)
                 ->get();
     	
-    	return view('admin.order.edit',compact('details','customer','sizes','img_colors','state'));
+    	return view('admin.order.edit',compact('details','customer','sizes','img_colors','state','id','product'));
     }
 
     public function postEdit($id, Request $request)
     {
-        $detail_id = OrderDetail::select('order_id')->where('id','=',$id)->get()->first();
-
         $detail = OrderDetail::find($id);
         $detail->size_id = $request->size_id;
         $detail->color_id = $request->color_id;
@@ -117,20 +99,20 @@ class OrderController extends Controller
         } else{
             return redirect()->back()->with(['level' => 'danger', 'message' => 'Sorry!! Cannot edit this order! Please check the quantity field.']);
         }
+        $detail->save();
 
         $product = Product::where('id','=',$detail->pro_id)->get()->first();
 
-    	$data = Order::where('id','=',$detail_id->order_id)
-                ->get()
-                ->first();
-        $data->total_money = $product->price*$detail->qty*(1-$product->discount/100);
-        $data->status = $request->status;
-
-        // $customers = Customer::where('id','=',$data->customer_id)
-        //         ->get();
-    	$data->save();
-
-    	$detail->save();
+    	$data = Order::where('id','=',$detail->order_id)
+                ->get()->first();
+        $orders = OrderDetail::where('order_id','=',$detail->order_id)->get();
+        $val = 0;
+        foreach ($orders as $order) {
+            $val += $product->price*$order->qty*(1-$product->discount/100);
+        }
+        $data->total_money = $val;
+    	
+        $data->save();
     	return redirect()->route('admin.order.list')->with(['level' => 'success', 'message' => 'Success!!! Complete edit order!!']);
     }
 
@@ -146,33 +128,60 @@ class OrderController extends Controller
     	return view('admin.order.add',compact('customers','products','sizes','img_colors'));
     }
 
-    public function postAdd(Request $request,OrderDetailRequest $detailrequest)
+    public function postAdd(Request $request)
     {
         $order = new Order();
-        $orderdetails = new OrderDetail();
 
-        $product = Product::where('id','=',$detailrequest->pro_id)->get()->first();
-
-        $custom = explode(" - ", $request->information);
-        $customers = Customer::where('phone','=',$custom[1])->get()->first();
+        $customers = Customer::where('phone','=',$request->custom_phone)->get()->first();
+        $district = DB::table('districts')->where('id','=',$customers->district_id)->first();
+        $province = DB::table('provinces')->where('id','=',$customers->province_id)->first();
         
         $order->customer_id = $customers->id;
-        $order->total_money = $product->price*$detailrequest->qty*(1-$product->discount/100);
         $order->status = 0;
+        $order->customer_name = $customers->name;
+        $order->phone = $customers->phone;
+        $order->email = $customers->email;
+        $order->address = $customers->address.' - '.$district->name.' - '.$province->name;
         $order->save();
 
-        $order_id = Order::select('id')->orderBy('id','desc')->get();
+        $val = 0;
+        $carts = \Cart::content();
+        if (count($carts)>0) {
+            foreach($carts as $cart){
+                $orderdetail = new OrderDetail();
+                $orderdetail->order_id = $order->id;
+                $orderdetail->pro_id = $cart->options->product_id;
+                $orderdetail->color_id = $cart->options->color_id;
+                $orderdetail->size_id = $cart->options->size_id;
+                $orderdetail->pro_name = $cart->name;
 
-        foreach ($orderdetails as $orderdetail) {
-            $orderdetail->order_id = $order_id->id;
-            $orderdetail->pro_id = $detailrequest->pro_id;
-            $orderdetail->color_id = $detailrequest->color_id;
-            $orderdetail->size_id = $detailrequest->size_id;
+                $product = Product::where('id','=',$orderdetail->pro_id)->get()->first();
+                $orderdetail->pro_image = $product->image;
+                
+                $orderdetail->price = $product->price*(1-$product->discount/100);
+                $orderdetail->qty = $cart->qty;
+                $orderdetail->save();
+                $val += $orderdetail->price*$orderdetail->qty;
+            }
+            \Cart::destroy();
+        } else{
+            $orderdetail = new OrderDetail();
+            $orderdetail->order_id = $order->id;
+            $orderdetail->pro_id = $request->product_id;
+            $orderdetail->color_id = $request->color_id;
+            $orderdetail->size_id = $request->size_id;
+            $product = Product::where('id','=',$orderdetail->pro_id)->get()->first();
             $orderdetail->pro_name = $product->pro_name;
-            $orderdetail->price = $product->price;
-            $orderdetail->qty = $detailrequest->qty;
+            $orderdetail->pro_image = $product->image;
+            
+            $orderdetail->price = $product->price*(1-$product->discount/100);
+            $orderdetail->qty = $request->qty;
             $orderdetail->save();
+            $val += $orderdetail->price*$orderdetail->qty;
         }
+
+        $order->total_money = $val;
+        $order->save();
 
         return redirect()->route('admin.order.list')->with(['level' => 'success', 'message' => 'Success!!! Complete add order!!']);
     }
@@ -191,13 +200,30 @@ class OrderController extends Controller
 
     public function searchItem()
     {
-        $customers = Customer::select('name','phone')->get();
+        $customers = Customer::join('districts','customers.district_id','=','districts.id')
+                ->join('provinces','customers.province_id','=','provinces.id')
+                ->select('customers.name','customers.phone','customers.email','customers.address','districts.name as district','provinces.name as province')
+                ->get();
         $data = array();
         foreach ($customers as $customer) {
-            array_push($data, $customer->name.' - '.$customer->phone);
+            array_push($data, $customer->name.' - '.$customer->phone.' - '.$customer->email.' - '.$customer->address.' - '.$customer->district.' - '.$customer->province);
         }
         return $data;
     }
 
-    
+    public function orderShow(Request $request)
+    {
+
+
+        $order = DB::table('orderdetails')
+                ->join('products','orderdetails.pro_id','=','products.id')
+                ->join('colors','orderdetails.color_id','=','colors.id')
+                ->join('sizes','orderdetails.size_id','=','sizes.id')
+                ->select('products.pro_name as name', 'colors.color as color','sizes.size as size','orderdetails.qty as quantity')
+               
+                ->where('sizes.id','=',$request->size_id)
+                ->get();
+        $data = array('order' => $order);
+        return $data;
+    }
 }

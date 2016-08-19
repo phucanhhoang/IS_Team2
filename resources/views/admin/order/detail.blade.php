@@ -18,15 +18,17 @@
                 <th class="text-center">Customer Name</th>
                 <th class="text-center">Address</th>
                 <th class="text-center">Phone</th>
+                <th class="text-center">Email</th>
             </tr>
         </thead>
         <tbody>
             @foreach($customers as $customer)
             <tr align="center">
-                <td>{!! $customer['id'] !!}</td>
-                <td>{!! $customer['name'] !!}</td>
-                <td>{!! $customer['address'].' - '.$customer['district'].' - '.$customer['city'] !!}</td>
-                <td>{!! $customer['phone'] !!}</td>
+                <td>{!! $customer->customer_id !!}</td>
+                <td>{!! $customer->customer_name !!}</td>
+                <td>{!! $customer->address !!}</td>
+                <td>{!! $customer->phone !!}</td>
+                <td>{!! $customer->email !!}</td>
             </tr>
             @endforeach
         </tbody>
@@ -50,14 +52,14 @@
                 '1' => 'Proccessing',
                 '2' => 'Complete',
                 '3' => 'Canceled' 
-                ), $state['status'], ['class' => 'form-control']) 
-        !!}
+                ), $state->status, ['class' => 'form-control']) 
+            !!}
             <input type="submit" class="btn btn-primary" value="Change">
       </form>
     </div>
 </div>
 <div class="row">
-    <table class="table table-striped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover" id="dataTable">
         <thead>
             <tr>
                 <th class="text-center">Order ID</th>
@@ -68,33 +70,34 @@
                 <th class="text-center">Price Each</th>
                 <th class="text-center">Quantity Order</th>
                 <th class="text-center">Time</th>
+                <th class="text-center">Edit</th>
             </tr>
         </thead>
         <tbody>
             @foreach($detail as $item)
             <?php 
-                $item['price'] = $item['price']*(1 - $item['discount']/100);
+                $item->price = $item->price*(1 - $item->discount/100);
             ?>
             <tr align="center">
-                <td>{!! $item['id'] !!}</td>
+                <td>{!! $item->order_id !!}</td>
                 <td>{!! $item->pro_name !!}</td>
-                <td><img src="{!! asset('upload/images/'.$item['image']) !!}" width="75"; height="75"></td>
+                <td><img src="{!! asset('upload/images/'.$item->pro_image) !!}" width="75"; height="75"></td>
                 <td>
                 @foreach($sizes as $size)
-                    {!! ($item['pro_id']==$size['product_id'] && $item['size_id']==$size['id']) ? $size['size']:'' !!}
+                    {!! ($item->pro_id==$size->product_id && $item->size_id==$size->id) ? $size->size:'' !!}
                 @endforeach
                 </td>
                 <td>
-                    <?php //dd($img_colors) ?>
                 @foreach($img_colors as $color)
-                    @if($item['pro_id']==$color['product_id'] && $item['color_id']==$color['id'])
-                        <img src="{!! asset('upload/images/colors/'.$color['color']) !!}">
+                    @if($item->pro_id==$color->product_id && $item->color_id==$color->id)
+                        <div style="<?php echo 'background-color: '.$color->color; ?>;<?php echo 'color: '.$color->color; ?>; width: 20px">a</div>
                     @endif
                 @endforeach
                 </td>
-                <td>{!! number_format($item['price'],'0',',','.') !!}</td>
-                <td>{!! $item['qty'] !!}</td>
-                <td>{!! $item['time'] !!}</td>
+                <td>{!! number_format($item->price,'0',',','.') !!}</td>
+                <td>{!! $item->qty !!}</td>
+                <td>{!! $item->time !!}</td>
+                <td><i class="fa fa-pencil fa-fw"></i><a href="{!! url('admin/order/edit') !!}/{!! $item->id !!}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>

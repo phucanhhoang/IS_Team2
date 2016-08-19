@@ -4,7 +4,7 @@ Stylitics - Product page
 @stop
 
 @section('content')
-<nav class="container breadcrumbs">
+<nav class="breadcrumbs">
     <a href="{{asset('/')}}">Trang chủ</a>
     <span class="divider">›</span>
     {{$product->pro_name}}
@@ -12,7 +12,7 @@ Stylitics - Product page
 <div class="container detail-p">
     <div class="col-xs-12 col-sm-2 col-md-1 list">
         @foreach($img_prods as $img)
-        <img src="{{asset('upload/images/'.$img->images)}}"/>
+        <img src="{{asset('upload/images/details/'.$img->images)}}"/>
         @endforeach
     </div>
 
@@ -66,7 +66,7 @@ Stylitics - Product page
 
                     <div>
                         <p class="title">Số lượng: <input type="number" name="quantity" onkeyup="num_cart_validate(this);" min='1' max='20' value="1"/></p>
-                        <input id="btn_add" type="button" name="btnSubmit" value="THÊM VÀO GIỎ"/>
+                        <input id="btn_add" onclick="normalAddCart();" type="button" name="btnSubmit" value="THÊM VÀO GIỎ"/>
                     </div>
                 </div>
             </form>
@@ -260,65 +260,6 @@ Stylitics - Product page
         })
     });
 
-    $('#btn_add').click(function(){
-        if(!$('.chk_color').is(':checked') && $('#size_id').val() == ''){
-            alert('Vui lòng chọn màu sắc và kích cỡ!');
-            return true;
-        }
-        else if(!$('.chk_color').is(':checked')){
-            alert('Vui lòng chọn màu sắc!');
-            return true;
-        }
-        else if($('#size_id').val() == ''){
-            alert('Vui lòng chọn kích cỡ!');
-            return true;
-        }
 
-        var data = $('#cart_form').serialize();
-        $.ajax({
-            type: 'POST',
-            url: "{{asset('cart/add')}}",
-            data: data,
-            cache: false,
-            success: function (data) {
-                if(data == 'false'){
-                    alert('Có lỗi xảy ra. Vui lòng thử lại sau!');
-                }
-                else{
-                    $('#shopping_cart').html('');
-                    var price;
-                    var price_int;
-                    var total_money = 0;
-                    var count_item = 0;
-                    $.each(data, function( rowid, cart ) {
-                        var url = "{{asset('upload/images')}}" + "/" + cart.options.image;
-                        var quantity = cart.qty;
-                        price_int = cart.price - cart.discount;
-                        total_money += cart.subtotal;
-                        price = accounting.formatNumber(price_int, 0, ".", ",");
-                        count_item += parseInt(cart.qty);
-                        $('#shopping_cart').append("<tr class='cart_id"+ cart.rowid +"'>" +
-                            "<td><a class='btn_del' onclick='cart_del(this);' id='"+ cart.rowid +"'" +
-                            "p-name='"+ cart.name +"' money='"+ cart.subtotal +"'>" +
-                            "<i class='fa fa-times-circle'></i></a></td>" +
-                            "<td width='20%'><img src='"+ url +"' style='width: 100%;height: auto'/></td>" +
-                            "<td>"+ cart.name +"<br>" +
-                            "<input type='number' class='qty_num qty_num"+cart.rowid+"' id='"+cart.rowid+"' " +
-                            "price='"+price_int+"' onkeyup='num_cart_validate(this);' " +
-                            "onchange='qty_onchange(this);' min='1' max='20' value='"+cart.qty+"' />" +
-                            " x "+ price +"đ</td>" +
-                            "<td>Size <label class='box-size'>"+ cart.options.size +"</label></td>" +
-                            "</tr>");
-                    });
-                    $('#cart_num').html(count_item);
-                    $('#cart_num').show();
-                    $('#total_money').val(total_money);
-                    total_money = accounting.formatNumber(total_money, 0, ".", ",");
-                    $('.cart_total').html(total_money);
-                    $('#cart').addClass('open');
-                }
-            }
-        });
-    });
 </script>
 @stop

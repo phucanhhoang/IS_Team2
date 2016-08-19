@@ -12,30 +12,22 @@
     <h1 class="lead" style="font-size: 2em; color:rgb(255,0,0)">Product
         <small>Details</small>
     </h1>
-    <a href="{!! route('admin.product.edit',$product->id) !!}" class="btn btn-primary" style="float:left"><i class="fa fa-eye"></i> Edit </a>
+    <a href="{!! route('admin.product.edit',$product->id) !!}" class="btn btn-warning" style="float:left; margin-right: 10px;"><i class="fa fa-pencil"></i> Edit </a>
     {!! Form::open(['route' => ['admin.product.destroy', $product->id], 'method' => 'DELETE' ]) !!}
         <button type="submit" class="btn btn-danger" onclick="return deletePro()">
             <i class="fa fa-trash-o"></i> Delete
         </button>
     {!! Form::open() !!}
 </div>
-<div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-        @if(Session::has('message'))
-            <div class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Success:</strong> {!! Session::get('message') !!}
-            </div>
-        @endif
-    </div>
-</div>
-
+@include('admin.message')
 <br>
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-        <table class="table table-hover">
+        <table class="table" style="border: 1px solid #d1d1e0;">
             <tr>
-                <td style="min-width: 200px"><label for="pro_name">Product Name</label></td>
+                <td style="min-width: 200px">
+                    <label for="pro_name">Product Name</label>
+                </td>
                 <td>{!! $product->pro_name !!}</td>
             </tr>
             <tr>
@@ -43,32 +35,67 @@
                 <td>{!! $product->pro_code !!}</td>
             </tr>
             <tr>
+                <td><label for="pro_code">Category</label></td>
+                <td>
+                    <?php
+                        $cat = DB::table('categories')->where('id', '=', $product->cat_id)->first();
+                        if($cat)
+                            echo $cat->cat_title;
+                        else 
+                            echo "none";
+
+                    ?>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="price">Price</label></td>
                 <td>{!! number_format($product->price, 0, ',', '.') !!} VNĐ</td>
             </tr>
             <tr>
                 <td><label for="discount">Discount</label></td>
-                <td>{!! $product->discount !!}%</td>
+                <td>
+                    {!! $product->discount !!} %
+                </td>
+            </tr>
+            
+            <tr>
+                <td><label for="image">Image</label></td>
+                <td><img src="{!! url('upload/images',$product->image) !!}" alt="" width="250"; height="250"></td>
+            </tr>
+            <tr>
+                <td><label for="image">Detail Images</label></td>
+                <td>
+                    @foreach($images as $image)
+                        <img src="{!! asset('upload/images/details/'.$image->images) !!}" style="width: 80px; height: 80px" class="img-thumbnail">  
+                    @endforeach
+                </td>
+            </tr>
+
+             <tr>
+                <td><label for="color">Color</label></td>
+                <td>
+                    <div class="form-group">
+                        <div class="form-group mausac">
+                              <?php
+                                $stt = 0;
+                                foreach($colors as $color){
+                                    $stt++;
+                                ?>
+                              <input type="checkbox" class='chk_color' value="{{$color->id}}" id="{{'ms-check'.$stt}}" name="colors[]" disabled="disabled" />
+                                <label for="{{'ms-check'.$stt}}" style="<?php echo 'background-color:'.$color->color ?>"></label>
+                                <?php } ?>
+                              </div>
+                        </div>
+                    </div>
+                </td>
             </tr>
             <tr>
                 <td><label for="size">Size</label></td>
                 <td>
                     @foreach($sizes as $size)
-                        {!! $size->size !!}   
+                        {!! $size->size !!},   
                     @endforeach
                 </td>
-            </tr>
-             <tr>
-                <td><label for="color">Color</label></td>
-                <td>
-                    @foreach($colors as $color)
-                        <img src="{!! asset('upload/images/colors/'.$color->color) !!}" style="width: 25px; height: 25px">   
-                    @endforeach
-                </td>
-            </tr>
-            <tr>
-                <td><label for="image">Image</label></td>
-                <td><img src="{!! url('upload/images',$product->image) !!}" alt="" width="50"; height="50"></td>
             </tr>
             <tr>
                 <td><label for="description">Description</label></td>
@@ -76,18 +103,14 @@
             </tr>
             <tr>
                 <td><label for="created">Created at</label></td>
-                <td>{!! date('M j, Y', strtotime($product->created_at)) !!}</td>
+                <td>{!! date('Y-m-d', strtotime($product->created_at)) !!}</td>
             </tr>
             <tr>
                 <td><label for="updated">Last updated</label></td>
-                <td>{!! date('M j, Y', strtotime($product->updated_at)) !!}</td>
+                <td>{!! date('Y-m-d', strtotime($product->updated_at)) !!}</td>
             </tr>
         </table>
     </div>
 </div>
 <!-- /.row -->
-
-@stop
-@section('body.js')
-    <script type="text/javascript" src="{!! asset('admin/javascript/myscript.js') !!}"></script>
 @stop
