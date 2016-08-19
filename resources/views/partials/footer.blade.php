@@ -8,21 +8,4 @@
         </ul>
     </div>
 
-    <ul class="col-sm-2">
-        <li><a href="#">TRANG CHỦ</a></li>
-    </ul>
-
-    <ul class="col-sm-2">
-        <li>ÁO</li>
-        <li><a href="#">Áo sơmi</a></li>
-        <li><a href="#">Áo phông</a></li>
-    </ul>
-
-    <ul class="col-sm-2">
-        <li>QUẦN</li>
-    </ul>
-
-    <ul class="col-sm-2">
-        <li>VÁY</li>
-    </ul>
 </footer>
